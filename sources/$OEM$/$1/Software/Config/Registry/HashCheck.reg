@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\HashCheck]
+"Checksums"=dword:0000000e
+

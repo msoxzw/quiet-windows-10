@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <Triggers>
+    <EventTrigger>
+      <Subscription>&lt;QueryList&gt;&lt;Query Id="0" Path="Microsoft-Windows-NetworkProfile/Operational"&gt;&lt;Select Path="Microsoft-Windows-NetworkProfile/Operational"&gt;*[System[Provider[@Name='Microsoft-Windows-NetworkProfile'] and EventID=10000]]&lt;/Select&gt;&lt;/Query&gt;&lt;/QueryList&gt;</Subscription>
+    </EventTrigger>
+    <RegistrationTrigger />
+  </Triggers>
+  <Principals>
+    <Principal id="Author">
+      <LogonType>S4U</LogonType>
+    </Principal>
+  </Principals>
+  <Settings>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <ExecutionTimeLimit>PT0S</ExecutionTimeLimit>
+  </Settings>
+  <Actions Context="Author">
+    <Exec>
+      <Command>PowerShell</Command>
+      <Arguments>"Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses ('127.0.0.1','::1')"</Arguments>
+    </Exec>
+    <Exec>
+      <Command>%ProgramFiles%\Stubby\stubby.exe</Command>
+    </Exec>
+    <Exec>
+      <Command>PowerShell</Command>
+      <Arguments>"Get-NetAdapter -Physical | Set-DnsClientServerAddress -ResetServerAddresses"</Arguments>
+    </Exec>
+  </Actions>
+</Task>

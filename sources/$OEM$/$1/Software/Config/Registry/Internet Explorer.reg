@@ -1,0 +1,57 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\BrowserEmulation]
+"IntranetCompatibilityMode"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\DomainSuggestion]
+"Enabled"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\FlipAhead]
+"FPEnabled"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Geolocation]
+"BlockAllWebsites"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+"DisableFirstRunCustomize"=dword:00000001
+"Isolation"="PMEM"
+"Isolation64Bit"=dword:00000001
+"OperationalData"=hex(b):0d,00,00,00,00,00,00,00
+"Start Page"="https://www.wikipedia.org/"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\PrefetchPrerender]
+"Enabled"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Privacy]
+"CleanDownloadHistory"=dword:00000001
+"CleanForms"=dword:00000001
+"ClearBrowsingHistoryOnExit"=dword:00000001
+"UseAllowList"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Recovery]
+"AutoRecover"=dword:00000002
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Safety\ActiveXFiltering]
+"IsEnabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\SearchScopes]
+"ShowSearchSuggestionsInAddressGlobal"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\TabbedBrowsing]
+"NewTabPageShow"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\VersionManager]
+"DownloadVersionList"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Cache]
+"Persistent"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3]
+"{A8A88C49-5EB2-4990-A1A2-0876022C854F}"=hex:1a,37,61,59,23,52,35,0c,7a,5f,20,\
+  17,2f,1e,1a,19,0e,2b,01,73,13,37,13,12,14,1a,15,39,4e,2c,08,0d,20,1b,28,18,\
+  36,32
+"{AEBA21FA-782A-4A90-978D-B72164C80120}"=hex:1a,37,61,59,23,52,35,0c,7a,5f,20,\
+  17,2f,1e,1a,19,0e,2b,01,73,13,37,13,12,14,1a,15,39,4e,2c,08,0d,20,1b,28,18,\
+  36,32
+  
+  

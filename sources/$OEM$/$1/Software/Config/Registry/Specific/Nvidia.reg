@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[-HKEY_CLASSES_ROOT\Directory\background\shellex\ContextMenuHandlers\NvCplDesktopContext]
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\NVDisplay.ContainerLocalSystem]
+"Start"=dword:00000003
+

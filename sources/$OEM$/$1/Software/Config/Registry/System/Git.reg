@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\Git_is1]
+"Inno Setup CodeFile: CRLF Option"="LFOnly"
+"Inno Setup CodeFile: Editor Option"="Nano"
+"Inno Setup CodeFile: Enable Symlinks"="Enabled"
+"Inno Setup CodeFile: Path Option"="BashOnly"
+

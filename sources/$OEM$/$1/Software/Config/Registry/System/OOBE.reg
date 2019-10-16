@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\OOBE]
+"HideOEMRegistrationScreen"=dword:00000001
+"HideOnlineAccountScreens"=dword:00000001
+"HideWirelessSetupInOOBE"=dword:00000001
+"ProtectYourPC"=dword:00000001
+

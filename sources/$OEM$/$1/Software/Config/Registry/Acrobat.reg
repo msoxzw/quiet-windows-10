@@ -1,0 +1,24 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\AVAlert\cCheckbox]
+"iAppDoNotTakePDFOwnershipAtLaunchWin10"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\AutoSaveDocs]
+"bAutoSaveDocsEnabled"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\AVGeneral]
+"aDefaultRHPViewModeL"="Collapsed"
+"bPromptBeforeClosingMultipleTabs"=dword:00000000
+"bRHPSticky"=dword:00000001
+"bToggleCustomSaveExperience"=dword:00000001
+"iMaxMRUCntToBeStored"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\FTEDialog]
+"iFTEVersion"=dword:0000000a
+
+[HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\IPM]
+"bShowMsgAtLaunch"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\RememberedViews]
+"iRememberView"=dword:00000002
+
