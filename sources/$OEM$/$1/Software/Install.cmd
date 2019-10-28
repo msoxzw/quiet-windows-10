@@ -40,7 +40,6 @@ control intl.cpl,,/f:"Language.xml"
 reg delete "HKLM\Software\Microsoft\Windows NT\CurrentVersion\GRE_Initialize" /va /f
 
 REM Download and install the latest Source Han Super OTC
-REM Substitute Source Han for the Mac fonts for Chinese, Japanese, and Korean (CJK) languages
 REM Change the default fonts for Chinese, Japanese, and Korean (CJK) languages to Source Han
 call Fonts\setup.cmd
 
