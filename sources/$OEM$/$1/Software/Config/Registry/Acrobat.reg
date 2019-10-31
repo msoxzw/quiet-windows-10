@@ -8,7 +8,6 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\AVGeneral]
 "aDefaultRHPViewModeL"="Collapsed"
-"bPromptBeforeClosingMultipleTabs"=dword:00000000
 "bRHPSticky"=dword:00000001
 "bToggleCustomSaveExperience"=dword:00000001
 "iMaxMRUCntToBeStored"=dword:00000000
@@ -17,6 +16,7 @@ Windows Registry Editor Version 5.00
 "iFTEVersion"=dword:0000000a
 
 [HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\IPM]
+"bDontShowMsgWhenViewingDoc"=dword:00000001
 "bShowMsgAtLaunch"=dword:00000000
 
 [HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\RememberedViews]
