@@ -1,0 +1,1 @@
+{"alternate_error_pages":{"enabled":false},"net":{"network_prediction_options":2},"payments":{"can_make_payment_enabled":false},"profile":{"block_third_party_cookies":true,"default_content_setting_values":{"cookies":4}},"safebrowsing":{"enabled":false},"search":{"suggest_enabled":false},"settings":{"privacy":{"drm_enabled":false}},"signin":{"allowed_on_next_startup":false}}
