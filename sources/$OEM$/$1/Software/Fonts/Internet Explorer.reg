@@ -1,0 +1,30 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\International\Scripts\23]
+"IEPropFontName"="Source Han Sans K"
+"IEFixedFontName"="Source Han Mono K"
+"IESerifFontName"="Source Han Serif K"
+"IESansSerifFontName"="Source Han Sans K"
+"IEUIFontName"="Source Han Sans K"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\International\Scripts\24]
+"IEUIFontName"="Source Han Sans"
+"IESansSerifFontName"="Source Han Sans"
+"IEFixedFontName"="Source Han Mono"
+"IEPropFontName"="Source Han Sans"
+"IESerifFontName"="Source Han Serif"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\International\Scripts\25]
+"IEPropFontName"="Source Han Sans TC"
+"IEFixedFontName"="Source Han Mono TC"
+"IESerifFontName"="Source Han Serif TC"
+"IESansSerifFontName"="Source Han Sans TC"
+"IEUIFontName"="Source Han Sans TC"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\International\Scripts\26]
+"IEPropFontName"="Source Han Sans SC"
+"IEFixedFontName"="Source Han Mono SC"
+"IESerifFontName"="Source Han Serif SC"
+"IESansSerifFontName"="Source Han Sans SC"
+"IEUIFontName"="Source Han Sans SC"
+
