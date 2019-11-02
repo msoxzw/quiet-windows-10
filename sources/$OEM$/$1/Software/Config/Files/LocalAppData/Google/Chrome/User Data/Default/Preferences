@@ -1,6 +1,11 @@
 {
   "browser": {
+    "clear_data": {
+      "form_data": true,
+      "time_period": 4
+    },
     "default_browser_infobar_last_declined": "1",
+    "last_clear_browsing_data_tab": 1,
     "should_reset_check_default_browser": false
   },
   "alternate_error_pages": {
