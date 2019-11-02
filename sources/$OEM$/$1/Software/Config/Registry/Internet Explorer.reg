@@ -1,5 +1,8 @@
 Windows Registry Editor Version 5.00
 
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Activities]
+"NoOOBActivities"=dword:00000001
+
 [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\BrowserEmulation]
 "IntranetCompatibilityMode"=dword:00000000
 
