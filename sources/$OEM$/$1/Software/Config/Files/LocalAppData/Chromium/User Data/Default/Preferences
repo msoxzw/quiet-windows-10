@@ -2,6 +2,7 @@
   "browser": {
     "clear_data": {
       "form_data": true,
+      "hosted_apps_data": true,
       "time_period": 4
     },
     "default_browser_infobar_last_declined": "1",
