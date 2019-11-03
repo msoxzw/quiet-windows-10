@@ -12,8 +12,7 @@ mklink "..\Config\Registry\Internet Explorer Fonts.reg" "Internet Explorer.reg"
 
 for /f "tokens=3*" %%i in ('reg query "HKLM\Software\Mozilla" /v "Install Directory" /s ^| find "REG_SZ"') do mklink "%%j\defaults\pref\fonts.js" Mozilla.js
 
-set chromium=..\Config\Files\LocalAppData\Chromium\User Data\Default\Preferences
-PowerShell "-join (Get-Content $env:chromium, 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content $env:chromium -NoNewline"
+PowerShell "'%LocalAppData%', '..\Config\Files\LocalAppData' | Join-Path -ChildPath 'Chromium\User Data\Default\Preferences' | ForEach-Object {-join (Get-Content $_, 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
 PowerShell "Get-Item '%LocalAppData%\*\*\User Data\Default\Preferences' | ForEach-Object {-join (Get-Content $_, 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
 
 popd
