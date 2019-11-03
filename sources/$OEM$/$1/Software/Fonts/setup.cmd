@@ -8,6 +8,7 @@ set fonts=https://github.com/adobe-fonts/source-han-super-otc/releases/latest/do
 aria2c --dir="%SystemRoot%\Fonts" %fonts% || goto download
 
 for %%i in (*.reg) do reg import "%%i"
+mklink "..\Config\Registry\Internet Explorer Fonts.reg" "Internet Explorer.reg"
 
 for /f "tokens=3*" %%i in ('reg query "HKLM\Software\Mozilla" /v "Install Directory" /s ^| find "REG_SZ"') do mklink "%%j\defaults\pref\fonts.js" Mozilla.js
 
