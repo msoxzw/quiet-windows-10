@@ -9,6 +9,6 @@ aria2c --dir="%SystemRoot%\Fonts" %fonts% || goto download
 
 for %%i in (*.reg) do reg import "%%i"
 
-for /f "tokens=3*" %%i in ('reg query "HKLM\Software\Mozilla" /v "Install Directory" /s ^| find "REG_SZ"') do robocopy . "%%k\defaults\pref" fonts.js
+for /f "tokens=3*" %%i in ('reg query "HKLM\Software\Mozilla" /v "Install Directory" /s ^| find "REG_SZ"') do mklink "%%j\defaults\pref\fonts.js" Mozilla.js
 
 popd

@@ -27,10 +27,10 @@ REM Configure CCleaner Portable
 robocopy . "%ChocolateyInstall%\lib\ccleaner.portable\tools" ccleaner.ini
 
 REM Configure Firefox and Thunderbird with the custom install directory
-for %%i in (Firefox Thunderbird) do (
-	for /f "tokens=3*" %%j in ('reg query "HKLM\Software\Mozilla\Mozilla %%i" /v "Install Directory" /s ^| find "REG_SZ"') do (
-		robocopy "%ProgramFiles%\Mozilla %%i" "%%k" *.cfg
-		robocopy "%ProgramFiles%\Mozilla %%i\defaults\pref" "%%k\defaults\pref" autoconfig.js
+for /d %%i in ("%ProgramFiles%\Mozilla *") do (
+	for /f "tokens=3*" %%j in ('reg query "HKLM\Software\Mozilla\%%~ni" /v "Install Directory" /s ^| find "REG_SZ"') do (
+		robocopy "%%i" "%%k" *.cfg
+		robocopy "%%i\defaults\pref" "%%k\defaults\pref" autoconfig.js
 	)
 )
 
