@@ -41,6 +41,12 @@ for /d %%i in (Files\*) do robocopy "%%i" "!%%~ni!" /s
 endlocal
 for %%i in (Registry\*.reg) do reg import "%%i"
 
+
+Rem Configure Chromium based Browser
+set chromium=%LocalAppData%\Chromium\User Data\Default\Preferences
+PowerShell "Get-Item '%LocalAppData%\*\*\User Data\Default\Preferences' | ForEach-Object {-join (Get-Content $env:chromium, $_ -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
+
+
 REM Specify the desktop background without changing any setting
 set Wallpaper=%AppData%\Microsoft\Windows\Themes\TranscodedWallpaper
 

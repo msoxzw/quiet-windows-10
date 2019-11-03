@@ -1,10 +1,5 @@
 {
   "browser": {
-    "clear_data": {
-      "form_data": true,
-      "hosted_apps_data": true,
-      "time_period": 4
-    },
     "clear_data_on_exit": {
       "browsing_history": true,
       "cache": true,
@@ -16,35 +11,14 @@
     "default_browser_infobar_last_declined": "1",
     "should_reset_check_default_browser": false
   },
-  "enable_a_ping": false,
   "enhanced_tracking_prevention": {
     "user_pref": 3
-  },
-  "net": {
-    "network_prediction_options": 2
   },
   "newtab_page_location_override": "about:blank",
   "ntp": {
     "layout_mode": 0
   },
-  "payments": {
-    "can_make_payment_enabled": false
-  },
-  "profile": {
-    "block_third_party_cookies": true,
-    "default_content_setting_values": {
-      "cookies": 4
-    }
-  },
   "resolve_navigation_errors_use_web_service": {
     "enabled": false
-  },
-  "settings": {
-    "privacy": {
-      "drm_enabled": false
-    }
-  },
-  "webrtc": {
-    "ip_handling_policy": "disable_non_proxied_udp"
   }
 }
