@@ -1,0 +1,32 @@
+{
+  "webkit": {
+    "webprefs": {
+      "fonts": {
+        "fixed": {
+          "Hang": "Source Han Mono K",
+          "Hans": "Source Han Mono SC",
+          "Hant": "Source Han Mono TC",
+          "Jpan": "Source Han Mono"
+        },
+        "sansserif": {
+          "Hang": "Source Han Sans K",
+          "Hans": "Source Han Sans SC",
+          "Hant": "Source Han Sans TC",
+          "Jpan": "Source Han Sans"
+        },
+        "serif": {
+          "Hang": "Source Han Serif K",
+          "Hans": "Source Han Serif SC",
+          "Hant": "Source Han Serif TC",
+          "Jpan": "Source Han Serif"
+        },
+        "standard": {
+          "Hang": "Source Han Sans K",
+          "Hans": "Source Han Sans SC",
+          "Hant": "Source Han Sans TC",
+          "Jpan": "Source Han Sans"
+        }
+      }
+    }
+  }
+}
