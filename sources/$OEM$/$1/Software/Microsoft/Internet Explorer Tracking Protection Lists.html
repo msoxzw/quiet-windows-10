@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Internet Explorer Tracking Protection Lists</title>
-      <style>
+    <script>
+        var requestURL = "https://raw.githubusercontent.com/adblockplus/adblockpluscore/master/data/subscriptions.json";
+        var request = new XMLHttpRequest();
+        request.open("GET", requestURL);
+        request.send();
+
+        request.onload = function () {
+            const subscriptions = JSON.parse(request.response);
+
+            for (var i = 0; i < subscriptions.length; i++) {
+                var subscription = document.createElement("div");
+
+                var link = document.createElement("a");
+                var url = subscriptions[i].url.replace(/txt$/, "tpl");
+                var title = subscriptions[i].title;
+                link.href = "javascript:window.external.msAddTrackingProtectionList('" + url + "', '" + title + "')";
+                link.textContent = "Add the " + title;
+
+                subscription.appendChild(link);
+                document.body.appendChild(subscription)
+            }
+        }
+    </script>
+    <style>
         body {
             font-family: "Segoe UI", sans-serif;
         }
@@ -40,14 +63,8 @@
         }
 
     </style>
-  </head>
-  <body>
-    <h1>Tracking Protection Lists</h1>
-    <div><a href="javascript:window.external.msAddTrackingProtectionList('https://easylist-downloads.adblockplus.org/antiadblockfilters.tpl', 'Adblock Warning Removal List')">Adblock Warning Removal List</a></div>
-    <div><a href="javascript:window.external.msAddTrackingProtectionList('https://easylist-downloads.adblockplus.org/easylist.tpl', 'EasyList')">EasyList</a></div>
-    <div><a href="javascript:window.external.msAddTrackingProtectionList('https://easylist-downloads.adblockplus.org/easyprivacy.tpl', 'EasyPrivacy')">EasyPrivacy</a></div>
-    <div><a href="javascript:window.external.msAddTrackingProtectionList('https://easylist-downloads.adblockplus.org/fanboy-cookie.tpl', 'Fanboy\'s Cookie List')">Fanboy's Cookie List</a></div>
-    <div><a href="javascript:window.external.msAddTrackingProtectionList('https://easylist-downloads.adblockplus.org/malwaredomains_full.tpl', 'Malware Domains')">Add the Malware Domains Tracking Protection List</a></div>
-    <div><a href="javascript:window.external.msAddTrackingProtectionList('https://pgl.yoyo.org/adservers/serverlist.php?hostformat=msfilter&mimetype=plaintext', 'Peter Lowe\'s list')">Peter Lowe's list</a></div>
-  </body>
+</head>
+<body>
+<h1>Tracking Protection Lists</h1>
+</body>
 </html>
