@@ -5,6 +5,50 @@
     <meta charset="UTF-8">
     <title>Internet Explorer Tracking Protection Lists</title>
     <script>
+        var languages = {
+            "ar": "العربية",
+            "bg": "български",
+            "bn": "বাংলা",
+            "cs": "čeština",
+            "da": "dansk",
+            "de": "Deutsch",
+            "en": "English",
+            "es": "español",
+            "et": "Eesti keel",
+            "fa": "فارسی",
+            "fi": "suomi",
+            "fr": "français",
+            "gr": "ελληνικά",
+            "gu": "ગુજરાતી",
+            "he": "עברית",
+            "hi": "भारतीय",
+            "hu": "magyar",
+            "id": "Bahasa Indonesia",
+            "is": "íslenska",
+            "it": "italiano",
+            "ja": "日本語",
+            "ko": "한국어",
+            "lt": "lietuvių kalba",
+            "lv": "latviešu valoda",
+            "mk": "македонски",
+            "ms": "Melayu",
+            "nl": "Nederlands",
+            "no": "norsk",
+            "pa": "ਪੰਜਾਬੀ",
+            "pl": "polski",
+            "pt": "português",
+            "ro": "românesc",
+            "ru": "русский",
+            "sk": "slovenčina",
+            "sv": "svensk",
+            "ta": "தமிழ்",
+            "th": "ไทย",
+            "tr": "Türkçe",
+            "uk": "українська",
+            "vi": "Tiếng Việt",
+            "zh": "中文"
+        };
+
         var requestURL = "https://raw.githubusercontent.com/adblockplus/adblockpluscore/master/data/subscriptions.json";
         var request = new XMLHttpRequest();
         request.open("GET", requestURL);
@@ -14,16 +58,23 @@
             const subscriptions = JSON.parse(request.response);
 
             for (var i = 0; i < subscriptions.length; i++) {
-                var subscription = document.createElement("div");
+                if (subscriptions[i].languages) {
+                    var lang = subscriptions[i].languages.map(function (lang) {
+                        return languages[lang];
+                    }).join(", ");
+                    var title = subscriptions[i].title.replace(/\+/g, " + ");
+                    var url = subscriptions[i].url.replace(/txt$/, "tpl");
 
-                var link = document.createElement("a");
-                var url = subscriptions[i].url.replace(/txt$/, "tpl");
-                var title = subscriptions[i].title;
-                link.href = "javascript:window.external.msAddTrackingProtectionList('" + url + "', '" + title + "')";
-                link.textContent = "Add the " + title;
+                    var subscription = document.createElement("div");
+                    subscription.className = "subscription";
 
-                subscription.appendChild(link);
-                document.body.appendChild(subscription)
+                    var link = document.createElement("a");
+                    link.href = "javascript:window.external.msAddTrackingProtectionList('" + url + "', '" + title + "')";
+                    link.textContent = "Add the " + title + " (" + lang + ")";
+
+                    subscription.appendChild(link);
+                    document.body.appendChild(subscription)
+                }
             }
         }
     </script>
@@ -32,14 +83,19 @@
             font-family: "Segoe UI", sans-serif;
         }
 
+        h1 {
+            padding-left: 20px;
+            font-size: 24pt;
+            font-weight: normal;
+            color: #00a3ef;
+        }
+
+        p {
+            padding-left: 20px;
+        }
+
         a {
-            display: block;
-            color: white;
-            font-size: 20px;
-            position: relative;
-            left: 20px;
-            top: 30px;
-            margin-right: 20px;
+            color: #00a3ef;
             text-decoration: none;
         }
 
@@ -47,7 +103,7 @@
             text-decoration: underline;
         }
 
-        div {
+        .subscription {
             float: left;
             width: 200px;
             height: 150px;
@@ -55,13 +111,15 @@
             background-color: #00a3ef;
         }
 
-        h1 {
-            padding: 20px;
-            font-size: 24pt;
-            font-weight: normal;
-            color: #00a3ef;
+        .subscription a {
+            display: block;
+            color: white;
+            font-size: 20px;
+            position: relative;
+            left: 20px;
+            top: 30px;
+            margin-right: 20px;
         }
-
     </style>
 </head>
 <body>
