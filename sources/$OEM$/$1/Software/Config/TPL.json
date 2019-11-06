@@ -1,11 +1,6 @@
 [
   {
     "Enabled": 1,
-    "Name": "EasyList",
-    "Url": "https://easylist-downloads.adblockplus.org/easylist.tpl"
-  },
-  {
-    "Enabled": 1,
     "Name": "EasyPrivacy",
     "Url": "https://easylist-downloads.adblockplus.org/easyprivacy.tpl"
   },
