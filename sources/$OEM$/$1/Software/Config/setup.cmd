@@ -42,9 +42,13 @@ endlocal
 for %%i in (Registry\*.reg) do reg import "%%i"
 
 
-Rem Configure Chromium based Browser
+REM Add Internet Explorer Tracking Protection Lists
+PowerShell "(Get-Content 'TPL.json' -Raw | ConvertFrom-Json) | ForEach-Object { $_ | Set-ItemProperty (New-Item 'HKCU:\Software\Microsoft\Internet Explorer\Safety\PrivacIE\Lists' -Name \"{$(New-Guid)}\".ToUpper()).PSPath}"
+
+
+REM Configure Chromium based Browser
 set chromium=%LocalAppData%\Chromium\User Data\Default\Preferences
-PowerShell "Get-Item '%LocalAppData%\*\*\User Data\Default\Preferences' | ForEach-Object {-join (Get-Content $env:chromium, $_ -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
+PowerShell "Get-Item '%LocalAppData%\*\*\User Data\Default\Preferences' | ForEach-Object {-join (Get-Content '%chromium%', $_ -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
 
 
 REM Specify the desktop background without changing any setting
