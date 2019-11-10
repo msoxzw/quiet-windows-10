@@ -6,7 +6,7 @@
     <title>Internet Explorer Tracking Protection Lists</title>
     <style>
         body {
-            font-family: "Segoe UI", sans-serif;
+            font-family: Segoe UI, sans-serif, Segoe UI Emoji;
         }
 
         h1 {
@@ -50,7 +50,7 @@
 </head>
 <body>
 <h1>Tracking Protection Lists</h1>
-<select id="language" style="float: right"></select>
+<label style="float: right">🌐<select id="language"></select></label>
 <p><a href="https://adblockplus.org/subscriptions" rel="noopener noreferrer" target="_blank">From known Adblock Plus subscriptions</a></p>
 <script>
     function getJSON(url, callback) {
@@ -65,17 +65,19 @@
     var autonymURL = "https://www.mediawiki.org/w/api.php?action=query&meta=languageinfo&liprop=autonym&format=json&origin=*";
     var subscriptionsURL = "https://raw.githubusercontent.com/adblockplus/adblockpluscore/master/data/subscriptions.json";
     getJSON(autonymURL, function (languageinfo) {
-        var autonym = languageinfo["query"]["languageinfo"];
+        var autonym = languageinfo.query.languageinfo;
         var select = document.getElementById("language");
 
         for (var code in autonym) {
-            var name = autonym[code]["autonym"];
-            if (name) {
-                var option = document.createElement("option");
-                option.value = code;
-                option.lang = code;
-                option.textContent = name;
-                select.appendChild(option);
+            if (autonym.hasOwnProperty(code)) {
+                var name = autonym[code].autonym;
+                if (name) {
+                    var option = document.createElement("option");
+                    option.value = code;
+                    option.lang = code;
+                    option.textContent = name;
+                    select.appendChild(option);
+                }
             }
         }
 
@@ -99,7 +101,7 @@
                         var span = document.createElement("span");
                         span.className = lang;
                         span.lang = lang;
-                        span.textContent = autonym[lang]["autonym"];
+                        span.textContent = autonym[lang].autonym;
                         return span.outerHTML;
                     });
                     link.innerHTML += " (" + spans.join(", ") + ")";
@@ -116,11 +118,11 @@
         var namesURL = "https://www.mediawiki.org/w/api.php?action=query&meta=languageinfo&liprop=name&uselang=" + lang + "&format=json&origin=*";
 
         getJSON(namesURL, function (languageinfo) {
-            var names = languageinfo["query"]["languageinfo"];
+            var names = languageinfo.query.languageinfo;
             var spans = document.querySelectorAll(".subscription span");
             for (var i = 0; i < spans.length; i++) {
                 spans[i].lang = lang;
-                spans[i].textContent = names[spans[i].className]["name"];
+                spans[i].textContent = names[spans[i].className].name;
             }
         });
     });
