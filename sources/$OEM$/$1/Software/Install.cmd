@@ -43,6 +43,9 @@ REM Download and install the latest Source Han Super OTC
 REM Change the default fonts for Chinese, Japanese, and Korean (CJK) languages to Source Han
 call Fonts\setup.cmd
 
+REM Generate JetBrains products silent download and install batch files
+call JetBrains\setup.cmd
+
 REM Set desktop backgroud as the default lock screen image without changing any setting
 REM Require turning off all suggestions
 call LockScreen.cmd
