@@ -19,6 +19,6 @@ pushd %ProgramFiles%\JetBrains
 
 %zip% x -o"Temp" %3 -x!$PLUGINSDIR -x!bin\Uninstall.exe.
 
-PowerShell "(Get-Content 'Temp\product-info.json' | ConvertFrom-Json) | ForEach-Object {Remove-Item $_.name -Recurse; Move-Item 'Temp' $_.name; New-Item '%Public%\Desktop' $_.name -ItemType SymbolicLink -Value (Join-Path $_.name $_.launch[0].launcherPath) -Force}"
+PowerShell "(Get-Content 'Temp\product-info.json' | ConvertFrom-Json) | ForEach-Object {Remove-Item $_.name -Recurse; Move-Item 'Temp' $_.name; New-Item '%Public%\Desktop' -Name $_.name -ItemType SymbolicLink -Value (Join-Path $_.name $_.launch[0].launcherPath) -Force}"
 
 popd
