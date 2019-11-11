@@ -63,7 +63,12 @@ and configure latest "Source Han Super OTC" to improve CJK characters rendering.
 ### Some useful references
 
 [Windows Setup Command-Line Options](https://docs.microsoft.com/windows-hardware/manufacture/desktop/windows-setup-command-line-options#15)
+
 [Manage connections from Windows 10](https://docs.microsoft.com/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services)
+
 [How to stop Firefox from making automatic connections](https://support.mozilla.org/kb/how-stop-firefox-making-automatic-connections)
+
 [Privacy Tools](https://www.privacytools.io/)
+
 [Windows 10 Tutorial](https://www.tenforums.com/tutorials/)
+
