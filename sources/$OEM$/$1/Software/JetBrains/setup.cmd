@@ -15,9 +15,11 @@ whoami /groups | find "S-1-16-8192" && (PowerShell Start-Process cmd '/c \"\"%~f
 for /f "tokens=2*" %%i in ('reg query HKLM\Software\7-Zip /v Path') do set zip="%%j7z.exe"
 if not exist %zip% exit /b
 
-pushd %ProgramFiles%\JetBrains
+set InstallDir=%ProgramFiles%\JetBrains
 
-%zip% x -o"Temp" %3 -x!$PLUGINSDIR -x!bin\Uninstall.exe.
+%zip% x -o"%InstallDir%\Temp" %3 -x!$PLUGINSDIR -x!bin\Uninstall.exe.
+
+pushd %InstallDir%
 
 PowerShell "(Get-Content 'Temp\product-info.json' | ConvertFrom-Json) | ForEach-Object {Remove-Item $_.name -Recurse; Move-Item 'Temp' $_.name; New-Item '%Public%\Desktop' -Name $_.name -ItemType SymbolicLink -Value (Join-Path $_.name $_.launch[0].launcherPath) -Force}"
 
