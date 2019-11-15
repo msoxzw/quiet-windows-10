@@ -93,7 +93,7 @@
                 subscription.className = "subscription";
 
                 var link = document.createElement("a");
-                link.href = "javascript:window.external.msAddTrackingProtectionList('" + url.replace(/txt$/, "tpl") + "', '" + title + "')";
+                link.href = "javascript:window.external.msAddTrackingProtectionList('" + url.replace(/\.txt$/, ".tpl") + "', '" + title + "')";
                 link.textContent = "Add the " + title.replace(/\+/g, " + ");
 
                 if (languages) {
