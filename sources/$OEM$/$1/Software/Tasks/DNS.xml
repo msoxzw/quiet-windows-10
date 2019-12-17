@@ -18,7 +18,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>PowerShell</Command>
-      <Arguments>"Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses ('127.0.0.1','::1')"</Arguments>
+      <Arguments>"Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses (Resolve-DnsName localhost).IPAddress"</Arguments>
     </Exec>
     <Exec>
       <Command>%ProgramFiles%\Stubby\stubby.exe</Command>
