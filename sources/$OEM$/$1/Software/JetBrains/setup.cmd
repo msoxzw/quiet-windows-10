@@ -17,7 +17,7 @@ if not exist %zip% exit /b
 
 set InstallDir=%ProgramFiles%\JetBrains
 
-%zip% x -o"%InstallDir%\Temp" %3 -x!$PLUGINSDIR -x!bin\Uninstall.exe.
+%zip% x -o"%InstallDir%\Temp" %3 -x!$PLUGINSDIR -x!bin\Uninstall.exe.nsis
 
 pushd %InstallDir%
 
