@@ -5,6 +5,7 @@
         <GUIConfig name="NewDocDefaultSettings" format="2" />
         <GUIConfig name="RememberLastSession">no</GUIConfig>
         <GUIConfig name="ScintillaPrimaryView" Wrap="yes" />
+        <GUIConfig name="noUpdate">yes</GUIConfig>
     </GUIConfigs>
     <History nbMaxFile="0" />
 </NotepadPlus>
