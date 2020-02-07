@@ -17,6 +17,9 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\cplspcon]
 "Start"=dword:00000003
 
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\igccservice]
+"Start"=dword:00000003
+
 [HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\igfxCUIService2.0.0.0]
 "Start"=dword:00000003
 
