@@ -20,6 +20,10 @@
   </Principals>
   <Settings>
     <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <IdleSettings>
+      <StopOnIdleEnd>false</StopOnIdleEnd>
+    </IdleSettings>
     <RunOnlyIfIdle>true</RunOnlyIfIdle>
   </Settings>
   <Actions Context="Author">
