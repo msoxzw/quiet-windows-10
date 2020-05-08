@@ -13,6 +13,9 @@
     "enabled": false
   },
   "enable_a_ping": false,
+  "history": {
+    "saving_disabled": true
+  },
   "net": {
     "network_prediction_options": 2
   },
