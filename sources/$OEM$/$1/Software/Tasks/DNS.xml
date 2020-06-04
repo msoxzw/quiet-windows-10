@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <Triggers>
-    <EventTrigger>
-      <Subscription>&lt;QueryList&gt;&lt;Query Id="0" Path="Microsoft-Windows-NCSI/Operational"&gt;&lt;Select Path="Microsoft-Windows-NCSI/Operational"&gt;*[System[(EventID=4042)] and EventData[Data[@Name="Capability"]=2]]&lt;/Select&gt;&lt;/Query&gt;&lt;/QueryList&gt;</Subscription>
-    </EventTrigger>
+    <BootTrigger />
     <RegistrationTrigger />
   </Triggers>
   <Principals>
@@ -21,15 +19,7 @@
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>PowerShell</Command>
-      <Arguments>"Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses (Resolve-DnsName localhost).IPAddress"</Arguments>
-    </Exec>
-    <Exec>
       <Command>%ProgramFiles%\Stubby\stubby.exe</Command>
-    </Exec>
-    <Exec>
-      <Command>PowerShell</Command>
-      <Arguments>"Get-NetAdapter -Physical | Set-DnsClientServerAddress -ResetServerAddresses"</Arguments>
     </Exec>
   </Actions>
 </Task>

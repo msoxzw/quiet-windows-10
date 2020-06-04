@@ -53,6 +53,8 @@ call LockScreen.cmd
 
 for %%i in (Tasks\*.xml) do schtasks /create /tn "%%~ni" /xml "%%i" /f
 
+PowerShell "Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses (Resolve-DnsName localhost).IPAddress"
+
 schtasks /change /tn Install /disable
 
 popd
