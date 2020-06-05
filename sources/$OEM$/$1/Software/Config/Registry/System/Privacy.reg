@@ -23,6 +23,7 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\MRT]
 "DontOfferThroughWUAU"=dword:00000001
+"DontReportInfectionInformation"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Windows Search]
 "ConnectedSearchUseWeb"=dword:00000000
