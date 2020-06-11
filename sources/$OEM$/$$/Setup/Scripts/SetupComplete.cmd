@@ -8,7 +8,7 @@ REM https://developers.cloudflare.com/1.1.1.1/nitty-gritty-details/#edns-client-
 :: PowerShell "Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses ('1.1.1.1','1.0.0.1','2606:4700:4700::1111','2606:4700:4700::1001')"
 PowerShell "Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses ('8.8.8.8','8.8.4.4','2001:4860:4860::8888','2001:4860:4860::8844')"
 
-PowerShell Set-MpPreference -MAPSReporting Disabled -SubmitSamplesConsent NeverSend
+PowerShell Set-MpPreference -MAPSReporting Disabled -PUAProtection Disabled -SubmitSamplesConsent NeverSend
 
 REM Remove all apps for the local system except Microsoft Store
 PowerShell "Get-AppxProvisionedPackage -Online | Where-Object DisplayName Microsoft.WindowsStore -NE | Remove-AppxProvisionedPackage -Online"

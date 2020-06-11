@@ -20,6 +20,7 @@ Windows Registry Editor Version 5.00
 "AppAndBrowser_AppRepSmartScreenOff"=dword:00000000
 "Defender_AutoSampleSubmissionDisabled"=dword:00000000
 "Defender_CloudProtectionDisabled"=dword:00000000
+"DefenderPua_PuaDisabled"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\MRT]
 "DontOfferThroughWUAU"=dword:00000001
