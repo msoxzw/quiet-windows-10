@@ -3,10 +3,8 @@
 
 PowerShell Rename-Computer -NewName Computer
 
-REM Cloudflare 1.1.1.1 is a privacy centric resolver so it does not support EDNS Client Subnet.
-REM https://developers.cloudflare.com/1.1.1.1/nitty-gritty-details/#edns-client-subnet
-:: PowerShell "Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses ('1.1.1.1','1.0.0.1','2606:4700:4700::1111','2606:4700:4700::1001')"
-PowerShell "Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses ('8.8.8.8','8.8.4.4','2001:4860:4860::8888','2001:4860:4860::8844')"
+REM Set DNS server addresses with EDNS Client Subnet support and no logging
+PowerShell "Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses ('9.9.9.11','149.112.112.11','2620:fe::11','2620:fe::fe:11')"
 
 PowerShell Set-MpPreference -MAPSReporting Disabled -PUAProtection Disabled -SubmitSamplesConsent NeverSend
 

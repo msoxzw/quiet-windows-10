@@ -14,15 +14,15 @@ upstream_recursive_servers:
 #    tls_auth_name: "cloudflare-dns.com"
 #  - address_data: 2606:4700:4700::1001
 #    tls_auth_name: "cloudflare-dns.com"
-# Google
-  - address_data: 8.8.8.8
-    tls_auth_name: "dns.google"
-  - address_data: 8.8.4.4
-    tls_auth_name: "dns.google"
-  - address_data: 2001:4860:4860::8888
-    tls_auth_name: "dns.google"
-  - address_data: 2001:4860:4860::8844
-    tls_auth_name: "dns.google"
+## Google
+#  - address_data: 8.8.8.8
+#    tls_auth_name: "dns.google"
+#  - address_data: 8.8.4.4
+#    tls_auth_name: "dns.google"
+#  - address_data: 2001:4860:4860::8888
+#    tls_auth_name: "dns.google"
+#  - address_data: 2001:4860:4860::8844
+#    tls_auth_name: "dns.google"
 ## Quad9 'recommended' service - Security blocklist, DNSSEC, No EDNS Client-Subnet sent
 #  - address_data: 9.9.9.9
 #    tls_auth_name: "dns.quad9.net"
