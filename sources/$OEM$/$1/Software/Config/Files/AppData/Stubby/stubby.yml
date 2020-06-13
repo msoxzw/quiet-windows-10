@@ -30,7 +30,7 @@ upstream_recursive_servers:
 #    tls_auth_name: "dns.quad9.net"
 #  - address_data: 2620:fe::fe
 #    tls_auth_name: "dns.quad9.net"
-#  - address_data: 2620:fe::fe:9
+#  - address_data: 2620:fe::9
 #    tls_auth_name: "dns.quad9.net"
 ## Quad9 'secured' service - Security blocklist, DNSSEC, No EDNS Client-Subnet sent
 #  - address_data: 9.9.9.9
