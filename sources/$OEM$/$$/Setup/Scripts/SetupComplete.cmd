@@ -25,7 +25,7 @@ REM Set time zone automatically
 sc config tzautoupdate start= demand
 
 REM Change the default time server to pool.ntp.org
-REM https://www.ntppool.org/
+REM https://www.ntppool.org/use.html
 w32tm /config /syncfromflags:manual /manualpeerlist:"0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org"
 
 
