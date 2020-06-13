@@ -14,6 +14,24 @@ upstream_recursive_servers:
 #    tls_auth_name: "cloudflare-dns.com"
 #  - address_data: 2606:4700:4700::1001
 #    tls_auth_name: "cloudflare-dns.com"
+## Cloudflare - Block Malware
+#  - address_data: 1.1.1.2
+#    tls_auth_name: "security.cloudflare-dns.com"
+#  - address_data: 1.0.0.2
+#    tls_auth_name: "security.cloudflare-dns.com"
+#  - address_data: 2606:4700:4700::1112
+#    tls_auth_name: "security.cloudflare-dns.com"
+#  - address_data: 2606:4700:4700::1002
+#    tls_auth_name: "security.cloudflare-dns.com"
+## Cloudflare - Block Malware and Adult Content
+#  - address_data: 1.1.1.3
+#    tls_auth_name: "family.cloudflare-dns.com"
+#  - address_data: 1.0.0.3
+#    tls_auth_name: "family.cloudflare-dns.com"
+#  - address_data: 2606:4700:4700::1113
+#    tls_auth_name: "family.cloudflare-dns.com"
+#  - address_data: 2606:4700:4700::1003
+#    tls_auth_name: "family.cloudflare-dns.com"
 ## Google
 #  - address_data: 8.8.8.8
 #    tls_auth_name: "dns.google"
