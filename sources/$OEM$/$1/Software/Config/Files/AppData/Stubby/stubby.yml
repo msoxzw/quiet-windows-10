@@ -14,6 +14,11 @@ upstream_recursive_servers:
 #    tls_auth_name: "cloudflare-dns.com"
 #  - address_data: 2606:4700:4700::1001
 #    tls_auth_name: "cloudflare-dns.com"
+## Cloudflare DNS64
+#  - address_data: 2606:4700:4700::64
+#    tls_auth_name: "dns64.cloudflare-dns.com"
+#  - address_data: 2606:4700:4700::6400
+#    tls_auth_name: "dns64.cloudflare-dns.com"
 ## Cloudflare - Block Malware
 #  - address_data: 1.1.1.2
 #    tls_auth_name: "security.cloudflare-dns.com"
@@ -41,6 +46,11 @@ upstream_recursive_servers:
 #    tls_auth_name: "dns.google"
 #  - address_data: 2001:4860:4860::8844
 #    tls_auth_name: "dns.google"
+## Google DNS64
+#  - address_data: 2001:4860:4860::6464
+#    tls_auth_name: "dns64.dns.google"
+#  - address_data: 2001:4860:4860::64
+#    tls_auth_name: "dns64.dns.google"
 ## Quad9 'recommended' service - Security blocklist, DNSSEC, No EDNS Client-Subnet sent
 #  - address_data: 9.9.9.9
 #    tls_auth_name: "dns.quad9.net"
