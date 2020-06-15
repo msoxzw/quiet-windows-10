@@ -3,8 +3,8 @@
 
 PowerShell Rename-Computer -NewName Computer
 
-REM Set DNS server addresses with EDNS Client Subnet support and no logging
-PowerShell "Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses ('9.9.9.11','149.112.112.11','2620:fe::11','2620:fe::fe:11')"
+REM Set DNS server addresses with Anonymized EDNS Client Subnet support and no logging
+PowerShell "Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses ('45.90.28.0','45.90.30.0','2a07:a8c0::','2a07:a8c1::')"
 
 PowerShell Set-MpPreference -MAPSReporting Disabled -PUAProtection Disabled -SubmitSamplesConsent NeverSend
 

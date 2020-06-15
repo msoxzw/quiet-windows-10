@@ -68,12 +68,21 @@ upstream_recursive_servers:
 #    tls_auth_name: "dns10.quad9.net"
 #  - address_data: 2620:fe::fe:10
 #    tls_auth_name: "dns10.quad9.net"
-# Quad9 'secured w/ ECS support' service - Security blocklist, DNSSEC, EDNS Client-Subnet sent
-  - address_data: 9.9.9.11
-    tls_auth_name: "dns11.quad9.net"
-  - address_data: 149.112.112.11
-    tls_auth_name: "dns11.quad9.net"
-  - address_data: 2620:fe::11
-    tls_auth_name: "dns11.quad9.net"
-  - address_data: 2620:fe::fe:11
-    tls_auth_name: "dns11.quad9.net"
+## Quad9 'secured w/ ECS support' service - Security blocklist, DNSSEC, EDNS Client-Subnet sent
+#  - address_data: 9.9.9.11
+#    tls_auth_name: "dns11.quad9.net"
+#  - address_data: 149.112.112.11
+#    tls_auth_name: "dns11.quad9.net"
+#  - address_data: 2620:fe::11
+#    tls_auth_name: "dns11.quad9.net"
+#  - address_data: 2620:fe::fe:11
+#    tls_auth_name: "dns11.quad9.net"
+# NextDNS
+  - address_data: 45.90.28.0
+    tls_auth_name: "dns.nextdns.io"
+  - address_data: 45.90.30.0
+    tls_auth_name: "dns.nextdns.io"
+  - address_data: 2a07:a8c0::0
+    tls_auth_name: "dns.nextdns.io"
+  - address_data: 2a07:a8c1::0
+    tls_auth_name: "dns.nextdns.io"
