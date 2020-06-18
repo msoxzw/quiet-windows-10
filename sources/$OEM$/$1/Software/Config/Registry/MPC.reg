@@ -52,6 +52,7 @@ Windows Registry Editor Version 5.00
 "AudioRendererType"="Internal Audio Renderer"
 "DSVidRen"=dword:0000000c
 "DX9Resizer"=dword:00000003
+"EnableCrashReporter"=dword:00000000
 "EVRBuffers"=dword:00000008
 "LaunchFullScreen"=dword:00000001
 "KeepHistory"=dword:00000000
