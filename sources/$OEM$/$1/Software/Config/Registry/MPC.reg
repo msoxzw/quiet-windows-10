@@ -23,6 +23,7 @@ Windows Registry Editor Version 5.00
 "ShowOSD"=dword:00000000
 "SnapShotExt"=".png"
 "SubtitleRenderer"=dword:00000003
+"UseSmartSeek"=dword:00000001
 "WindowModePlayback"=dword:00000001
 
 [HKEY_CURRENT_USER\Software\MPC-BE\Settings\Video]
