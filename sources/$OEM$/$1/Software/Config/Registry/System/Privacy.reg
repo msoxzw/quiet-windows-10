@@ -8,7 +8,6 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "AllowOnlineTips"=dword:00000000
-"NoRecentDocsHistory"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System]
 "NoConnectedUser"=dword:00000001
