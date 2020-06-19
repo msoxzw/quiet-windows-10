@@ -36,3 +36,10 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\ServiceUI\ShowSearchHistory]
 @=dword:00000000
 
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\MicrosoftEdge\Internet Settings]
+"DisableLockdownOfStartPages"=dword:00000001
+"ProvisionedHomePages"="<about:blank>"
+
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\MicrosoftEdge\ServiceUI]
+"AllowWebContentOnNewTabPage"=dword:00000000
+

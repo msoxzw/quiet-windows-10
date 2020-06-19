@@ -1,6 +1,6 @@
 Windows Registry Editor Version 5.00
 
-[HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist]
+[HKEY_CURRENT_USER\Software\Policies\Google\Chrome\ExtensionInstallForcelist]
 ; ClearURLs
 ; https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk
 "1"="lckanjgmijmafbedllaakclkaicjfmnk"

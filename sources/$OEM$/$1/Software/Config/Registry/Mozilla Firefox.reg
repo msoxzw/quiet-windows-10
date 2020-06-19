@@ -1,13 +1,13 @@
 Windows Registry Editor Version 5.00
 
-[HKEY_LOCAL_MACHINE\Software\Mozilla\Firefox\Crash Reporter]
+[HKEY_CURRENT_USER\Software\Mozilla\Firefox\Crash Reporter]
 "Enabled"=dword:00000000
 "SubmitCrashReport"=dword:00000000
 
-[HKEY_LOCAL_MACHINE\Software\Policies\Mozilla\Firefox]
+[HKEY_CURRENT_USER\Software\Policies\Mozilla\Firefox]
 "NoDefaultBookmarks"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\Software\Policies\Mozilla\Firefox\Extensions\Install]
+[HKEY_CURRENT_USER\Software\Policies\Mozilla\Firefox\Extensions\Install]
 ; CanvasBlocker
 ; https://addons.mozilla.org/firefox/addon/canvasblocker/
 "1"="https://addons.mozilla.org/firefox/downloads/latest/canvasblocker/latest.xpi"
