@@ -12,7 +12,7 @@ mklink "..\Config\Registry\Internet Explorer Fonts.reg" "%~dp0Internet Explorer.
 
 for /d %%i in (..\Mozilla\*) do mklink "%%i\defaults\pref\fonts.js" "%~dp0Mozilla.js"
 
-PowerShell "'%LocalAppData%', '..\Config\Files\LocalAppData' | Join-Path -ChildPath 'Chromium\User Data\Default\Preferences' | ForEach-Object {-join (Get-Content $_, 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
-PowerShell "Get-Item '%LocalAppData%\*\*\User Data\Default\Preferences' | ForEach-Object {-join (Get-Content $_, 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
+PowerShell "'%LocalAppData%', '..\Config\Files\LocalAppData' | Join-Path -ChildPath 'Chromium\User Data\*\Preferences' | ForEach-Object {-join (Get-Content $_, 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
+PowerShell "Get-Item '%LocalAppData%\*\*\User Data\*\Preferences' | ForEach-Object {-join (Get-Content $_, 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
 
 popd
