@@ -26,15 +26,6 @@ for /f "tokens=2*" %%i in ('reg query HKLM\Software\Microsoft\Windows\CurrentVer
 REM Configure CCleaner Portable
 robocopy . "%ChocolateyInstall%\lib\ccleaner.portable\tools" ccleaner.ini
 
-REM Configure Firefox and Thunderbird with the custom install directory
-for /d %%i in ("%ProgramFiles%\Mozilla *") do (
-	for /f "tokens=3*" %%j in ('reg query "HKLM\Software\Mozilla\%%~ni" /v "Install Directory" /s ^| find "REG_SZ"') do (
-		robocopy "%%i" "%%k" *.cfg
-		robocopy "%%i\defaults\pref" "%%k\defaults\pref" autoconfig.js
-	)
-)
-
-
 REM Copy regional and language settings to all users and also the system account (logonUI screen)
 control intl.cpl,,/f:"Language.xml"
 reg delete "HKLM\Software\Microsoft\Windows NT\CurrentVersion\GRE_Initialize" /va /f
@@ -49,6 +40,9 @@ call JetBrains\setup.cmd
 REM Set desktop backgroud as the default lock screen image without changing any setting
 REM Require turning off all suggestions
 call LockScreen.cmd
+
+REM Configure Firefox and Thunderbird with the custom install directory
+call Mozilla\setup.cmd
 
 
 for %%i in (Tasks\*.xml) do schtasks /create /tn "%%~ni" /xml "%%i" /f
