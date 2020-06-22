@@ -57,4 +57,4 @@ set Wallpaper=%AppData%\Microsoft\Windows\Themes\TranscodedWallpaper
 for %%i in (Wallpaper\*) do copy "%%i" "%Wallpaper%"
 for %%i in ("%Wallpaper%\..\CachedFiles\*") do copy nul "%%i"
 
-shutdown /l
+logoff
