@@ -2,7 +2,7 @@
 
 A series of tweaks make Windows 10 as quiet, slim, private as possible.
 
-### installation
+### Installation
 
 Copy `sources` folder to the root of the installation media. Windows Setup will use
 these files automatically during installation.
