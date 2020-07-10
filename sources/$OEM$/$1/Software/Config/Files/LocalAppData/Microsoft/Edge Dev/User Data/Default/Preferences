@@ -1,0 +1,24 @@
+{
+  "browser": {
+    "clear_data_on_exit": {
+      "browsing_history": true,
+      "cache": true,
+      "cookies": true,
+      "download_history": true,
+      "form_data": true,
+      "hosted_apps_data": true
+    },
+    "default_browser_infobar_last_declined": "1",
+    "should_reset_check_default_browser": false
+  },
+  "enhanced_tracking_prevention": {
+    "user_pref": 3
+  },
+  "newtab_page_location_override": "chrome-search://local-ntp/local-ntp.html",
+  "ntp": {
+    "layout_mode": 0
+  },
+  "resolve_navigation_errors_use_web_service": {
+    "enabled": false
+  }
+}
