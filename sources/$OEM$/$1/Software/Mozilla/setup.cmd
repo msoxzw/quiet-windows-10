@@ -3,7 +3,7 @@
 pushd %~dp0
 
 for /d %%i in (*) do (
-	for /f "tokens=3*" %%j in ('reg query "HKLM\Software\Mozilla\%%~ni" /v "Install Directory" /s ^| find "REG_SZ"') do (
+	for /f "tokens=3*" %%j in ('reg query "HKLM\Software\Mozilla\Mozilla %%~ni" /v "Install Directory" /s ^| find "REG_SZ"') do (
 		robocopy "%%i" "%%k" /s
 	)
 )
