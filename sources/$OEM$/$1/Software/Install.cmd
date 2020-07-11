@@ -11,7 +11,7 @@ if not defined ChocolateyInstall (
 set apps=7zip adobereader aria2 ccleaner.portable ffmpeg firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent stubby thunderbird
 
 :install
-"%ChocolateyInstall%\choco.exe" install %apps% -y || goto install
+"%ChocolateyInstall%\choco.exe" install %apps% -y || (timeout /t 60 & goto install)
 
 REM Associate archive formats with 7-Zip with the system default icon
 for /f "tokens=2*" %%i in ('reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall\7-Zip /v DisplayIcon') do ( 

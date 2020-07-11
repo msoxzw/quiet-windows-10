@@ -5,7 +5,7 @@ pushd %~dp0
 set fonts=https://github.com/adobe-fonts/source-han-super-otc/releases/latest/download/SourceHanNotoCJK.ttc
 
 :download
-aria2c --dir="%SystemRoot%\Fonts" %fonts% || goto download
+aria2c --dir="%SystemRoot%\Fonts" %fonts% || (timeout /t 60 & goto download)
 
 for %%i in (*.reg) do reg import "%%i"
 mklink "..\Config\Registry\Internet Explorer Fonts.reg" "%~dp0Internet Explorer.reg"
