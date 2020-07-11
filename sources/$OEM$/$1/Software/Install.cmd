@@ -24,7 +24,10 @@ for /f "tokens=2*" %%i in ('reg query HKLM\Software\Microsoft\Windows\CurrentVer
 )
 
 REM Configure CCleaner Portable
-robocopy . "%ChocolateyInstall%\lib\ccleaner.portable\tools" ccleaner.ini
+(
+	echo [Options]
+	PowerShell "$CCleaner=Get-Item HKCU:\Software\Piriform\CCleaner; $CCleaner.GetValueNames() | % {Write-Output $_=$($CCleaner.GetValue($_))}"
+) > "%ChocolateyInstall%\lib\ccleaner.portable\tools\ccleaner.ini"
 
 REM Copy regional and language settings to all users and also the system account (logonUI screen)
 control intl.cpl,,/f:"Language.xml"
