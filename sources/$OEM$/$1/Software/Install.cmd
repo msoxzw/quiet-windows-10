@@ -47,7 +47,8 @@ call Mozilla\setup.cmd
 
 for %%i in (Tasks\*.xml) do schtasks /create /tn "%%~ni" /xml "%%i" /f
 
-PowerShell "Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses (Resolve-DnsName localhost).IPAddress"
+REM Set local DNS server addresses only if any of them are operational.
+PowerShell "if (Resolve-DnsName example.com -Server localhost) {Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses (Resolve-DnsName localhost).IPAddress}"
 
 schtasks /change /tn Install /disable
 
