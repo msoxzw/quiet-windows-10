@@ -10,9 +10,9 @@ aria2c --dir="%SystemRoot%\Fonts" %fonts% || (timeout /t 60 & goto download)
 for %%i in (*.reg) do reg import "%%i"
 mklink "..\Config\Registry\Internet Explorer Fonts.reg" "%~dp0Internet Explorer.reg"
 
-for /d %%i in (..\Mozilla\*) do mklink "%%i\defaults\pref\fonts.js" "%~dp0Mozilla.js"
+set Chromium=..\Chromium\Chromium\User Data\Default\Preferences
+PowerShell "-join (Get-Content '%Chromium%', 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content '%Chromium%' -NoNewline"
 
-PowerShell "'%LocalAppData%', '..\Config\Files\LocalAppData' | Join-Path -ChildPath 'Chromium\User Data\*\Preferences' | ForEach-Object {-join (Get-Content $_, 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
-PowerShell "Get-Item '%LocalAppData%\*\*\User Data\*\Preferences' | ForEach-Object {-join (Get-Content $_, 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
+for /d %%i in (..\Mozilla\*) do mklink "%%i\defaults\pref\fonts.js" "%~dp0Mozilla.js"
 
 popd

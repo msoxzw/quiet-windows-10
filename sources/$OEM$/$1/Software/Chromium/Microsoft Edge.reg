@@ -1,0 +1,17 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Edge]
+
+[-HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist]
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist]
+; ClearURLs
+; https://microsoftedge.microsoft.com/addons/detail/mdkdmaickkfdekbjdoojfalpbkgaddei
+"1"="mdkdmaickkfdekbjdoojfalpbkgaddei"
+; HTTPS Everywhere
+; https://microsoftedge.microsoft.com/addons/detail/fchjpkplmbeeeaaogdbhjbgbknjobohb
+"2"="fchjpkplmbeeeaaogdbhjbgbknjobohb"
+; uBlock Origin
+; https://microsoftedge.microsoft.com/addons/detail/odfafepnkmbhccpbejgmiehpchacaeak
+"3"="odfafepnkmbhccpbejgmiehpchacaeak"
+

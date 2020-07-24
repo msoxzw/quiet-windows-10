@@ -44,6 +44,9 @@ REM Set desktop backgroud as the default lock screen image without changing any 
 REM Require turning off all suggestions
 call LockScreen.cmd
 
+REM Configure Chromium based browsers
+call Chromium\setup.cmd
+
 REM Configure Firefox and Thunderbird with the custom install directory
 call Mozilla\setup.cmd
 
