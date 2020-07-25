@@ -4,10 +4,6 @@ pushd %~dp0
 
 for %%i in (*.reg) do reg import "%%i"
 
-for /d %%i in (*) do (
-	for /f "tokens=3*" %%j in ('reg query "HKLM\Software\Mozilla\Mozilla %%~ni" /v "Install Directory" /s ^| find "REG_SZ"') do (
-		robocopy "%%i" "%%k" /s
-	)
-)
+PowerShell "Get-ChildItem -Directory -PipelineVariable Config | ForEach-Object {Get-ItemPropertyValue ('HKLM:\Software\Mozilla\*' + $_ + '*\*\Main') 'Install Directory' | ForEach-Object {robocopy $Config $_ /s}}"
 
 popd
