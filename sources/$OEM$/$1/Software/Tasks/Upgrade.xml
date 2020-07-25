@@ -2,7 +2,7 @@
 <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <Triggers>
     <BootTrigger>
-      <Delay>PT10M</Delay>
+      <Delay>PT15M</Delay>
       <Repetition>
         <Interval>P1D</Interval>
       </Repetition>
