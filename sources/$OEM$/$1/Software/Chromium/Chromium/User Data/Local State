@@ -1,0 +1,3 @@
+{
+  "dns_over_https": {"templates":"https://dns.nextdns.io/"}
+}

@@ -2,7 +2,6 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\Software\Policies\Chromium]
 "DnsOverHttpsMode"="automatic"
-"DnsOverHttpsTemplates"="https://dns.nextdns.io/"
 
 [HKEY_LOCAL_MACHINE\Software\Policies\Chromium\ExtensionInstallForcelist]
 ; ClearURLs
