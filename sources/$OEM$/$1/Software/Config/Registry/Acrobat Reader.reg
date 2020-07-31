@@ -3,9 +3,6 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\AVAlert\cCheckbox]
 "iAppDoNotTakePDFOwnershipAtLaunchWin10"=dword:00000001
 
-[HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\AutoSaveDocs]
-"bAutoSaveDocsEnabled"=dword:00000000
-
 [HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\AVGeneral]
 "aDefaultRHPViewModeL"="Collapsed"
 "bRHPSticky"=dword:00000001
@@ -18,7 +15,4 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\IPM]
 "bDontShowMsgWhenViewingDoc"=dword:00000001
 "bShowMsgAtLaunch"=dword:00000000
-
-[HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\RememberedViews]
-"iRememberView"=dword:00000002
 
