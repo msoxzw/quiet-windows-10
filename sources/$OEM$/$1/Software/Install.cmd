@@ -2,6 +2,11 @@
 @echo off
 pushd %~dp0
 
+REM Set DNS server addresses with Anonymized EDNS Client Subnet support and no logging only if any of them are operational.
+set DNS=('45.90.28.0','45.90.30.0','2a07:a8c0::','2a07:a8c1::')
+PowerShell "if (Resolve-DnsName example.com -Server %DNS%) {Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses %DNS%}"
+
+
 if not defined ChocolateyInstall (
 	set chocolateyUseWindowsCompression=true
 	PowerShell -ExecutionPolicy Bypass -Command "Invoke-WebRequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression; Start-Process cmd '/c \"\"%~f0\" %*\"'"
