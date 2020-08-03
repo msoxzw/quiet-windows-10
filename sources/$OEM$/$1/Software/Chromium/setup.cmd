@@ -2,8 +2,8 @@
 @echo off
 pushd %~dp0
 
-set Config=..\Config\Files\LocalAppData\
-PowerShell "Get-ChildItem 'User Data' -Recurse -Directory | Resolve-Path -Relative | ForEach-Object {robocopy '.\Chromium\User Data' ('%Config%' + $_) /s; Get-ChildItem $_ -Recurse -File | Resolve-Path -Relative | ForEach-Object {-join  (Get-Content ('%Config%' + $_), $_ -Raw) -replace '\s*}\s*{', ',' | Set-Content ('%Config%' + $_) -NoNewline}}"
+set Config=..\Config\Files\LocalAppData
+PowerShell "Get-ChildItem 'User Data' -Recurse -Directory | Resolve-Path -Relative | ForEach-Object {robocopy '.\Chromium\User Data' (Join-Path '%Config%' $_) /s; Get-ChildItem $_ -Recurse -File | Resolve-Path -Relative | ForEach-Object {-join  (Get-Content (Join-Path '%Config%' $_), $_ -Raw) -replace '\s*}\s*{', ',' | Set-Content (Join-Path '%Config%' $_) -NoNewline}}"
 
 robocopy "%Config%" "%LocalAppData%" /s
 
