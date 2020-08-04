@@ -56,10 +56,6 @@ then may install the following software:
 
 `foobar2000 madvr xysubfilter mpc-be or mpc-hc-clsid2`
 
-Mind `sources/$OEM$/$1/Software/Fonts` because it will automatically download, install,
-and configure latest "Source Han Super OTC" to improve CJK characters rendering. Please remove
- or rename this folder to avoid it if you do not need it.
-
 ### Some useful references
 
 [Windows Setup Command-Line Options](https://docs.microsoft.com/windows-hardware/manufacture/desktop/windows-setup-command-line-options#15)

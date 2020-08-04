@@ -38,9 +38,6 @@ REM Copy regional and language settings to all users and also the system account
 control intl.cpl,,/f:"Language.xml"
 reg delete "HKLM\Software\Microsoft\Windows NT\CurrentVersion\GRE_Initialize" /va /f
 
-REM Download and install the latest Source Han Super OTC
-REM Change the default fonts for Chinese, Japanese, and Korean (CJK) languages to Source Han
-call Fonts\setup.cmd
 
 REM Generate JetBrains products silent download and install batch files
 call JetBrains\setup.cmd

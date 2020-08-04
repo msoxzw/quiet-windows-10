@@ -2,17 +2,22 @@
 @echo off
 pushd %~dp0
 
+REM Download and install the latest Source Han Super OTC
 set fonts=https://github.com/adobe-fonts/source-han-super-otc/releases/latest/download/SourceHanNotoCJK.ttc
 
 :download
 aria2c --dir="%SystemRoot%\Fonts" %fonts% || (timeout /t 60 & goto download)
 
 for %%i in (*.reg) do reg import "%%i"
+
+
+REM The default fonts for Chinese, Japanese, and Korean (CJK) languages in Internet Explorer are changed to Source Han
 mklink "..\Config\Registry\Internet Explorer Fonts.reg" "%~dp0Internet Explorer.reg"
 
-set Chromium=..\Chromium\Chromium\User Data\Default\Preferences
-PowerShell "-join (Get-Content '%Chromium%', 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content '%Chromium%' -NoNewline"
+REM The default fonts for Chinese, Japanese, and Korean (CJK) languages in Chromium based browsers are changed to Source Han
+PowerShell "'..\Config\Files\LocalAppData', '%LocalAppData%' | Join-Path -ChildPath 'User Data' | Get-ChildItem -Recurse -Directory | Join-Path -ChildPath '*\Preferences' -Resolve | ForEach-Object {-join (Get-Content $_, 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
 
-for /d %%i in (..\Mozilla\*) do mklink "%%i\defaults\pref\fonts.js" "%~dp0Mozilla.js"
+REM The default fonts for Chinese, Japanese, and Korean (CJK) languages in Mozilla applications are changed to Source Han
+PowerShell "Get-ItemPropertyValue 'HKLM:\Software\Mozilla\*\*\Main' 'Install Directory' | ForEach-Object {Copy-Item Mozilla.js ($_ + '\defaults\pref\fonts.js')}"
 
 popd
