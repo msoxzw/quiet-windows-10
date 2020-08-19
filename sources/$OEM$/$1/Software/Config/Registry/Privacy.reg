@@ -41,6 +41,9 @@ Windows Registry Editor Version 5.00
 "IsMSACloudSearchEnabled"=dword:00000000
 "SafeSearchMode"=dword:00000000
 
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement]
+"ScoobeSystemSettingEnabled"=dword:00000000
+
 [HKEY_CURRENT_USER\Software\Microsoft\Windows Security Health\State]
 "AccountProtection_MicrosoftAccount_Disconnected"=dword:00000000
 "AppAndBrowser_EdgeSmartScreenOff"=dword:00000000
