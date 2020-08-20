@@ -45,6 +45,9 @@ for %%i in (Registry\*.reg) do reg import "%%i"
 REM Add Internet Explorer Tracking Protection Lists
 PowerShell "(Get-Content 'Internet Explorer.json' -Raw | ConvertFrom-Json) | ForEach-Object {$_ | Set-ItemProperty (New-Item 'HKCU:\Software\Microsoft\Internet Explorer\Safety\PrivacIE\Lists' -Name \"{$(New-Guid)}\".ToUpper()).PSPath}"
 
+REM Configure madVR
+PowerShell "Set-ItemProperty HKCU:\Software\madshi\madVR Settings ([System.IO.File]::ReadAllBytes('settings.bin'))"
+
 
 REM Specify the desktop background without changing any setting
 set Wallpaper=%AppData%\Microsoft\Windows\Themes\TranscodedWallpaper
