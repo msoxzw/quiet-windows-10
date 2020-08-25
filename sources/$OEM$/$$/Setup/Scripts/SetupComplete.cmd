@@ -13,7 +13,7 @@ REM Remove all apps for the local system except Microsoft Store
 PowerShell "Get-AppxProvisionedPackage -Online | Where-Object DisplayName Microsoft.WindowsStore -NE | Remove-AppxProvisionedPackage -Online"
 
 REM Remove all Windows capabilities for the local system except language capabilities
-PowerShell "Get-WindowsCapability -Online -LimitAccess | Where-Object { $_.Name -notlike 'Language.*' -and $_.State -eq 'Installed'} | Remove-WindowsCapability -Online"
+:: PowerShell "Get-WindowsCapability -Online -LimitAccess | Where-Object {$_.Name -notlike 'Language.*' -and $_.State -eq 'Installed'} | Remove-WindowsCapability -Online"
 
 
 REM Encrypt the existing used space on the system volume
