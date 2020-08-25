@@ -15,6 +15,8 @@ PowerShell "Get-AppxProvisionedPackage -Online | Where-Object DisplayName Micros
 REM Remove all Windows capabilities for the local system except language capabilities
 :: PowerShell "Get-WindowsCapability -Online -LimitAccess | Where-Object {$_.Name -notlike 'Language.*' -and $_.State -eq 'Installed'} | Remove-WindowsCapability -Online"
 
+REM Disable all Windows optional features for the local system
+:: PowerShell "Get-WindowsOptionalFeature -Online | Where-Object {$_.State -eq 'Enabled'} | Disable-WindowsOptionalFeature -Online -Remove -NoRestart"
 
 REM Encrypt the existing used space on the system volume
 manage-bde -on %SystemDrive% -UsedSpaceOnly
