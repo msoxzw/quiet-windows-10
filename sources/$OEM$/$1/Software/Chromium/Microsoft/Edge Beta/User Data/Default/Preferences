@@ -1,16 +1,4 @@
 {
-  "browser": {
-    "clear_data_on_exit": {
-      "browsing_history": true,
-      "cache": true,
-      "cookies": true,
-      "download_history": true,
-      "form_data": true,
-      "hosted_apps_data": true
-    },
-    "default_browser_infobar_last_declined": "1",
-    "should_reset_check_default_browser": false
-  },
   "enhanced_tracking_prevention": {
     "user_pref": 3
   },
