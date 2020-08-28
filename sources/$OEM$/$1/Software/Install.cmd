@@ -52,6 +52,10 @@ call Chromium\setup.cmd
 REM Configure Firefox and Thunderbird with the custom install directory
 call Mozilla\setup.cmd
 
+REM Download and install the latest Source Han Super OTC
+REM Change the default fonts for Chinese, Japanese, and Korean (CJK) languages to Source Han
+:: call Fonts\setup.cmd
+
 
 for %%i in (Tasks\*.xml) do schtasks /create /tn "%%~ni" /xml "%%i" /f
 
