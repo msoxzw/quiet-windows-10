@@ -1,7 +1,7 @@
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Fonts]
-"Source Han & Noto CJK (TrueType)"="SourceHanNotoCJK.ttc"
+"Source Han (TrueType)"="SourceHan.ttc"
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]
 "Malgun Gothic"="Segoe UI"
