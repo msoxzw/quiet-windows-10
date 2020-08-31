@@ -2,10 +2,8 @@
 @echo off
 pushd %~dp0
 
-set Config=..\Config\Files\LocalAppData
-PowerShell "Get-ChildItem 'User Data' -Recurse -Directory | Resolve-Path -Relative | ForEach-Object {robocopy '.\Chromium\User Data' (Join-Path '%Config%' $_) /s; Get-ChildItem $_ -Recurse -File | Resolve-Path -Relative | ForEach-Object {-join  (Get-Content (Join-Path '%Config%' $_), $_ -Raw) -replace '\s*}\s*{', ',' | Set-Content (Join-Path '%Config%' $_) -NoNewline}}"
-
-robocopy "%Config%" "%LocalAppData%" /s
+set Config='..\Config\Files\LocalAppData', '%LocalAppData%'
+PowerShell "%Config% | ForEach-Object {Copy-Item (Get-ChildItem -Directory) $_ -Force -Filter {PSIsContainer} -Recurse}; Get-ChildItem 'Chromium\User Data' -Recurse -Name -File | ForEach-Object {$chromium = Join-Path 'Chromium\User Data' $_; Get-ChildItem -Filter 'User Data' -Recurse -Name -Directory | Join-Path -ChildPath $_ -PipelineVariable browser | ForEach-Object {Join-Path %Config% $_ | ForEach-Object {-join (Get-Content ($chromium, $browser, $_ | Get-Unique) -Raw -ErrorAction 0) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}}}"
 
 
 reg import Chromium.reg

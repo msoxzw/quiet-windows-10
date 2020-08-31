@@ -15,7 +15,7 @@ REM The default fonts for Chinese, Japanese, and Korean (CJK) languages in Inter
 mklink "..\Config\Registry\Internet Explorer Fonts.reg" "%~dp0Internet Explorer.reg"
 
 REM The default fonts for Chinese, Japanese, and Korean (CJK) languages in Chromium based browsers are changed to Source Han
-PowerShell "'..\Config\Files\LocalAppData', '%LocalAppData%' | Join-Path -ChildPath 'User Data' | Get-ChildItem -Recurse -Directory | Join-Path -ChildPath '*\Preferences' -Resolve | ForEach-Object {-join (Get-Content $_, 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
+PowerShell "'..\Config\Files\LocalAppData', '%LocalAppData%' | Get-ChildItem -Filter 'User Data' -Recurse -Directory | Join-Path -ChildPath '*\Preferences' -Resolve | ForEach-Object {-join (Get-Content $_, 'Chromium.json' -Raw) -replace '\s*}\s*{', ',' | Set-Content $_ -NoNewline}"
 
 REM The default fonts for Chinese, Japanese, and Korean (CJK) languages in Mozilla applications are changed to Source Han
 PowerShell "Get-ItemPropertyValue 'HKLM:\Software\Mozilla\*\*\Main' 'Install Directory' | ForEach-Object {Copy-Item Mozilla.js ($_ + '\defaults\pref\fonts.js')}"
