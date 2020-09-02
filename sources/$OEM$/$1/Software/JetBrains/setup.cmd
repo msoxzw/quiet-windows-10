@@ -7,17 +7,16 @@ if "%~1" == "" (
 )
 
 
-if not exist "%~3" aria2c -d %Temp% --on-download-complete "%~dp0setup.cmd" "https://data.services.jetbrains.com/products/download?code=%1&platform=windows" & exit /b
-
-
 whoami /groups | find "S-1-16-8192" && (PowerShell Start-Process cmd '/c \"\"%~f0\" %*\"' -Verb RunAs & exit /b)
 
 for /f "tokens=2*" %%i in ('reg query HKLM\Software\7-Zip /v Path') do set zip="%%j7z.exe"
 if not exist %zip% exit /b
 
+bitsadmin /transfer %1 "https://data.services.jetbrains.com/products/download?code=%1&platform=windows" "%Temp%\%~1" || exit /b
+
 set InstallDir=%ProgramFiles%\JetBrains
 
-%zip% x -o"%InstallDir%\Temp" %3 -x!$PLUGINSDIR -x!bin\Uninstall.exe.nsis
+%zip% x -o"%InstallDir%\Temp" "%Temp%\%~1" -x!$PLUGINSDIR -x!bin\Uninstall.exe.nsis
 
 pushd %InstallDir%
 

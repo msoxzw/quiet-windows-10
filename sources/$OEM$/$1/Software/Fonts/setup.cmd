@@ -4,9 +4,7 @@ pushd %~dp0
 
 REM Download and install the latest Source Han Super OTC
 set fonts=https://github.com/adobe-fonts/source-han-super-otc/releases/latest/download/SourceHan.ttc
-
-:download
-aria2c --dir="%SystemRoot%\Fonts" %fonts% || (timeout /t 60 & goto download)
+bitsadmin /transfer "Source Han Super OTC" "%fonts%" "%SystemRoot%\Fonts\SourceHan.ttc" || exit /b
 
 for %%i in (*.reg) do reg import "%%i"
 
