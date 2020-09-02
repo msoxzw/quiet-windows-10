@@ -11,8 +11,6 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\madshi\madHcCtrl]
 "ShowTrayIcon"=dword:00000000
 
-[HKEY_CURRENT_USER\Software\madshi\madVR]
-
 [HKEY_CURRENT_USER\Software\MPC-BE\Filters\MPC Audio Renderer]
 "DeviceMode"=dword:00000001
 
