@@ -2,7 +2,7 @@
 
 if "%~1" == "" (
     set products=https://data.services.jetbrains.com/products?fields=code,name,distributions
-    PowerShell "(Invoke-WebRequest $env:products | ConvertFrom-Json).Where{$_.distributions.windows}.ForEach{Set-Content ('%~dp0' + $_.name + '.cmd') ('@\"%%~dp0setup.cmd\" ' + $_.code)}"
+    PowerShell "(Invoke-WebRequest '%products%' | ConvertFrom-Json).Where{$_.distributions.windows}.ForEach{Set-Content ('%~dp0' + $_.name + '.cmd') ('@\"%%~dp0setup.cmd\" ' + $_.code)}"
     exit /b
 )
 
@@ -21,6 +21,6 @@ set InstallDir=%ProgramFiles%\JetBrains
 
 pushd %InstallDir%
 
-PowerShell "(Get-Content 'Temp\product-info.json' | ConvertFrom-Json) | ForEach-Object {Remove-Item $_.name -Recurse; Move-Item 'Temp' $_.name; New-Item '%Public%\Desktop' -Name $_.name -ItemType SymbolicLink -Value (Join-Path $_.name $_.launch[0].launcherPath) -Force}"
+PowerShell "$product=Get-Content 'Temp\product-info.json' | ConvertFrom-Json; Remove-Item $product.name -Recurse; Move-Item 'Temp' $product.name; New-Item '%Public%\Desktop' -Name $product.name -ItemType SymbolicLink -Value (Join-Path $product.name $product.launch[0].launcherPath) -Force"
 
 popd
