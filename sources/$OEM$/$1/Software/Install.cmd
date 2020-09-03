@@ -39,9 +39,6 @@ control intl.cpl,,/f:"Language.xml"
 reg delete "HKLM\Software\Microsoft\Windows NT\CurrentVersion\GRE_Initialize" /va /f
 
 
-REM Generate JetBrains products silent download and install batch files
-call JetBrains\setup.cmd
-
 REM Set desktop backgroud as the default lock screen image without changing any setting
 REM Require turning off all suggestions
 call LockScreen.cmd
