@@ -7,7 +7,11 @@ REM Set DNS server addresses with Anonymized EDNS Client Subnet support and no l
 set DNS=('45.90.28.0','45.90.30.0','2a07:a8c0::','2a07:a8c1::')
 PowerShell "if (Resolve-DnsName example.com -Server %DNS%) {Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses %DNS%}"
 
+REM Configure preferences for Windows Defender
 PowerShell Set-MpPreference -MAPSReporting Disabled -PUAProtection Disabled -SubmitSamplesConsent NeverSend
+
+REM Disable Windows Error Reporting
+PowerShell "Disable-WindowsErrorReporting"
 
 REM Remove all apps for the local system except Microsoft Store
 PowerShell "Get-AppxProvisionedPackage -Online | Where-Object DisplayName Microsoft.WindowsStore -NE | Remove-AppxProvisionedPackage -Online"

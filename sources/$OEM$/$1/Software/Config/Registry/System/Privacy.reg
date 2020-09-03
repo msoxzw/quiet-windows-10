@@ -12,9 +12,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System]
 "NoConnectedUser"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Windows Error Reporting]
-"Disabled"=dword:00000001
-
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Security Health\State]
 "AppAndBrowser_AppRepSmartScreenOff"=dword:00000000
 "Defender_AutoSampleSubmissionDisabled"=dword:00000000
