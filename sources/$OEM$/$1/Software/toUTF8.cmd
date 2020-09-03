@@ -1,6 +1,5 @@
 @echo off
 
-set files=%*
-set files=%files:"=\"%
+set "command=& {$args | ForEach-Object {(Get-Content -LiteralPath $_ -Raw) -replace "`r`n", "`n" | Set-Content -LiteralPath $_ -NoNewline}} %*"
 
-PowerShell "& {$args | ForEach-Object {(Get-Content -LiteralPath $_ -Raw) -replace \"`r`n\",\"`n\" | Set-Content -LiteralPath $_ -NoNewline}}" %files%
+PowerShell "%command:"=\"%"
