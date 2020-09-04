@@ -7,7 +7,7 @@ del "%USERPROFILE%\Desktop\*.lnk"
 explorer
 
 REM Enable MAC randomization on all wireless LAN interfaces
-for /f "tokens=2*" %%i in ('netsh wlan show interfaces ^| find "Name"') do netsh wlan set randomization enabled=yes interface="%%j"
+netsh wlan set randomization enabled=yes interface=*
 
 REM Set the current time zone to Coordinated Universal Time
 :: tzutil /s UTC
