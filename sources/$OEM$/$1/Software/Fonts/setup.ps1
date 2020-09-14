@@ -1,8 +1,11 @@
 Push-Location $PSScriptRoot
 
 # Download and install the latest Source Han Super OTC
-Start-BitsTransfer 'https://github.com/adobe-fonts/source-han-super-otc/releases/latest/download/SourceHan.ttc' (Join-Path $env:SystemRoot 'Fonts')
-if (-not $?) {return}
+$source = 'https://github.com/adobe-fonts/source-han-super-otc/releases/latest/download/SourceHan.ttc'
+$destination = Join-Path $env:SystemRoot 'Fonts' | Join-Path -ChildPath (Split-Path $source -Leaf)
+do {
+    bitsadmin /transfer 'Downloading Source Han Super OTC' /dynamic $source $destination
+} until ($?)
 
 Get-Item '*.reg' | ForEach-Object {reg import $_}
 
