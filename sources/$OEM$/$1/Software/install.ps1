@@ -22,7 +22,7 @@ do {
 
 
 # Associate archive formats with 7-Zip with the system default icon
-$OpenCommend = '"{0}" "{1}"' -f Get-ItemPropertyValue 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\7-Zip' 'DisplayIcon', '%1'
+$OpenCommend = '"{0}" "%1"' -f (Get-ItemPropertyValue 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\7-Zip' 'DisplayIcon')
 $FileTypes = '001 7z arj bz2 bzip2 cpio deb gz gzip lha lzh lzma rar rpm tar taz tbz tbz2 tgz tpz txz xz z zip'
 foreach ($FileType in $FileTypes) {
 	New-Item "HKLM:\Software\Classes\.$FileType" -Value "7-Zip.$FileType" -Force
