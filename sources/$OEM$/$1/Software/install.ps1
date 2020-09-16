@@ -22,21 +22,21 @@ do {
 
 
 # Associate archive formats with 7-Zip with the system default icon
+$DefaultIcon = Get-ItemPropertyValue 'Registry::HKEY_CLASSES_ROOT\CompressedFolder\DefaultIcon' '(Default)'
 $OpenCommend = '"{0}" "%1"' -f (Get-ItemPropertyValue 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\7-Zip' 'DisplayIcon')
-$FileTypes = '001 7z arj bz2 bzip2 cpio deb gz gzip lha lzh lzma rar rpm tar taz tbz tbz2 tgz tpz txz xz z zip'
+$FileTypes = '001 7z arj bz2 bzip2 cpio deb gz gzip lha lzh lzma rar rpm tar taz tbz tbz2 tgz tpz txz xar xz z zip'.Split()
 foreach ($FileType in $FileTypes) {
-	New-Item "HKLM:\Software\Classes\.$FileType" -Value "7-Zip.$FileType" -Force
-	New-Item "HKLM:\Software\Classes\7-Zip.$FileType" -Value "$FileType Archive" -Force
-	New-Item "HKLM:\Software\Classes\7-Zip.$FileType\Shell\Open\Command" -Value $OpenCommend -Force
-	Copy-Item "HKLM:\Software\Classes\CompressedFolder\DefaultIcon" "HKLM:\Software\Classes\7-Zip.$FileType"
+	[Microsoft.Win32.Registry]::SetValue("HKEY_CLASSES_ROOT\.$FileType", "", "7-Zip.$FileType")
+	[Microsoft.Win32.Registry]::SetValue("HKEY_CLASSES_ROOT\7-Zip.$FileType", "", "$FileType Archive")
+	[Microsoft.Win32.Registry]::SetValue("HKEY_CLASSES_ROOT\7-Zip.$FileType\DefaultIcon", "", $DefaultIcon)
+	[Microsoft.Win32.Registry]::SetValue("HKEY_CLASSES_ROOT\7-Zip.$FileType\Shell\Open\Command", "", $OpenCommend)
 }
 
 
 # Configure CCleaner Portable
 $ccleaner_ini = Join-Path $env:ChocolateyInstall 'lib\ccleaner.portable\tools\ccleaner.ini'
-Set-Content $ccleaner_ini '[Options]'
 $CCleaner = Get-Item 'HKCU:\Software\Piriform\CCleaner'
-$CCleaner.GetValueNames() | ForEach-Object {"$_=$($CCleaner.GetValue($_))"} | Add-Content $ccleaner_ini
+$CCleaner.GetValueNames() | ForEach-Object {'[Options]'} {"$_=$($CCleaner.GetValue($_))"} | Set-Content $ccleaner_ini
 
 # Copy regional and language settings to all users and also the system account (logonUI screen)
 control 'intl.cpl,,/f:"Language.xml"'

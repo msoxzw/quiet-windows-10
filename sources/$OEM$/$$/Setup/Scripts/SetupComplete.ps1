@@ -27,7 +27,7 @@ Get-AppxProvisionedPackage -Online | Where-Object DisplayName 'Microsoft.Windows
 Enable-BitLocker $env:SystemDrive -UsedSpaceOnly
 
 # Disable the hibernate feature
-powercfg /h off
+powercfg /hibernate off
 
 # Set time zone automatically
 Set-Service 'tzautoupdate' -StartupType Manual
@@ -38,28 +38,24 @@ w32tm /config /syncfromflags:manual /manualpeerlist:"0.pool.ntp.org 1.pool.ntp.o
 
 
 # Turn off all startup apps for the system account
-$key = New-Item 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run' -Force
-(Get-Item 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Run').Property.ForEach({$key.SetValue($_, [byte[]]3)})
+(Get-Item 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Run').Property.ForEach({[Microsoft.Win32.Registry]::SetValue('HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run', $_, [byte[]]3)})
 
 # Download and install apps when any network connection is available
-$key = New-Item 'HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce' -Force
-$key.SetValue('Install', 'schtasks /create /tn Install /xml "%SystemDrive%\Software\Install.xml" /f')
+[Microsoft.Win32.Registry]::SetValue('HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce', 'Install', 'schtasks /create /tn Install /xml "%SystemDrive%\Software\Install.xml" /f')
 
 # Configure system and apps for the system account
 Join-Path $env:SystemDrive 'Software\Config\Registry\System\*.reg' -Resolve | ForEach-Object {reg import $_}
 
 
-reg load 'HKLM\Default' (Join-Path $env:SystemDrive 'Users\Default\NTUSER.DAT')
+reg load 'HKU\Default' (Join-Path $env:SystemDrive 'Users\Default\NTUSER.DAT')
 
 # Turn off all startup apps for a new user account
-$key = New-Item 'HKLM:\Default\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run' -Force
-(Get-Item 'HKLM:\Default\Software\Microsoft\Windows\CurrentVersion\Run').Property.ForEach({$key.SetValue($_, [byte[]]3)})
+(Get-Item 'HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\Run').Property.ForEach({[Microsoft.Win32.Registry]::SetValue('HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run', $_, [byte[]]3)})
 
 # Configure system and apps for a new user account when signing in to the computer for the first time
-$key = New-Item 'HKLM:\Default\Software\Microsoft\Windows\CurrentVersion\RunOnce' -Force
-$key.SetValue('Setup', '%SystemDrive%\Software\Config\setup.cmd')
+[Microsoft.Win32.Registry]::SetValue('HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\RunOnce', 'Setup', '%SystemDrive%\Software\Config\setup.cmd')
 
-reg unload 'HKLM\Default'
+reg unload 'HKU\Default'
 
 
 Restart-Computer

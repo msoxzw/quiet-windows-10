@@ -24,9 +24,8 @@ Set-WinUserLanguageList -LanguageList $LanguageList -Force
 
 
 # Turn off all app permissions for the current user account
-foreach ($Capability in Get-ChildItem 'HKLM:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\Capabilities') {
-	$key = New-Item 'HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore' -Name $Capability -Force
-	$key.SetValue('Value', 'Deny')
+foreach ($Capability in Get-ChildItem 'HKLM:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\Capabilities' -Name) {
+	[Microsoft.Win32.Registry]::SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\$Capability", 'Value', 'Deny')
 }
 
 # Turn off all suggestions for the current user account
@@ -48,8 +47,7 @@ Get-Item 'Registry\*.reg' | ForEach-Object {reg import $_}
 (Get-Content 'Internet Explorer.json' -Raw | ConvertFrom-Json) | ForEach-Object {$_ | Set-ItemProperty (New-Item 'HKCU:\Software\Microsoft\Internet Explorer\Safety\PrivacIE\Lists' -Name "{$(New-Guid)}".ToUpper() -Force).PSPath}
 
 # Configure madVR
-$key = New-Item 'HKCU:\Software\madshi\madVR' -Force
-$key.SetValue('Settings', [System.IO.File]::ReadAllBytes((Get-Item 'settings.bin')))
+[Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\madshi\madVR', 'Settings', [System.IO.File]::ReadAllBytes((Get-Item 'settings.bin')))
 
 # Specify the desktop background without changing any setting
 $Wallpaper = Join-Path $env:AppData 'Microsoft\Windows\Themes\TranscodedWallpaper'
