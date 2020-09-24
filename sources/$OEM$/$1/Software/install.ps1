@@ -2,10 +2,7 @@ Push-Location $PSScriptRoot
 
 # Set DNS server addresses with Anonymized EDNS Client Subnet support and no logging only if any of them are operational.
 $DNS = '45.90.28.0','45.90.30.0','2a07:a8c0::', '2a07:a8c1::'
-Resolve-DnsName example.com -Server $DNS
-if ($?) {
-    Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses $DNS
-}
+Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses $DNS -Validate
 
 # Install Chocolatey
 while ($env:ChocolateyInstall -eq $null) {
@@ -68,10 +65,7 @@ foreach ($image in Get-ChildItem $WallpaperPath -Filter 'CachedImage_*') {
 Get-Item 'Tasks\*.xml' | ForEach-Object {Register-ScheduledTask $_.BaseName -Xml (Get-Content $_ -Raw)}
 
 # Set local DNS server addresses only if any of them are operational.
-Resolve-DnsName example.com -Server 'localhost'
-if ($?) {
-    Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses (Resolve-DnsName 'localhost').IPAddress
-}
+Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses (Resolve-DnsName 'localhost').IPAddress -Validate
 
 Disable-ScheduledTask 'Install'
 

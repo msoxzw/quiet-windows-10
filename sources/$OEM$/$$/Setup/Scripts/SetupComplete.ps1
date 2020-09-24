@@ -3,10 +3,7 @@ Rename-Computer -NewName Computer
 
 # Set DNS server addresses with Anonymized EDNS Client Subnet support and no logging only if any of them are operational.
 $DNS = '45.90.28.0','45.90.30.0','2a07:a8c0::', '2a07:a8c1::'
-Resolve-DnsName example.com -Server $DNS
-if ($?) {
-    Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses $DNS
-}
+Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses $DNS -Validate
 
 # Configure preferences for Windows Defender
 Set-MpPreference -MAPSReporting Disabled -PUAProtection Disabled -SubmitSamplesConsent NeverSend
