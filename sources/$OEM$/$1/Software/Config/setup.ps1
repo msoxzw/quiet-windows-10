@@ -39,20 +39,20 @@ Remove-Item 'HKCU:\Software\Microsoft\Windows\CurrentVersion\CloudStore' -Recurs
 Clear-Item 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband'
 
 # Configure system and apps for the current user account
-Get-ChildItem 'Files' -Directory | ForEach-Object {Copy-Item (Join-Path $_ '*') (Get-Item env:$_) -Force -Recurse}
-Get-Item 'Registry\*.reg' | ForEach-Object {reg import $_}
+Get-ChildItem 'Files' -Directory | ForEach-Object {Copy-Item (Join-Path $_.FullName '*') (Get-Item env:$_).Value -Force -Recurse}
+Join-Path 'Registry' '*.reg' -Resolve | ForEach-Object {reg import $_}
 
 
 # Add Internet Explorer Tracking Protection Lists
 (Get-Content 'Internet Explorer.json' -Raw | ConvertFrom-Json) | ForEach-Object {$_ | Set-ItemProperty (New-Item 'HKCU:\Software\Microsoft\Internet Explorer\Safety\PrivacIE\Lists' -Name "{$(New-Guid)}".ToUpper() -Force).PSPath}
 
 # Configure madVR
-[Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\madshi\madVR', 'Settings', [System.IO.File]::ReadAllBytes((Get-Item 'settings.bin')))
+[Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\madshi\madVR', 'Settings', [System.IO.File]::ReadAllBytes((Resolve-Path 'settings.bin')))
 
 # Specify the desktop background without changing any setting
 $Wallpaper = Join-Path $env:AppData 'Microsoft\Windows\Themes\TranscodedWallpaper'
 
-Copy-Item 'Wallpaper\*' $Wallpaper
+Copy-Item (Join-Path 'Wallpaper' '*') $Wallpaper
 Clear-Content (Join-Path $Wallpaper '..\CachedFiles\*')
 
 logoff

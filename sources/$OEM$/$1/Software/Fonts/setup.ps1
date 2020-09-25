@@ -2,12 +2,12 @@ Push-Location $PSScriptRoot
 
 # Download and install the latest Source Han Super OTC
 $source = 'https://github.com/adobe-fonts/source-han-super-otc/releases/latest/download/SourceHan.ttc'
-$destination = Join-Path $env:SystemRoot 'Fonts' | Join-Path -ChildPath (Split-Path $source -Leaf)
+$destination = Join-Path (Join-Path $env:SystemRoot 'Fonts') (Split-Path $source -Leaf)
 do {
     bitsadmin /transfer 'Downloading Source Han Super OTC' /dynamic $source $destination
 } until ($?)
 
-Get-Item '*.reg' | ForEach-Object {reg import $_}
+Resolve-Path '*.reg' | ForEach-Object {reg import $_}
 
 
 # The default fonts for Chinese, Japanese, and Korean (CJK) languages in Internet Explorer are changed to Source Han
