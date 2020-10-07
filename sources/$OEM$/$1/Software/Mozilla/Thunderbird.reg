@@ -1,5 +1,8 @@
 Windows Registry Editor Version 5.00
 
+[HKEY_LOCAL_MACHINE\Software\Thunderbird\Crash Reporter]
+"SubmitCrashReport"=dword:00000000
+
 [HKEY_LOCAL_MACHINE\Software\Policies\Mozilla\Thunderbird\Extensions\Install]
 ; Mail Merge
 ; https://addons.thunderbird.net/thunderbird/addon/mail-merge/
