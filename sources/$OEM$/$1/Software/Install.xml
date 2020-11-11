@@ -20,7 +20,8 @@
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>%SystemDrive%\Software\Install.cmd</Command>
+      <Command>PowerShell</Command>
+      <Arguments>-ExecutionPolicy Bypass -File "%SystemDrive%\Software\Install.cmd"</Arguments>
     </Exec>
   </Actions>
 </Task>
