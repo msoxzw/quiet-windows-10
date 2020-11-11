@@ -32,9 +32,6 @@ Windows Registry Editor Version 5.00
 "DontOfferThroughWUAU"=dword:00000001
 "DontReportInfectionInformation"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Windows Search]
-"ConnectedSearchUseWeb"=dword:00000000
-
 [HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform]
 "NoGenTicket"=dword:00000001
 
