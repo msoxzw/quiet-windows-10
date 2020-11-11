@@ -5,9 +5,6 @@ Rename-Computer -NewName Computer
 $DNS = '45.90.28.0','45.90.30.0','2a07:a8c0::', '2a07:a8c1::'
 Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses $DNS -Validate
 
-# Configure preferences for Windows Defender
-Set-MpPreference -MAPSReporting Disabled -PUAProtection Disabled -SubmitSamplesConsent NeverSend
-
 # Disable Windows Error Reporting
 Disable-WindowsErrorReporting
 
