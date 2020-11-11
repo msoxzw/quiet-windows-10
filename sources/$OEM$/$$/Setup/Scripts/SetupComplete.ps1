@@ -18,7 +18,7 @@ Get-AppxProvisionedPackage -Online | Where-Object DisplayName 'Microsoft.Microso
 # Get-WindowsOptionalFeature -Online | Where-Object State 'Enabled' -EQ | Disable-WindowsOptionalFeature -Online -Remove -NoRestart
 
 # Encrypt the existing used space on the system volume
-Enable-BitLocker $env:SystemDrive -UsedSpaceOnly
+Enable-BitLocker $env:SystemDrive -TpmProtector -UsedSpaceOnly
 
 # Disable the hibernate feature
 powercfg /hibernate off
