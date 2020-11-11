@@ -46,6 +46,14 @@ Join-Path 'Registry' '*.reg' -Resolve | ForEach-Object {reg import $_}
 # Configure madVR
 [Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\madshi\madVR', 'Settings', [System.IO.File]::ReadAllBytes((Resolve-Path 'settings.bin')))
 
+
+# Turn off activity history
+$CDPPath = Join-Path $env:LocalAppdata 'ConnectedDevicesPlatform\CDPGlobalSettings.cdp'
+$CDP = Get-Content $CDPPath -Raw | ConvertFrom-Json
+$CDP.AfcPrivacySettings.PublishUserActivity = 1
+$CDP.AfcPrivacySettings.UploadUserActivity = 1
+ConvertTo-Json $CDP | Set-Content $CDPPath -NoNewline
+
 # Specify the desktop background without changing any setting
 $Wallpaper = Join-Path $env:AppData 'Microsoft\Windows\Themes\TranscodedWallpaper'
 
