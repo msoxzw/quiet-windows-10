@@ -58,13 +58,6 @@ if ([Environment]::Is64BitOperatingSystem) {
 # Clear desktop for the current user account
 Remove-Item (Join-Path $HOME 'Desktop\*.lnk')
 
-# Turn off activity history
-$CDPPath = Join-Path $env:LocalAppdata 'ConnectedDevicesPlatform\CDPGlobalSettings.cdp'
-$CDP = Get-Content $CDPPath -Raw | ConvertFrom-Json
-$CDP.AfcPrivacySettings.PublishUserActivity = 1
-$CDP.AfcPrivacySettings.UploadUserActivity = 1
-ConvertTo-Json $CDP | Set-Content $CDPPath -NoNewline
-
 # Specify the desktop background without changing any setting
 $Wallpaper = Join-Path $env:AppData 'Microsoft\Windows\Themes\TranscodedWallpaper'
 
