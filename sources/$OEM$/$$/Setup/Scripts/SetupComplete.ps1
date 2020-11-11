@@ -51,6 +51,8 @@ reg load 'HKU\Default' (Join-Path $env:SystemDrive 'Users\Default\NTUSER.DAT')
 
 reg unload 'HKU\Default'
 
+# Clear desktop for the system account
+Remove-Item (Join-Path $env:PUBLIC 'Desktop\*.lnk')
 
 # Set default empty Start layout
 Copy-Item (Join-Path $PSScriptRoot 'DefaultLayouts.xml') (Join-Path $env:SystemDrive 'Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml')
