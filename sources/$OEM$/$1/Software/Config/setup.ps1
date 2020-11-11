@@ -60,4 +60,4 @@ $Wallpaper = Join-Path $env:AppData 'Microsoft\Windows\Themes\TranscodedWallpape
 Copy-Item (Join-Path 'Wallpaper' '*') $Wallpaper
 Clear-Content (Join-Path $Wallpaper '..\CachedFiles\*')
 
-logoff
+shutdown /l
