@@ -5,9 +5,6 @@ explorer
 # Enable MAC randomization on all wireless LAN interfaces
 netsh wlan set randomization enabled=yes interface=*
 
-# Clear desktop for the current user account
-Remove-Item (Join-Path $HOME 'Desktop\*.lnk')
-
 # Set the current time zone to Coordinated Universal Time
 # Set-TimeZone -Id 'UTC'
 
@@ -46,6 +43,9 @@ Join-Path 'Registry' '*.reg' -Resolve | ForEach-Object {reg import $_}
 # Configure madVR
 [Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\madshi\madVR', 'Settings', [System.IO.File]::ReadAllBytes((Resolve-Path 'settings.bin')))
 
+
+# Clear desktop for the current user account
+Remove-Item (Join-Path $HOME 'Desktop\*.lnk')
 
 # Turn off activity history
 $CDPPath = Join-Path $env:LocalAppdata 'ConnectedDevicesPlatform\CDPGlobalSettings.cdp'
