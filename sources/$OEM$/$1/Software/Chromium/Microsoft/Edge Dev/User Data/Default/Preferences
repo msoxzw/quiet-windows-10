@@ -2,6 +2,9 @@
   "enhanced_tracking_prevention": {
     "user_pref": 3
   },
+  "localsuggest": {
+    "enabled":false
+  },
   "newtab_page_location_override": "chrome-search://local-ntp/local-ntp.html",
   "ntp": {
     "layout_mode": 0
