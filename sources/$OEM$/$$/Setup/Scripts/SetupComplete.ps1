@@ -11,8 +11,8 @@ Set-MpPreference -MAPSReporting Disabled -PUAProtection Disabled -SubmitSamplesC
 # Disable Windows Error Reporting
 Disable-WindowsErrorReporting
 
-# Remove all apps for the local system except Microsoft Store
-Get-AppxProvisionedPackage -Online | Where-Object DisplayName 'Microsoft.WindowsStore' -NE | Remove-AppxProvisionedPackage -Online
+# Remove all apps for the local system except "Microsoft Edge" and "Microsoft Store"
+Get-AppxProvisionedPackage -Online | Where-Object DisplayName 'Microsoft.MicrosoftEdge.Stable', 'Microsoft.WindowsStore' -NotIn | Remove-AppxProvisionedPackage -Online
 
 # Remove all Windows capabilities for the local system except language capabilities
 # Get-WindowsCapability -Online -LimitAccess | Where-Object {$_.Name -notlike 'Language.*' -and $_.State -eq 'Installed'} | Remove-WindowsCapability -Online

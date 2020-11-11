@@ -25,9 +25,7 @@ As less redundant setting and magic number as possible
 
 Skip OOBE in the installation
 
-Remove all apps except Microsoft Store
-
-Remove all Windows capabilities except language capabilities
+Remove all apps except Microsoft Edge and Microsoft Store
 
 Turn off all startup apps (Prevent OneDrive installation from inception)
 
