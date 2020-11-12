@@ -11,6 +11,7 @@ defaultPref("extensions.getAddons.cache.enabled", false);
 defaultPref("extensions.systemAddon.update.enabled", false);
 defaultPref("mail.minimizeToTray", true);
 defaultPref("mail.provider.enabled", false);
+defaultPref("mail.rights.version", 1);
 defaultPref("mail.sanitize_date_header", true);
 defaultPref("mail.suppress_content_language", true);
 defaultPref("mail.shell.checkDefaultClient", false);
