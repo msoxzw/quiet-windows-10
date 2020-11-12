@@ -19,6 +19,7 @@ defaultPref("browser.slowStartup.notificationDisabled", true);
 defaultPref("browser.startup.homepage", "https://www.wikipedia.org/");
 pref("browser.startup.homepage_override.mstone", "ignore");
 defaultPref("browser.tabs.crashReporting.sendReport", false);
+defaultPref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 defaultPref("browser.urlbar.speculativeConnect.enabled", false);
 defaultPref("datareporting.healthreport.uploadEnabled", false);
 defaultPref("datareporting.policy.dataSubmissionEnabled", false);
