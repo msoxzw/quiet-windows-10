@@ -1,6 +1,5 @@
 // Mozilla Preferences
 
-defaultPref("accessibility.force_disabled", 1);
 defaultPref("browser.cache.disk.enable", false);
 defaultPref("browser.cache.offline.enable", false);
 defaultPref("browser.formfill.enable", false);

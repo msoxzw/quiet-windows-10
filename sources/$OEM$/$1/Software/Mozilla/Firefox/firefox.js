@@ -1,6 +1,5 @@
 // Mozilla Preferences
 
-defaultPref("accessibility.force_disabled", 1);
 defaultPref("app.normandy.enabled", false);
 defaultPref("browser.cache.disk.enable", false);
 defaultPref("browser.cache.memory.capacity", getPref("browser.cache.disk.capacity"));
