@@ -9,6 +9,8 @@ these files automatically during installation.
 
 The recommended Windows 10 direct download location is https://tb.rg-adguard.net/
 
+Window 10 Education edition is recommended, because it is best concerning privacy. 
+
 ### Goals
 
 Automatic deployment and encryption
