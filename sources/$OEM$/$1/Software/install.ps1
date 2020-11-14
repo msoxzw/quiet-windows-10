@@ -1,9 +1,5 @@
 Push-Location $PSScriptRoot
 
-# Set DNS server addresses with Anonymized EDNS Client Subnet support and no logging only if any of them are operational.
-$DNS = '45.90.28.0','45.90.30.0','2a07:a8c0::', '2a07:a8c1::'
-Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses $DNS -Validate
-
 # Install Chocolatey
 while ($env:ChocolateyInstall -eq $null) {
     $env:chocolateyUseWindowsCompression = 'true'
