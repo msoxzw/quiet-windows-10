@@ -31,7 +31,7 @@ $CCleaner = Get-Item 'HKCU:\Software\Piriform\CCleaner'
 $CCleaner.GetValueNames() | ForEach-Object {'[Options]'} {'{0}={1}' -f $_, $CCleaner.GetValue($_)} | Set-Content (Join-Path $env:ChocolateyInstall 'lib\ccleaner.portable\tools\ccleaner.ini')
 
 # Copy regional and language settings to all users and also the system account (logonUI screen)
-control 'intl.cpl,,/f:"Language.xml"'
+Start-Process control 'intl.cpl,,/f:"Language.xml"' -Wait
 Clear-Item 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\GRE_Initialize'
 
 
