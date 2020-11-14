@@ -37,12 +37,15 @@ Join-Path $env:SystemDrive 'Software\Config\Registry\System\*.reg' -Resolve | Fo
 reg load 'HKU\Default' (Join-Path $env:SystemDrive 'Users\Default\NTUSER.DAT')
 
 # Turn off all startup apps for a new user account
-(Get-Item 'Registry::HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\Run').Property.ForEach({[Microsoft.Win32.Registry]::SetValue('HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run', $_, [byte[]]3)})
+$key = Get-Item 'Registry::HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\Run'
+$key.Property.ForEach({[Microsoft.Win32.Registry]::SetValue('HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run', $_, [byte[]]3)})
+$key.Close()
 
 # Configure system and apps for a new user account when signing in to the computer for the first time
 [Microsoft.Win32.Registry]::SetValue('HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\RunOnce', 'Setup', 'PowerShell -ExecutionPolicy Bypass -File "%SystemDrive%\Software\Config\setup.ps1"', [Microsoft.Win32.RegistryValueKind]::ExpandString)
 
 reg unload 'HKU\Default'
+
 
 # Clear desktop for the system account
 Remove-Item (Join-Path $env:PUBLIC 'Desktop\*.lnk')
