@@ -1,4 +1,5 @@
 {
+  "edge_shopping_assistant_enabled":false,
   "enhanced_tracking_prevention": {
     "user_pref": 3
   },
