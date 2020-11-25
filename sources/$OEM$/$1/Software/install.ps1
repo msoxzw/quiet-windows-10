@@ -41,7 +41,7 @@ takeown /f (Join-Path $env:ProgramData 'Microsoft\Windows\SystemData') /a /r /d 
 $ScreenPath = Join-Path $env:ProgramData 'Microsoft\Windows\SystemData\S-1-5-18\ReadOnly\LockScreen_Z'
 $WallpaperPath = Join-Path $env:AppData 'Microsoft\Windows\Themes\CachedFiles'
 foreach ($image in Get-ChildItem $WallpaperPath 'CachedImage_*') {
-    $name = 'LockScreen___{0:d4}_{1:d4}_notdimmed.jpg' -f $image.BaseName.Split('_')[1,2]
+    $name = 'LockScreen___{0}_{1}_notdimmed.jpg' -f $image.BaseName.Split('_')[1, 2].PadLeft(4, '0')
     New-Item $ScreenPath -Name $name -ItemType SymbolicLink -Value $image.FullName -Force
 }
 
