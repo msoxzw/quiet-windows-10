@@ -1,10 +1,8 @@
 Push-Location $PSScriptRoot
 
 # Download and install the latest Source Han Super OTC
-$source = 'https://github.com/adobe-fonts/source-han-super-otc/releases/latest/download/SourceHan.ttc'
-$destination = Join-Path (Join-Path $env:SystemRoot 'Fonts') (Split-Path $source -Leaf)
 do {
-    bitsadmin /transfer 'Downloading Source Han Super OTC' /dynamic $source $destination
+    aria2c -d (Join-Path $env:SystemRoot 'Fonts') 'https://github.com/adobe-fonts/source-han-super-otc/releases/latest/download/SourceHan.ttc'
 } until ($?)
 
 Resolve-Path '*.reg' | ForEach-Object {reg import $_}
