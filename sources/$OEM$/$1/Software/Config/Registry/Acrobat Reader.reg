@@ -19,3 +19,6 @@ Windows Registry Editor Version 5.00
 "bDontShowMsgWhenViewingDoc"=dword:00000001
 "bShowMsgAtLaunch"=dword:00000000
 
+[HKEY_CURRENT_USER\SOFTWARE\Adobe\Acrobat Reader\DC\Originals]
+"bDisplayedSplash"=dword:00000001
+
