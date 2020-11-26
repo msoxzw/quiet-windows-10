@@ -1,5 +1,8 @@
 Windows Registry Editor Version 5.00
 
+[HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\AdobeViewer]
+"EULA"=dword:00000001
+
 [HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\AVAlert\cCheckbox]
 "iAppDoNotTakePDFOwnershipAtLaunchWin10"=dword:00000001
 
