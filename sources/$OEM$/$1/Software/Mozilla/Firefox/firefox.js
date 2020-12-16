@@ -39,4 +39,3 @@ defaultPref("privacy.firstparty.isolate", true);
 defaultPref("privacy.resistFingerprinting", true);
 defaultPref("security.OCSP.enabled", 2);
 defaultPref("toolkit.telemetry.unified", false);
-defaultPref("webgl.enable-debug-renderer-info", false);
