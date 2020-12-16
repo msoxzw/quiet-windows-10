@@ -21,6 +21,7 @@ defaultPref("mailnews.start_page.enabled", false);
 pref("mailnews.start_page_override.mstone", "ignore");
 defaultPref("mailnews.view_default_charset", "UTF-8");
 defaultPref("media.peerconnection.ice.relay_only", true);
+defaultPref("network.connectivity-service.enabled", false);
 defaultPref("network.cookie.lifetimePolicy", 2);
 defaultPref("network.http.referer.defaultPolicy", getPref("network.http.referer.defaultPolicy.pbmode"));
 defaultPref("network.trr.disable-ECS", false);

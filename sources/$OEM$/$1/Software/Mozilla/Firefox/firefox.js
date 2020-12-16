@@ -29,6 +29,7 @@ defaultPref("identity.fxaccounts.enabled", false);
 defaultPref("media.gmp-manager.updateEnabled", false);
 defaultPref("media.peerconnection.ice.relay_only", true);
 defaultPref("network.captive-portal-service.enabled", false);
+defaultPref("network.connectivity-service.enabled", false);
 defaultPref("network.cookie.lifetimePolicy", 2);
 defaultPref("network.http.referer.defaultPolicy", getPref("network.http.referer.defaultPolicy.pbmode"));
 defaultPref("network.trr.disable-ECS", false);
