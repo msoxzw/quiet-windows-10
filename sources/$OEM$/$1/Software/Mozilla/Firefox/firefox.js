@@ -7,7 +7,7 @@ defaultPref("browser.cache.memory.max_entry_size", getPref("browser.cache.disk.m
 defaultPref("browser.cache.offline.enable", false);
 pref("browser.contentblocking.category", "strict");
 defaultPref("browser.formfill.enable", false);
-defaultPref("browser.newtabpage.activity-stream.feeds.asrouterfeed", false);
+defaultPref("browser.newtabpage.activity-stream.feeds.snippets", false);
 defaultPref("browser.region.network.url", "");
 defaultPref("browser.safebrowsing.downloads.remote.enabled", false);
 clearPref("browser.search.region");
