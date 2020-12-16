@@ -5,15 +5,15 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\Software\Policies\Chromium\ExtensionInstallForcelist]
 ; ClearURLs
-; https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk
+; https://chrome.google.com/webstore/detail/lckanjgmijmafbedllaakclkaicjfmnk
 "1"="lckanjgmijmafbedllaakclkaicjfmnk"
 ; Decentraleyes
-; https://chrome.google.com/webstore/detail/decentraleyes/ldpochfccmkkmhdbclfhpagapcfdljkj
+; https://chrome.google.com/webstore/detail/ldpochfccmkkmhdbclfhpagapcfdljkj
 "2"="ldpochfccmkkmhdbclfhpagapcfdljkj"
 ; HTTPS Everywhere
-; https://chrome.google.com/webstore/detail/https-everywhere/gcbommkclmclpchllfjekcdonpmejbdp
+; https://chrome.google.com/webstore/detail/gcbommkclmclpchllfjekcdonpmejbdp
 "3"="gcbommkclmclpchllfjekcdonpmejbdp"
 ; uBlock Origin
-; https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
+; https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
 "4"="cjpalhdlnbpafiamejdnhcphjbkeiagm"
 
