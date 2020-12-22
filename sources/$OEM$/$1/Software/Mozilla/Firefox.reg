@@ -4,7 +4,6 @@ Windows Registry Editor Version 5.00
 "SubmitCrashReport"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\Software\Policies\Mozilla\Firefox]
-"DisableDefaultBrowserAgent"=dword:00000001
 "NoDefaultBookmarks"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\Software\Policies\Mozilla\Firefox\Extensions\Install]
