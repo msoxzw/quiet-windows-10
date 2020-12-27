@@ -57,7 +57,7 @@ foreach ($image in Get-ChildItem $WallpaperPath 'CachedImage_*') {
 # & (Join-Path 'Fonts' 'setup.ps1')
 
 
-Get-ChildItem 'Tasks' '*.xml' | ForEach-Object {Register-ScheduledTask $_.BaseName -Xml (Get-Content $_.FullName -Raw)}
+Get-ChildItem 'Tasks' '*.xml' | ForEach-Object {Register-ScheduledTask $_.BaseName -Xml (Get-Content $_.FullName -Raw) -Force}
 
 # Set local DNS server addresses only if any of them are operational.
 Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses (Resolve-DnsName 'localhost').IPAddress -Validate
