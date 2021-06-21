@@ -15,9 +15,9 @@ netsh wlan set randomization enabled=yes interface=*
 Set-WinHomeLocation -GeoId 0xF4
 
 # Insert the language English (United States) to the user's language list
-$LanguageList = Get-WinUserLanguageList
-$LanguageList.Insert(0, 'en-US')
-Set-WinUserLanguageList -LanguageList $LanguageList -Force
+# $LanguageList = Get-WinUserLanguageList
+# $LanguageList.Insert(0, 'en-US')
+# Set-WinUserLanguageList -LanguageList $LanguageList -Force
 
 
 # Turn off all app permissions for the current user account
