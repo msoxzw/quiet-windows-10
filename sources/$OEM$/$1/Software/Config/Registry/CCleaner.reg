@@ -5,6 +5,7 @@ Windows Registry Editor Version 5.00
 "(App)Custom Folders"="True"
 "(App)DNS Cache"="True"
 "(App)Desktop Shortcuts"="True"
+"(App)DirectX Shader Cache"="True"
 "(App)Edge Chromium - Compact Databases"="True"
 "(App)Edge Chromium - Saved Form Information"="True"
 "(App)Edge Chromium - Session"="True"
