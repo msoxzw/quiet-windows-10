@@ -7,7 +7,7 @@ Windows Registry Editor Version 5.00
 "iAppDoNotTakePDFOwnershipAtLaunchWin10"=dword:00000001
 
 [HKEY_CURRENT_USER\Software\Adobe\Acrobat Reader\DC\AVGeneral]
-"aDefaultRHPViewModeL"="Collapsed"
+"aDefaultRHPViewMode_L"="Collapsed"
 "bRHPSticky"=dword:00000001
 "bToggleCustomSaveExperience"=dword:00000001
 "iMaxMRUCntToBeStored"=dword:00000000
