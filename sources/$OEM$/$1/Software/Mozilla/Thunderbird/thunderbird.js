@@ -26,7 +26,7 @@ defaultPref("network.cookie.lifetimePolicy", 2);
 defaultPref("network.http.referer.defaultPolicy", getPref("network.http.referer.defaultPolicy.pbmode"));
 defaultPref("network.trr.disable-ECS", false);
 defaultPref("network.trr.mode", 2);
-defaultPref("network.trr.uri", "https://dns.nextdns.io/");
+defaultPref("network.trr.uri", "https://dns.google/dns-query");
 defaultPref("places.history.enabled", false);
 defaultPref("privacy.firstparty.isolate", true);
 defaultPref("privacy.resistFingerprinting", true);
