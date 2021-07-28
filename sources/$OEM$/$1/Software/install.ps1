@@ -52,10 +52,6 @@ foreach ($image in Get-ChildItem $WallpaperPath 'CachedImage_*') {
 # Configure Firefox and Thunderbird with the custom install directory
 & (Join-Path 'Mozilla' 'setup.ps1')
 
-# Download and install the latest Source Han Super OTC
-# Change the default fonts for Chinese, Japanese, and Korean (CJK) languages to Source Han
-# & (Join-Path 'Fonts' 'setup.ps1')
-
 
 Get-ChildItem 'Tasks' '*.xml' | ForEach-Object {Register-ScheduledTask $_.BaseName -Xml (Get-Content $_.FullName -Raw) -Force}
 
