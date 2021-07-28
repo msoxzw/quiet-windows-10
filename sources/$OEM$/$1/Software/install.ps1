@@ -8,7 +8,7 @@ while ($env:ChocolateyInstall -eq $null) {
 
 # Install Chocolatey packages
 $choco = Join-Path $env:ChocolateyInstall 'choco'
-$packages = '7zip adobereader aria2 ccleaner.portable ffmpeg firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent stubby thunderbird'.Split()
+$packages = '7zip adobereader aria2 ccleaner.portable ffmpeg firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird'.Split()
 do {
 	& $choco install $packages -y
 } until ($?)
@@ -54,9 +54,6 @@ foreach ($image in Get-ChildItem $WallpaperPath 'CachedImage_*') {
 
 
 Get-ChildItem 'Tasks' '*.xml' | ForEach-Object {Register-ScheduledTask $_.BaseName -Xml (Get-Content $_.FullName -Raw) -Force}
-
-# Set local DNS server addresses only if any of them are operational.
-Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses (Resolve-DnsName 'localhost').IPAddress -Validate
 
 Disable-ScheduledTask 'Install'
 
