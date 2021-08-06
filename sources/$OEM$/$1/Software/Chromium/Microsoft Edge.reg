@@ -8,13 +8,7 @@ Windows Registry Editor Version 5.00
 ; ClearURLs
 ; https://microsoftedge.microsoft.com/addons/detail/mdkdmaickkfdekbjdoojfalpbkgaddei
 "1"="mdkdmaickkfdekbjdoojfalpbkgaddei"
-; Decentraleyes
-; https://microsoftedge.microsoft.com/addons/detail/lmijmgnfconjockjeepmlmkkibfgjmla
-"2"="lmijmgnfconjockjeepmlmkkibfgjmla"
-; HTTPS Everywhere
-; https://microsoftedge.microsoft.com/addons/detail/fchjpkplmbeeeaaogdbhjbgbknjobohb
-"3"="fchjpkplmbeeeaaogdbhjbgbknjobohb"
 ; uBlock Origin
 ; https://microsoftedge.microsoft.com/addons/detail/odfafepnkmbhccpbejgmiehpchacaeak
-"4"="odfafepnkmbhccpbejgmiehpchacaeak"
+"2"="odfafepnkmbhccpbejgmiehpchacaeak"
 
