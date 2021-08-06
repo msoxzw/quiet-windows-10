@@ -57,7 +57,7 @@ foreach ($image in Get-ChildItem $WallpaperPath 'CachedImage_*') {
 & (Join-Path 'Config' 'Add Tracking Protection Lists.ps1')
 
 # Configure Chromium based browsers
-& (Join-Path 'Chromium' 'setup.ps1')
+& (Join-Path 'Chromium' 'Policies.ps1')
 
 # Configure Firefox and Thunderbird with the custom install directory
 & (Join-Path 'Mozilla' 'setup.ps1')

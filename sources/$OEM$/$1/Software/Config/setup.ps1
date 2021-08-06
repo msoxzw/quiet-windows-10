@@ -43,6 +43,9 @@ Join-Path 'Registry' '*.reg' -Resolve | ForEach-Object {reg import $_}
 # Add Internet Explorer Tracking Protection Lists from known Adblock Plus subscriptions and by language
 & '.\Add Tracking Protection Lists.ps1'
 
+# Configure Chromium based browsers
+[Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce', 'Chromium', 'PowerShell -ExecutionPolicy Bypass -File "%SystemDrive%\Software\Chromium\Preferences.ps1"', [Microsoft.Win32.RegistryValueKind]::ExpandString)
+
 # Configure IrfanView
 if ([Environment]::Is64BitOperatingSystem) {
 	New-Item (Join-Path $env:AppData 'IrfanView\i_view64.ini') -ItemType HardLink -Value (Join-Path $env:AppData 'IrfanView\i_view32.ini')
