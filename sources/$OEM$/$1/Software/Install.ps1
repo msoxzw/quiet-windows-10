@@ -42,7 +42,7 @@ Start-Process control 'intl.cpl,,/f:"Language.xml"' -Wait
 Clear-Item 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\GRE_Initialize'
 
 
-# Set desktop backgroud as the default lock screen image without changing any setting
+# Set desktop backgroud as the default lock screen image without changing any settings
 # Require turning off all suggestions
 takeown /f (Join-Path $env:ProgramData 'Microsoft\Windows\SystemData') /a /r /d y
 $ScreenPath = Join-Path $env:ProgramData 'Microsoft\Windows\SystemData\S-1-5-18\ReadOnly\LockScreen_Z'
