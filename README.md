@@ -66,5 +66,5 @@ then may install the following software:
 
 [Privacy Tools](https://www.privacytools.io/)
 
-[Windows 10 Tutorial](https://www.tenforums.com/tutorials/)
+[Windows 10 Tutorials](https://www.tenforums.com/tutorials/)
 
