@@ -1,6 +1,6 @@
 {
-  "component_updates":{
-    "component_updates_enabled":false
+  "component_updates": {
+    "component_updates_enabled": false
   },
   "user_experience_metrics": {
     "reporting_enabled": false
