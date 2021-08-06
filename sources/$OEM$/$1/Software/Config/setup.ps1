@@ -43,6 +43,11 @@ Join-Path 'Registry' '*.reg' -Resolve | ForEach-Object {reg import $_}
 # Add Internet Explorer Tracking Protection Lists from known Adblock Plus subscriptions and by language
 & '.\Add Tracking Protection Lists.ps1'
 
+# Configure IrfanView
+if ([Environment]::Is64BitOperatingSystem) {
+	New-Item (Join-Path $env:AppData 'IrfanView\i_view64.ini') -ItemType HardLink -Value (Join-Path $env:AppData 'IrfanView\i_view32.ini')
+}
+
 # Configure madVR
 [Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\madshi\madVR', 'Settings', [System.IO.File]::ReadAllBytes((Resolve-Path 'settings.bin')))
 
