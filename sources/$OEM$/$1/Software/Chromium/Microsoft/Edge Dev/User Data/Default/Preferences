@@ -1,16 +1,12 @@
 {
-  "edge_shopping_assistant_enabled":false,
   "enhanced_tracking_prevention": {
     "user_pref": 3
   },
-  "localsuggest": {
-    "enabled":false
-  },
   "newtab_page_location_override": "chrome-search://local-ntp/local-ntp.html",
-  "ntp": {
-    "layout_mode": 0
-  },
   "resolve_navigation_errors_use_web_service": {
     "enabled": false
+  },
+  "smartscreen": {
+    "trusted_downloads_enabled": false
   }
 }
