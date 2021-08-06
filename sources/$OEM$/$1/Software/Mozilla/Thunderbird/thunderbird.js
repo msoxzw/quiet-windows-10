@@ -26,5 +26,4 @@ defaultPref("network.http.referer.defaultPolicy", getPref("network.http.referer.
 defaultPref("places.history.enabled", false);
 defaultPref("privacy.firstparty.isolate", true);
 defaultPref("privacy.resistFingerprinting", true);
-defaultPref("security.OCSP.enabled", 2);
 defaultPref("toolkit.telemetry.unified", false);
