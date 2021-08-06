@@ -4,7 +4,6 @@ defaultPref("app.normandy.enabled", false);
 defaultPref("browser.cache.disk.enable", false);
 defaultPref("browser.cache.memory.capacity", getPref("browser.cache.disk.capacity"));
 defaultPref("browser.cache.memory.max_entry_size", getPref("browser.cache.disk.max_entry_size"));
-defaultPref("browser.cache.offline.enable", false);
 pref("browser.contentblocking.category", "strict");
 defaultPref("browser.formfill.enable", false);
 defaultPref("browser.newtabpage.activity-stream.feeds.snippets", false);

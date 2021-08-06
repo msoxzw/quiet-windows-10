@@ -1,7 +1,6 @@
 // Mozilla Preferences
 
 defaultPref("browser.cache.disk.enable", false);
-defaultPref("browser.cache.offline.enable", false);
 defaultPref("browser.formfill.enable", false);
 defaultPref("browser.region.network.url", "");
 clearPref("browser.search.region");
