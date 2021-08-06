@@ -9,9 +9,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "AllowOnlineTips"=dword:00000000
 
-[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System]
-"NoConnectedUser"=dword:00000001
-
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender]
 "PUAProtection"=dword:00000000
 
