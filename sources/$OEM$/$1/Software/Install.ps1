@@ -4,7 +4,7 @@ Push-Location $PSScriptRoot
 $DNS = '8.8.8.8','8.8.4.4','2001:4860:4860::8888','2001:4860:4860::8844'
 Resolve-DnsName 'example.com' -Server $DNS
 if ($?) {
-	Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses $DNS
+    Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses $DNS
 }
 
 # Install Chocolatey
@@ -17,7 +17,7 @@ while ($env:ChocolateyInstall -eq $null) {
 $choco = Join-Path $env:ChocolateyInstall 'choco'
 $packages = '7zip adobereader aria2 ccleaner.portable ffmpeg firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird'.Split()
 do {
-	& $choco install $packages -y
+    & $choco install $packages -y
 } until ($?)
 
 
@@ -26,10 +26,10 @@ $DefaultIcon = Get-ItemPropertyValue 'Registry::HKEY_CLASSES_ROOT\CompressedFold
 $OpenCommend = '"{0}" "%1"' -f (Get-ItemPropertyValue 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\7-Zip' 'DisplayIcon')
 $FileTypes = '001 7z arj bz2 bzip2 cpio deb gz gzip lha lzh lzma rar rpm tar taz tbz tbz2 tgz tpz txz xar xz z zip'.Split()
 foreach ($FileType in $FileTypes) {
-	[Microsoft.Win32.Registry]::SetValue("HKEY_CLASSES_ROOT\.$FileType", "", "7-Zip.$FileType")
-	[Microsoft.Win32.Registry]::SetValue("HKEY_CLASSES_ROOT\7-Zip.$FileType", "", "$FileType Archive")
-	[Microsoft.Win32.Registry]::SetValue("HKEY_CLASSES_ROOT\7-Zip.$FileType\DefaultIcon", "", $DefaultIcon)
-	[Microsoft.Win32.Registry]::SetValue("HKEY_CLASSES_ROOT\7-Zip.$FileType\Shell\Open\Command", "", $OpenCommend)
+    [Microsoft.Win32.Registry]::SetValue("HKEY_CLASSES_ROOT\.$FileType", "", "7-Zip.$FileType")
+    [Microsoft.Win32.Registry]::SetValue("HKEY_CLASSES_ROOT\7-Zip.$FileType", "", "$FileType Archive")
+    [Microsoft.Win32.Registry]::SetValue("HKEY_CLASSES_ROOT\7-Zip.$FileType\DefaultIcon", "", $DefaultIcon)
+    [Microsoft.Win32.Registry]::SetValue("HKEY_CLASSES_ROOT\7-Zip.$FileType\Shell\Open\Command", "", $OpenCommend)
 }
 
 

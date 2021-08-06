@@ -22,7 +22,7 @@ Set-WinHomeLocation -GeoId 0xF4
 
 # Turn off all app permissions for the current user account
 foreach ($Capability in Get-ChildItem 'HKLM:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\Capabilities' -Name) {
-	[Microsoft.Win32.Registry]::SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\$Capability", 'Value', 'Deny')
+    [Microsoft.Win32.Registry]::SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\$Capability", 'Value', 'Deny')
 }
 
 # Turn off all suggestions for the current user account
@@ -48,7 +48,7 @@ Join-Path 'Registry' '*.reg' -Resolve | ForEach-Object {reg import $_}
 
 # Configure IrfanView
 if ([Environment]::Is64BitOperatingSystem) {
-	New-Item (Join-Path $env:AppData 'IrfanView\i_view64.ini') -ItemType HardLink -Value (Join-Path $env:AppData 'IrfanView\i_view32.ini')
+    New-Item (Join-Path $env:AppData 'IrfanView\i_view64.ini') -ItemType HardLink -Value (Join-Path $env:AppData 'IrfanView\i_view32.ini')
 }
 
 # Configure madVR
