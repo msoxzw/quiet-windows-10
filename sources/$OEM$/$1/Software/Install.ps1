@@ -1,5 +1,7 @@
 Push-Location $PSScriptRoot
 
+$packages = '7zip adobereader aria2 ccleaner.portable firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird'
+
 # Set DNS server addresses only if any of them are operational.
 $DNS = '8.8.8.8','8.8.4.4','2001:4860:4860::8888','2001:4860:4860::8844'
 Resolve-DnsName 'example.com' -Server $DNS
@@ -15,9 +17,8 @@ while ($env:ChocolateyInstall -eq $null) {
 
 # Install Chocolatey packages
 $choco = Join-Path $env:ChocolateyInstall 'choco'
-$packages = '7zip adobereader aria2 ccleaner.portable firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird'.Split()
 do {
-    & $choco install $packages -y
+    & $choco install $packages.Split() -y
 } until ($?)
 
 
