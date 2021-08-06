@@ -30,9 +30,10 @@
     "can_make_payment_enabled": false
   },
   "profile": {
-    "block_third_party_cookies": true,
+    "cookie_controls_mode": 1,
     "default_content_setting_values": {
-      "cookies": 4
+      "cookies": 4,
+      "protected_media_identifier": 2
     }
   },
   "safebrowsing": {
@@ -40,11 +41,6 @@
   },
   "search": {
     "suggest_enabled": false
-  },
-  "settings": {
-    "privacy": {
-      "drm_enabled": false
-    }
   },
   "signin": {
     "allowed_on_next_startup": false
