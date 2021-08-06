@@ -2,7 +2,10 @@ Push-Location $PSScriptRoot
 
 # Set DNS server addresses only if any of them are operational.
 $DNS = '8.8.8.8','8.8.4.4','2001:4860:4860::8888','2001:4860:4860::8844'
-Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses $DNS -Validate
+Resolve-DnsName 'example.com' -Server $DNS
+if ($?) {
+	Get-NetAdapter -Physical | Set-DnsClientServerAddress -ServerAddresses $DNS
+}
 
 # Install Chocolatey
 while ($env:ChocolateyInstall -eq $null) {
