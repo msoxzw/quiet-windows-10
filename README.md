@@ -44,7 +44,7 @@ set as default desktop background and lock screen image. Furthermore, lock scree
 will be synced with desktop background. Default image is personally preferred high 
 resolution picture.
 
-Pay attention to `sources/$OEM$/$1/Software/Install.cmd` since it will automatically
+Pay attention to `sources/$OEM$/$1/Software/Install.ps1` since it will automatically
 download and install some software with good reputation in the background, including:
 
 `7zip adobereader aria2 ccleaner.portable ffmpeg firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird`
