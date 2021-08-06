@@ -53,6 +53,9 @@ foreach ($image in Get-ChildItem $WallpaperPath 'CachedImage_*') {
 }
 
 
+# Add Internet Explorer Tracking Protection Lists from known Adblock Plus subscriptions and by language
+& (Join-Path 'Config' 'Add Tracking Protection Lists.ps1')
+
 # Configure Chromium based browsers
 & (Join-Path 'Chromium' 'setup.ps1')
 

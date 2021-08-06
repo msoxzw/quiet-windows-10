@@ -40,8 +40,8 @@ Get-ChildItem 'Files' -Directory | ForEach-Object {Copy-Item (Join-Path $_.FullN
 Join-Path 'Registry' '*.reg' -Resolve | ForEach-Object {reg import $_}
 
 
-# Add Internet Explorer Tracking Protection Lists
-(Get-Content 'Internet Explorer.json' -Raw | ConvertFrom-Json) | ForEach-Object {$_ | Set-ItemProperty (New-Item 'HKCU:\Software\Microsoft\Internet Explorer\Safety\PrivacIE\Lists' -Name "{$(New-Guid)}".ToUpper() -Force).PSPath}
+# Add Internet Explorer Tracking Protection Lists from known Adblock Plus subscriptions and by language
+& '.\Add Tracking Protection Lists.ps1'
 
 # Configure madVR
 [Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\madshi\madVR', 'Settings', [System.IO.File]::ReadAllBytes((Resolve-Path 'settings.bin')))
