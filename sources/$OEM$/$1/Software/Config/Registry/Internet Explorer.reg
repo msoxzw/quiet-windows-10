@@ -29,6 +29,7 @@ Windows Registry Editor Version 5.00
 "CleanDownloadHistory"=dword:00000001
 "CleanForms"=dword:00000001
 "ClearBrowsingHistoryOnExit"=dword:00000001
+"EnableEncryptedMediaExtensions"=dword:00000000
 "UseAllowList"=dword:00000000
 
 [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Recovery]
