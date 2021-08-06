@@ -47,7 +47,7 @@ resolution picture.
 Pay attention to `sources/$OEM$/$1/Software/Install.ps1` since it will automatically
 download and install some software with good reputation in the background, including:
 
-`7zip adobereader aria2 ccleaner.portable ffmpeg firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird`
+`7zip adobereader aria2 ccleaner.portable firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird`
 
 Please adjust this application list according to your situation.
 
