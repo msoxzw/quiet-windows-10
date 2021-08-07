@@ -16,9 +16,6 @@ Enable-BitLocker $env:SystemDrive -TpmProtector -UsedSpaceOnly
 # Disable the hibernate feature
 powercfg /hibernate off
 
-# Set time zone automatically
-Set-Service 'tzautoupdate' -StartupType Manual
-
 # Change the default time server to pool.ntp.org
 # https://www.ntppool.org/use.html
 w32tm /config /syncfromflags:manual /manualpeerlist:"0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org"
