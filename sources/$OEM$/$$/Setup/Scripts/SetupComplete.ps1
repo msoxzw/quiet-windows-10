@@ -13,8 +13,8 @@ Get-AppxProvisionedPackage -Online | Where-Object DisplayName 'Microsoft.Microso
 # Encrypt the existing used space on the system volume
 Enable-BitLocker $env:SystemDrive -TpmProtector -UsedSpaceOnly
 
-# Disable the hibernate feature
-powercfg /hibernate off
+# Disable hibernation if type of the current system disk is SSD
+if ((Get-Partition -DriveLetter $env:SystemDrive[0] | Get-Disk | Get-PhysicalDisk).MediaType -eq 'SSD') {powercfg /hibernate off}
 
 # Change the default time server to pool.ntp.org
 # https://www.ntppool.org/use.html
