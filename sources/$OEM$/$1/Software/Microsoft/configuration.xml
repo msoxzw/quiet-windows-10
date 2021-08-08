@@ -1,7 +1,7 @@
 <Configuration>
   <Add>
-   <Product ID="O365EduCloudRetail">
-     <Language ID="MatchOS" />
-   </Product>
- </Add>
+    <Product ID="O365EduCloudRetail">
+      <Language ID="MatchOS" />
+    </Product>
+  </Add>
 </Configuration>
