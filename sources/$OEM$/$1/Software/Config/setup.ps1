@@ -48,7 +48,7 @@ Join-Path 'Registry' '*.reg' -Resolve | ForEach-Object {reg import $_}
 
 # Configure IrfanView
 if ([Environment]::Is64BitOperatingSystem) {
-    New-Item (Join-Path $env:AppData 'IrfanView\i_view64.ini') -ItemType HardLink -Value (Join-Path $env:AppData 'IrfanView\i_view32.ini')
+    New-Item (Join-Path $env:AppData 'IrfanView\i_view64.ini') -ItemType HardLink -Value (Join-Path $env:AppData 'IrfanView\i_view32.ini') -Force
 }
 
 # Configure madVR
