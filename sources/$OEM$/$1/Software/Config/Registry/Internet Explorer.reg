@@ -17,9 +17,7 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
 "DisableFirstRunCustomize"=dword:00000001
-"Isolation"="PMEM"
 "Isolation64Bit"=dword:00000001
-"OperationalData"=hex(b):0d,00,00,00,00,00,00,00
 "Start Page"="https://www.wikipedia.org/"
 
 [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\PrefetchPrerender]
@@ -49,6 +47,15 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Cache]
 "Persistent"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Lockdown_Zones\0]
+"2500"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1]
+"2500"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\2]
+"2500"=dword:00000000
 
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3]
 "{A8A88C49-5EB2-4990-A1A2-0876022C854F}"=hex:1a,37,61,59,23,52,35,0c,7a,5f,20,\
