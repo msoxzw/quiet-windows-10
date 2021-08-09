@@ -4,12 +4,13 @@ A series of tweaks make Windows 10 as quiet, slim, private as possible.
 
 ### Installation
 
-Copy `sources` folder to the root of the installation media. Windows Setup will use
-these files automatically during installation.
+Drag and drop a Windows disc image to the `Drag and drop a disc image to create installation media.cmd` to create installation media.
+If the installation media exists, just copy `sources` folder to its root directory.
+Windows Setup will use these files automatically during installation.
 
-The recommended Windows 10 direct download location is https://tb.rg-adguard.net/
+The recommended Windows direct download location is https://tb.rg-adguard.net/
 
-Window 10 Education edition is recommended, because it is best concerning privacy. 
+Window Education edition is recommended, because it is best concerning privacy.
 
 ### Goals
 
