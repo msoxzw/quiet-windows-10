@@ -9,7 +9,7 @@ $Destination = $DriveLetter + ':'
 Copy-Item (Join-Path $Source '*') $Destination -Force -Recurse
 
 if (-not $?) {
-    Write-Host 'The disc image is too large to copy so it will be compressed.'
+    Write-Warning 'The disc image is too large to copy so it will be compressed.'
     $Dism = Join-Path $Source 'sources\dism.exe'
     $SourceImage = Join-Path $Source 'sources\install.wim'
     $DestinationImage = Join-Path $Destination 'sources\install.esd'
