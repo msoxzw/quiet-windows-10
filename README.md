@@ -84,7 +84,7 @@ Please adjust this application list according to your situation.
 e.g. You would like to super high quality video and music playback solution, 
 then may install the following software:
 
-`foobar2000 madvr xysubfilter mpc-be or mpc-hc-clsid2`
+`choco install foobar2000 madvr xysubfilter mpc-be -y` or `choco install foobar2000 madvr xysubfilter mpc-hc-clsid2 -y`
 
 ### Some useful references
 
