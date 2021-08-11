@@ -49,7 +49,7 @@ Join-Path 'Registry' '*.reg' -Resolve | ForEach-Object {reg import $_}
 # Configure Chromium based browsers
 [Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce', 'Chromium', 'PowerShell -ExecutionPolicy Bypass -File "%SystemDrive%\Software\Chromium\Preferences.ps1"', [Microsoft.Win32.RegistryValueKind]::ExpandString)
 
-# Configure IrfanView
+# Configure IrfanView 64-bit
 if ([Environment]::Is64BitOperatingSystem) {
     New-Item (Join-Path $env:AppData 'IrfanView\i_view64.ini') -ItemType HardLink -Value (Join-Path $env:AppData 'IrfanView\i_view32.ini') -Force
 }
