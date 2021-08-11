@@ -41,7 +41,7 @@ Join-Path 'Registry' '*.reg' -Resolve | ForEach-Object {reg import $_}
 
 
 # Add Internet Explorer Tracking Protection Lists from known Adblock Plus subscriptions and by language
-& '.\Add Tracking Protection Lists.ps1'
+& (Join-Path '..\Microsoft' 'Internet Explorer\Add Tracking Protection Lists.ps1')
 
 # Configure Acrobat Reader DC 64-bit
 if ([Environment]::Is64BitOperatingSystem) {

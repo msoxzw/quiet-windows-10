@@ -54,7 +54,7 @@ and configurations that focus on privacy and quiet, including:
 [Intel Bluetooth](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/Specific/Intel%20Bluetooth.reg),
 [Intel Graphics](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/Specific/Intel%20Graphics.reg),
 [Internet Explorer](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/Internet%20Explorer.reg),
-[Internet Explorer Tracking Protection Lists](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Add%20Tracking%20Protection%20Lists.ps1),
+[Internet Explorer Tracking Protection Lists](https://github.com/msoxzw/quiet-windows-10/tree/master/sources/%24OEM%24/%241/Software/Microsoft/Internet%20Explorer),
 [IPython](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Files/USERPROFILE/.ipython),
 [IrfanView](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Files/AppData/IrfanView),
 [JetBrains IDE](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Files/USERPROFILE/.idea),
