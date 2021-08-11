@@ -43,6 +43,11 @@ Join-Path 'Registry' '*.reg' -Resolve | ForEach-Object {reg import $_}
 # Add Internet Explorer Tracking Protection Lists from known Adblock Plus subscriptions and by language
 & '.\Add Tracking Protection Lists.ps1'
 
+# Configure Acrobat Reader DC 64-bit
+if ([Environment]::Is64BitOperatingSystem) {
+    reg copy 'HKCU:\SOFTWARE\Adobe\Acrobat Reader' 'HKCU:\SOFTWARE\Adobe\Adobe Acrobat' /s /f
+}
+
 # Set language for CCleaner
 [Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\Piriform\CCleaner', 'Language', (Get-UICulture).LCID.ToString())
 
