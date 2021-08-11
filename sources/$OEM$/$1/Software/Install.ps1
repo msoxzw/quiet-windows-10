@@ -59,6 +59,6 @@ foreach ($image in Get-ChildItem $WallpaperPath 'CachedImage_*') {
 
 Get-ChildItem 'Tasks' '*.xml' | ForEach-Object {Register-ScheduledTask $_.BaseName -Xml (Get-Content $_.FullName -Raw) -Force}
 
-Disable-ScheduledTask 'Install'
+Unregister-ScheduledTask 'Install' -Confirm:$false
 
 Pop-Location
