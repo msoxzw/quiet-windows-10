@@ -1,7 +1,6 @@
 Push-Location $PSScriptRoot
 
-$subscriptionsURL = 'https://raw.githubusercontent.com/adblockplus/adblockpluscore/master/data/subscriptions.json'
-Invoke-WebRequest $subscriptionsURL -OutFile 'subscriptions.json'
+Start-BitsTransfer 'https://raw.githubusercontent.com/adblockplus/adblockpluscore/master/data/subscriptions.json'
 $subscriptions = Get-Content '*.json' -Raw | ConvertFrom-Json | ForEach-Object {$_}
 
 $language = (Get-UICulture).TwoLetterISOLanguageName
