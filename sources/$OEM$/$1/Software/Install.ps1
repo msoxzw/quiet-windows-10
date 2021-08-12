@@ -3,9 +3,15 @@ Push-Location $PSScriptRoot
 $packages = '7zip adobereader aria2 ccleaner.portable firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird'
 
 # Install Chocolatey
-while (Test-Path "$env:ChocolateyInstall\choco.exe") {
+if ((Get-AuthenticodeSignature "$env:ChocolateyInstall\choco.exe" -ErrorAction 0).Status -ne 0) {
+    $file = Join-Path $env:TEMP 'install.ps1'
+    do {
+        Invoke-WebRequest 'https://chocolatey.org/install.ps1' -UseBasicParsing -OutFile $file
+    } until ((Get-AuthenticodeSignature $file).Status -eq 0)
     $env:chocolateyUseWindowsCompression = 'true'
-    Invoke-WebRequest 'https://chocolatey.org/install.ps1' -UseBasicParsing | Invoke-Expression
+    do {
+        & $file
+    } until ((Get-AuthenticodeSignature "$env:ChocolateyInstall\choco.exe").Status -eq 0)
 }
 
 # Install Chocolatey packages
