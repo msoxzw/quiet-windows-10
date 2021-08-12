@@ -10,6 +10,7 @@
   "user_experience_metrics": {
     "reporting_URL_enabled": false,
     "reporting_enabled": false,
-    "reporting_keystrokes_omnibox_telemetry_enabled": false
+    "reporting_keystrokes_omnibox_telemetry_enabled": false,
+    "required_data_enabled": false
   }
 }
