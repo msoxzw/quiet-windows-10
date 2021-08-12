@@ -4,14 +4,11 @@ $packages = '7zip adobereader aria2 ccleaner.portable firefox git hashcheck irfa
 
 # Install Chocolatey
 if ((Get-AuthenticodeSignature "$env:ChocolateyInstall\choco.exe" -ErrorAction 0).Status -ne 0) {
+    $env:chocolateyUseWindowsCompression = 'true'
     $file = Join-Path $env:TEMP 'install.ps1'
     do {
         Invoke-WebRequest 'https://chocolatey.org/install.ps1' -UseBasicParsing -OutFile $file
-    } until ((Get-AuthenticodeSignature $file).Status -eq 0)
-    $env:chocolateyUseWindowsCompression = 'true'
-    do {
-        & $file
-    } until ((Get-AuthenticodeSignature "$env:ChocolateyInstall\choco.exe").Status -eq 0)
+    } until ($? -and ('A' | PowerShell -ExecutionPolicy AllSigned -File $file))
 }
 
 # Install Chocolatey packages
