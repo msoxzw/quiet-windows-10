@@ -11,6 +11,7 @@ while ($true) {
     if ($?) {
         'A', 'A' | PowerShell -ExecutionPolicy AllSigned -File $file
         if ($?) {
+            $env:ChocolateyInstall = [Environment]::GetEnvironmentVariable('ChocolateyInstall', 'Machine')
             break
         }
     }
