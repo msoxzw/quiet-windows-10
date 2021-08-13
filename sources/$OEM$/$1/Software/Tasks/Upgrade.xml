@@ -28,8 +28,9 @@
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>%ChocolateyInstall%\choco.exe</Command>
-      <Arguments>upgrade all -y</Arguments>
+      <Command>PowerShell</Command>
+      <Arguments>"$Signature = Get-AuthenticodeSignature 'choco.exe'; if ($Signature.Status -eq 0) {& $Signature.Path upgrade all -y}"</Arguments>
+      <WorkingDirectory>%ChocolateyInstall%</WorkingDirectory>
     </Exec>
   </Actions>
 </Task>

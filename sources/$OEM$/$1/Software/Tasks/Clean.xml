@@ -28,8 +28,9 @@
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>%ChocolateyInstall%\lib\ccleaner.portable\tools\CCleaner.exe</Command>
-      <Arguments>/AUTO</Arguments>
+      <Command>PowerShell</Command>
+      <Arguments>$Signature = Get-AuthenticodeSignature $(if ([Environment]::Is64BitOperatingSystem) {'CCleaner64.exe'} else {'CCleaner.exe'}); if ($Signature.Status -eq 0) {& $Signature.Path /AUTO}</Arguments>
+      <WorkingDirectory>%ChocolateyInstall%\lib\ccleaner.portable\tools</WorkingDirectory>
     </Exec>
   </Actions>
 </Task>

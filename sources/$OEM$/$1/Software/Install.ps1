@@ -11,8 +11,10 @@ do {
 } until ($? -and ('A' | PowerShell -ExecutionPolicy AllSigned -File $file))
 
 # Install Chocolatey packages
+$Signature = Get-AuthenticodeSignature (Join-Path $env:ChocolateyInstall 'choco.exe')
+if ($Signature.Status -ne 0) {exit}
 do {
-    & "$env:ChocolateyInstall\choco.exe" install $packages.Split() -y
+    & $Signature.Path install $packages.Split() -y
 } until ($?)
 
 
