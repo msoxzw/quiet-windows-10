@@ -12,6 +12,7 @@ while ($true) {
             break
         }
     }
+    Start-Sleep 600
 }
 
 Pop-Location

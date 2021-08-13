@@ -6,16 +6,25 @@ $packages = '7zip adobereader aria2 ccleaner.portable firefox git hashcheck irfa
 $env:chocolateyUseWindowsCompression = 'true'
 $url = 'https://chocolatey.org/install.ps1'
 $file = Join-Path $env:TEMP (Split-Path $url -Leaf)
-do {
+while ($true) {
     Start-BitsTransfer $url $file -Dynamic
-} until ($? -and ('A' | PowerShell -ExecutionPolicy AllSigned -File $file))
+    if ($?) {
+        'A', 'A' | PowerShell -ExecutionPolicy AllSigned -File $file
+        if ($?) {
+            break
+        }
+    }
+    Start-Sleep 600
+}
 
 # Install Chocolatey packages
 $Signature = Get-AuthenticodeSignature (Join-Path $env:ChocolateyInstall 'choco.exe')
 if ($Signature.Status -ne 'Valid') {exit}
-do {
+while ($true) {
     & $Signature.Path install $packages.Split() -y
-} until ($?)
+    if ($?) {break}
+    Start-Sleep 600
+}
 
 
 # Associate archive formats with 7-Zip with the system default icon
