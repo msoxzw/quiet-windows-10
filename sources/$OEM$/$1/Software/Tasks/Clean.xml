@@ -29,7 +29,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>PowerShell</Command>
-      <Arguments>$Signature = Get-AuthenticodeSignature $(if ([Environment]::Is64BitOperatingSystem) {'CCleaner64.exe'} else {'CCleaner.exe'}); if ($Signature.Status -eq 0) {& $Signature.Path /AUTO}</Arguments>
+      <Arguments>$Signature = Get-AuthenticodeSignature $(if ([Environment]::Is64BitOperatingSystem) {'CCleaner64.exe'} else {'CCleaner.exe'}); if ($Signature.Status -eq 'Valid') {& $Signature.Path /AUTO}</Arguments>
       <WorkingDirectory>%ChocolateyInstall%\lib\ccleaner.portable\tools</WorkingDirectory>
     </Exec>
   </Actions>

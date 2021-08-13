@@ -52,7 +52,7 @@ if ([Environment]::Is64BitOperatingSystem) {
 [Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\Piriform\CCleaner', 'Language', (Get-UICulture).LCID.ToString())
 
 # Configure Chromium based browsers
-[Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce', 'Chromium', 'PowerShell -ExecutionPolicy Bypass -File "%SystemDrive%\Software\Chromium\Preferences.ps1"', [Microsoft.Win32.RegistryValueKind]::ExpandString)
+[Microsoft.Win32.Registry]::SetValue('HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce', 'Chromium', 'PowerShell -ExecutionPolicy Bypass -File "%SystemDrive%\Software\Chromium\Preferences.ps1"', 'ExpandString')
 
 # Configure IrfanView 64-bit
 if ([Environment]::Is64BitOperatingSystem) {

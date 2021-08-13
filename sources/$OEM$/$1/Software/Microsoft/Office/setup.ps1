@@ -7,7 +7,7 @@ while ($true) {
     Start-BitsTransfer $url
     if ($?) {
         $Signature = Get-AuthenticodeSignature $file
-        if ($Signature.Status -eq 0) {
+        if ($Signature.Status -eq 'Valid') {
             & $Signature.Path /configure
             break
         }

@@ -12,7 +12,7 @@ do {
 
 # Install Chocolatey packages
 $Signature = Get-AuthenticodeSignature (Join-Path $env:ChocolateyInstall 'choco.exe')
-if ($Signature.Status -ne 0) {exit}
+if ($Signature.Status -ne 'Valid') {exit}
 do {
     & $Signature.Path install $packages.Split() -y
 } until ($?)
