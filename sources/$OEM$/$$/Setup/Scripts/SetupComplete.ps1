@@ -28,7 +28,7 @@ w32tm /config /syncfromflags:manual /manualpeerlist:"0.pool.ntp.org 1.pool.ntp.o
 [Microsoft.Win32.Registry]::SetValue('HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce', 'Install', 'schtasks /create /tn Install /xml "%SystemDrive%\Software\Install.xml" /f', 'ExpandString')
 
 # Configure system and apps for the system account
-Join-Path $env:SystemDrive 'Software\Config\Registry\System\*.reg' -Resolve | ForEach-Object {reg import $_}
+Join-Path $env:SystemDrive 'Software\Configuration\Registry\System\*.reg' -Resolve | ForEach-Object {reg import $_}
 
 
 reg load 'HKU\Default' (Join-Path $env:SystemDrive 'Users\Default\NTUSER.DAT')
@@ -39,7 +39,7 @@ $key.Property.ForEach({[Microsoft.Win32.Registry]::SetValue('HKEY_USERS\Default\
 $key.Close()
 
 # Configure system and apps for a new user account when signing in to the computer for the first time
-[Microsoft.Win32.Registry]::SetValue('HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\RunOnce', 'Setup', 'PowerShell -ExecutionPolicy Bypass -File "%SystemDrive%\Software\Config\setup.ps1"', 'ExpandString')
+[Microsoft.Win32.Registry]::SetValue('HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\RunOnce', 'Setup', 'PowerShell -ExecutionPolicy Bypass -File "%SystemDrive%\Software\Configuration\setup.ps1"', 'ExpandString')
 
 reg unload 'HKU\Default'
 

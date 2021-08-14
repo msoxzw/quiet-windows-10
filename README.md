@@ -42,35 +42,35 @@ Clear all shortcuts in start menu, taskbar, and desktop
 
 Provide some software direct download link, [Microsoft Office automatic installation](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Microsoft/Office),
 and configurations that focus on privacy and quiet, including:
-[7-Zip](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/7-Zip.reg),
-[Acrobat Reader DC](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/Acrobat%20Reader%20DC.reg),
-[aria2](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Files/USERPROFILE/.aria2),
-[bash](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Files/USERPROFILE/.bash_profile),
-[CCleaner](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/CCleaner.reg),
+[7-Zip](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/7-Zip.reg),
+[Acrobat Reader DC](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Acrobat%20Reader%20DC.reg),
+[aria2](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Files/USERPROFILE/.aria2),
+[bash](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Files/USERPROFILE/.bash_profile),
+[CCleaner](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/CCleaner.reg),
 [Chromium based browsers](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Chromium),
 [Firefox](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Mozilla),
-[Git](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/System/Git.reg),
-[HashCheck Shell Extension](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/HashCheck.reg),
-[Intel Bluetooth](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/Specific/Intel%20Bluetooth.reg),
-[Intel Graphics](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/Specific/Intel%20Graphics.reg),
-[Internet Explorer](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/Internet%20Explorer.reg),
+[Git](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/System/Git.reg),
+[HashCheck Shell Extension](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/HashCheck.reg),
+[Intel Bluetooth](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Specific/Intel%20Bluetooth.reg),
+[Intel Graphics](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Specific/Intel%20Graphics.reg),
+[Internet Explorer](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Internet%20Explorer.reg),
 [Internet Explorer Tracking Protection Lists](https://github.com/msoxzw/quiet-windows-10/tree/master/sources/%24OEM%24/%241/Software/Microsoft/Internet%20Explorer),
-[IPython](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Files/USERPROFILE/.ipython),
-[IrfanView](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Files/AppData/IrfanView),
-[JetBrains IDE](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Files/USERPROFILE/.idea),
-[madVR](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/settings.bin),
-[Microsoft Edge Legacy](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/Microsoft%20Edge.reg),
-[MPC-BE and MPC-HC](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Media%20Player%20Classic.reg),
-[mpv](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Files/AppData/mpv),
-[Notepad++](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Files/AppData/Notepad++),
-[Nvidia Graphics](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/Specific/Nvidia%20Graphics.reg),
-[qBittorrent](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Files/AppData/qBittorrent),
+[IPython](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Files/USERPROFILE/.ipython),
+[IrfanView](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Files/AppData/IrfanView),
+[JetBrains IDE](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Files/USERPROFILE/.idea),
+[madVR](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/settings.bin),
+[Microsoft Edge Legacy](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Microsoft%20Edge.reg),
+[MPC-BE and MPC-HC](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Media%20Player%20Classic.reg),
+[mpv](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Files/AppData/mpv),
+[Notepad++](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Files/AppData/Notepad++),
+[Nvidia Graphics](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Specific/Nvidia%20Graphics.reg),
+[qBittorrent](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Files/AppData/qBittorrent),
 [Thunderbird](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Mozilla),
-[Windows Media Player](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Registry/Windows%20Media%20Player.reg).
+[Windows Media Player](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Windows%20Media%20Player.reg).
 
 ### Caveat
 
-Please customize [`sources/$OEM$/$1/Software/Config/Wallpaper/img.png`](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Config/Wallpaper/img.png)
+Please customize [`sources/$OEM$/$1/Software/Configuration/Wallpaper/img.png`](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Wallpaper/img.png)
 because it will be set as default desktop background and lock screen image. Furthermore, lock screen image
 will be synced with desktop background. Default image is personally preferred high resolution picture.
 
