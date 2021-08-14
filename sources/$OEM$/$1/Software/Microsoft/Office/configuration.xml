@@ -1,7 +1,9 @@
 <Configuration>
   <Add>
     <Product ID="O365EduCloudRetail">
-      <Language ID="MatchOS" />
+      <Language ID="MatchOS" Fallback="en-us" />
+      <ExcludeApp ID="OneDrive" />
     </Product>
   </Add>
+  <Display Level="None" AcceptEULA="TRUE" />
 </Configuration>
