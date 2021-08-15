@@ -8,7 +8,7 @@ while ($true) {
     if ($?) {
         $Signature = Get-AuthenticodeSignature $file
         if ($Signature.Status -eq 'Valid') {
-            & $Signature.Path /configure
+            Start-Process $Signature.Path '/configure' -Verb RunAs
             break
         }
     }
