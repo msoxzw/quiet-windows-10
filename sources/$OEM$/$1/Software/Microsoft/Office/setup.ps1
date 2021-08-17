@@ -1,18 +1,8 @@
 Push-Location $PSScriptRoot
 
-$url = 'https://officecdn.microsoft.com/pr/wsus/setup.exe'
-$file = Split-Path $url -Leaf
+. '..\..\Install-VerifiedProgram.ps1'
 
-while ($true) {
-    Start-BitsTransfer $url
-    if ($?) {
-        $Signature = Get-AuthenticodeSignature $file
-        if ($Signature.Status -eq 'Valid') {
-            Start-Process $Signature.Path '/configure' -Verb RunAs
-            break
-        }
-    }
-    Start-Sleep 600
-}
+# https://docs.microsoft.com/deployoffice/overview-office-deployment-tool
+$null = Install-VerifiedProgram 'https://officecdn.microsoft.com/pr/wsus/setup.exe' '/configure'
 
 Pop-Location
