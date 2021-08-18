@@ -4,7 +4,7 @@ param (
     [uri]$Source,
 
     [Parameter(Position=1)]
-    [string]$Arguments,
+    [string[]]$Arguments,
 
     [string]$Destination = (Split-Path $Source -Leaf),
 
