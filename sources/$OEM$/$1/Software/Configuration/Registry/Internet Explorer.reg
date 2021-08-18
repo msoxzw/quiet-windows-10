@@ -16,6 +16,7 @@ Windows Registry Editor Version 5.00
 "BlockAllWebsites"=dword:00000001
 
 [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+"Check_Associations"="no"
 "DisableFirstRunCustomize"=dword:00000001
 "Isolation64Bit"=dword:00000001
 "Start Page"="https://www.wikipedia.org/"
