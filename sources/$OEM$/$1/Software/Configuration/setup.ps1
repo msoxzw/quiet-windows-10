@@ -12,7 +12,7 @@ netsh wlan set randomization enabled=yes interface=*
 # Set-Culture -CultureInfo en-US
 
 # Set the home location for the current user account to 0xF4 (hex) (United States)
-Set-WinHomeLocation -GeoId 0xF4
+# Set-WinHomeLocation -GeoId 0xF4
 
 # Insert the language English (United States) to the user's language list
 # $LanguageList = Get-WinUserLanguageList

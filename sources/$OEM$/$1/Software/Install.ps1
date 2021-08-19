@@ -50,8 +50,9 @@ New-Item $ccleaner_ini -Force
 $CCleaner.GetValueNames() | ForEach-Object {'[Options]'} {'{0}={1}' -f $_, $CCleaner.GetValue($_)} | Set-Content $ccleaner_ini
 
 # Copy regional and language settings to all users and also the system account (logonUI screen)
+# https://docs.microsoft.com/troubleshoot/windows-client/deployment/automate-regional-language-settings
 Start-Process control 'intl.cpl,,/f:"Language.xml"' -Wait
-Clear-Item 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\GRE_Initialize'
+Remove-ItemProperty 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\GRE_Initialize' 'GUIFont.*'
 
 
 # Set desktop backgroud as the default lock screen image without changing any settings

@@ -2,4 +2,7 @@
   <gs:UserList>
     <gs:User UserID="Current" CopySettingsToDefaultUserAcct="true" CopySettingsToSystemAcct="true"/> 
   </gs:UserList>
+  <gs:LocationPreferences>
+    <gs:GeoID Value="244"/>
+  </gs:LocationPreferences>
 </gs:GlobalizationServices>
