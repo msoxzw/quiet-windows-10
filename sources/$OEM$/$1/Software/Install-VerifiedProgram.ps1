@@ -23,7 +23,7 @@ while ($true) {
         Write-Warning $Signature.StatusMessage
     }
     $Date = (Get-Date).AddSeconds($RetryInterval)
-    for ($i = $RetryInterval; -not $Host.UI.RawUI.KeyAvailable -and $i -gt 0; $i--) {
+    for ($i = $RetryInterval; -not [Console]::KeyAvailable -and $i -gt 0; $i--) {
         Write-Progress "Retry after $Date, press a key to continue ..." 'Waiting' -SecondsRemaining $i
         Start-Sleep 1
     }
