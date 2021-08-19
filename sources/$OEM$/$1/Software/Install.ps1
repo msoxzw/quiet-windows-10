@@ -1,6 +1,9 @@
 Push-Location $PSScriptRoot
 
-$packages = '7zip adobereader aria2 ccleaner.portable firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird'
+[System.Collections.Generic.HashSet[string]]$packages = '7zip adobereader aria2 ccleaner.portable firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird'.Split()
+
+# Install Adobe Reader
+if ($packages.Remove('adobereader')) {Start-Process PowerShell '-File "Adobe\Reader\Install.ps1"'}
 
 # Install Chocolatey
 $env:chocolateyUseWindowsCompression = 'true'
@@ -22,7 +25,7 @@ while ($true) {
 $Signature = Get-AuthenticodeSignature (Join-Path $env:ChocolateyInstall 'choco.exe')
 if ($Signature.Status -ne 'Valid') {exit}
 while ($true) {
-    & $Signature.Path install $packages.Split() -y
+    & $Signature.Path install $packages -y
     if ($?) {break}
     Start-Sleep 600
 }

@@ -40,8 +40,9 @@ Turn off all privacy settings and all app permissions
 
 Clear all shortcuts in start menu, taskbar, and desktop
 
-Provide some software direct download link, [Microsoft Office automatic installation](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Microsoft/Office),
-and configurations that focus on privacy and quiet, including:
+Provide some software direct download link, [Microsoft Office](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Microsoft/Office),
+[Acrobat Reader DC](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Adobe/Reader)
+automatic installation and configurations that focus on privacy and quiet, including:
 [7-Zip](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/7-Zip.reg),
 [Acrobat Reader DC](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Acrobat%20Reader%20DC.reg),
 [aria2](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Files/USERPROFILE/.aria2),
