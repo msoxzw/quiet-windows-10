@@ -6,7 +6,6 @@ Push-Location $PSScriptRoot
 if ($packages.Remove('adobereader')) {Start-Process PowerShell '-File "Adobe\Reader\Install.ps1"'}
 
 # Install Chocolatey
-$env:chocolateyUseWindowsCompression = 'true'
 $url = 'https://chocolatey.org/install.ps1'
 $file = Join-Path $env:TEMP (Split-Path $url -Leaf)
 while ($true) {
