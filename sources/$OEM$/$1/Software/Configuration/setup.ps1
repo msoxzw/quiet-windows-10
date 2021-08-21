@@ -26,8 +26,8 @@ foreach ($Capability in Get-ChildItem 'HKLM:\Software\Microsoft\Windows\CurrentV
 }
 
 # Turn off all suggestions for the current user account
-$key = Get-Item 'HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
-$key.Property.ForEach({Set-ItemProperty $key.PSPath $_ 0})
+$registryPath = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+(Get-Item $registryPath).Property.ForEach({Set-ItemProperty $registryPath $_ 0})
 
 # Clear Start layout for the current user account
 Remove-Item 'HKCU:\Software\Microsoft\Windows\CurrentVersion\CloudStore' -Recurse
