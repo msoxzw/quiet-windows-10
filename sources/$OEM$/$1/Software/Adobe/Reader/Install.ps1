@@ -1,5 +1,6 @@
 Push-Location $PSScriptRoot
 
+if (Get-Package 'Adobe Acrobat *') {exit}
 $reader = (Invoke-WebRequest 'https://get.adobe.com/reader/webservices/json/standalone/?language=Hindi' -UseBasicParsing -Headers @{'X-Requested-With' = 'XMLHttpRequest'} | ConvertFrom-Json) | Group-Object {$_.queryName.EndsWith('(64Bit)')} -AsHashTable
 
 $url = ($reader.[Environment]::Is64BitOperatingSystem).download_url

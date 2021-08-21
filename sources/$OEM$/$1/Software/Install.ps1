@@ -31,7 +31,7 @@ while ($true) {
 
 
 # Associate archive formats with 7-Zip with the system default icon
-$7z = Get-ItemPropertyValue 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\7-Zip' 'DisplayIcon'
+$7z = (Get-Package '7-Zip *').Metadata['DisplayIcon']
 if ($7z) {
     $DefaultIcon = Get-ItemPropertyValue 'Registry::HKEY_CLASSES_ROOT\CompressedFolder\DefaultIcon' '(Default)'
     $OpenCommend = '"{0}" "%1"' -f $7z
