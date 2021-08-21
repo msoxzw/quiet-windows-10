@@ -51,7 +51,6 @@ automatic installation and configurations that focus on privacy and quiet, inclu
 [Chromium based browsers](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Chromium),
 [Firefox](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Mozilla),
 [Git](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/System/Git.reg),
-[HashCheck Shell Extension](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/HashCheck.reg),
 [Intel Bluetooth](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Specific/Intel%20Bluetooth.reg),
 [Intel Graphics](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Specific/Intel%20Graphics.reg),
 [Internet Explorer](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Internet%20Explorer.reg),
