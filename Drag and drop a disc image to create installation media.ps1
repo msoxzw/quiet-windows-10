@@ -1,7 +1,12 @@
-Push-Location $PSScriptRoot
+param (
+    [Parameter(Mandatory)]
+    [ValidateScript({Get-DiskImage $_})]
+    [string]$DiscImage,
 
-$DiscImage = $args[0]
-$DriveLetter = (Read-Host 'Enter the drive letter for installation media')[0]
+    [Parameter(Mandatory, HelpMessage='Enter a drive letter for installation media')]
+    [ValidateScript({Get-Volume $_})]
+    [char]$DriveLetter
+)
 
 $Source = (Mount-DiskImage $DiscImage | Get-Volume).DriveLetter + ':'
 $Destination = $DriveLetter + ':'
@@ -16,9 +21,7 @@ if (-not $?) {
     Get-WindowsImage -ImagePath $SourceImage | ForEach-Object {& $Dism /Export-Image /SourceImageFile:$SourceImage /SourceIndex:$_.ImageIndex /DestinationImageFile:$DestinationImage /Compress:recovery}
 }
 
-Copy-Item 'sources' $Destination -Force -Recurse
+Copy-Item (Join-Path $PSScriptRoot 'sources') $Destination -Force -Recurse
 
 Dismount-DiskImage $DiscImage
 Set-Partition -DriveLetter $DriveLetter -IsActive $true
-
-Pop-Location
