@@ -10,6 +10,8 @@ param (
 
     [switch]$Dynamic,
 
+    [switch]$Wait,
+
     [int]$RetryInterval = 600
 )
 
@@ -18,7 +20,8 @@ while ($true) {
     if ($?) {
         $Signature = Get-AuthenticodeSignature $Destination
         if ($Signature.Status -eq 'Valid') {
-            return [System.Diagnostics.Process]::Start(@{FileName = $Signature.Path; Arguments = $Arguments; Verb = 'runas'})
+            Start-Process $Signature.Path $Arguments -Verb 'runas' -Wait:$Wait
+            break
         }
         Write-Warning $Signature.StatusMessage
     }
