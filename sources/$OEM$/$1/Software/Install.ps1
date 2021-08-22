@@ -6,10 +6,10 @@ Push-Location $PSScriptRoot
 if ($packages.Remove('adobereader')) {Start-Process PowerShell '-File "Adobe\Reader\Install.ps1"'}
 
 # Install Chocolatey
-$url = 'https://chocolatey.org/install.ps1'
-$file = Join-Path $env:TEMP (Split-Path $url -Leaf)
+[uri]$uri = 'https://chocolatey.org/install.ps1'
+$file = Join-Path $env:TEMP (Split-Path $uri -Leaf)
 while ($true) {
-    Start-BitsTransfer $url $file -Dynamic
+    Start-BitsTransfer $uri $file -Dynamic
     if ($?) {
         'A', 'A' | PowerShell -ExecutionPolicy AllSigned -File $file
         if ($?) {
