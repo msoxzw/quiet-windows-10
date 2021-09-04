@@ -30,7 +30,6 @@
     "can_make_payment_enabled": false
   },
   "profile": {
-    "cookie_controls_mode": 1,
     "default_content_setting_values": {
       "cookies": 4,
       "protected_media_identifier": 2
