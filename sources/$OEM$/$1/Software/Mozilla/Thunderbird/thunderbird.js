@@ -21,5 +21,6 @@ defaultPref("mailnews.view_default_charset", "UTF-8");
 defaultPref("media.peerconnection.ice.relay_only", true);
 defaultPref("network.connectivity-service.enabled", false);
 defaultPref("network.cookie.lifetimePolicy", 2);
+defaultPref("network.http.referer.XOriginTrimmingPolicy", 2);
 defaultPref("places.history.enabled", false);
 defaultPref("toolkit.telemetry.unified", false);
