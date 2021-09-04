@@ -22,5 +22,4 @@ defaultPref("media.peerconnection.ice.relay_only", true);
 defaultPref("network.connectivity-service.enabled", false);
 defaultPref("network.cookie.lifetimePolicy", 2);
 defaultPref("places.history.enabled", false);
-defaultPref("privacy.firstparty.isolate", true);
 defaultPref("toolkit.telemetry.unified", false);
