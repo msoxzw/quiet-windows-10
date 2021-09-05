@@ -22,6 +22,7 @@ defaultPref("browser.urlbar.speculativeConnect.enabled", false);
 defaultPref("datareporting.healthreport.uploadEnabled", false);
 defaultPref("datareporting.policy.dataSubmissionEnabled", false);
 defaultPref("extensions.getAddons.cache.enabled", false);
+defaultPref("extensions.htmlaboutaddons.recommendations.enabled", false);
 defaultPref("extensions.systemAddon.update.enabled", false);
 defaultPref("media.gmp-manager.updateEnabled", false);
 defaultPref("media.peerconnection.ice.relay_only", true);
