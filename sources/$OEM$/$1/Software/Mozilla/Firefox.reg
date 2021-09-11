@@ -11,13 +11,10 @@ Windows Registry Editor Version 5.00
 ; CanvasBlocker
 ; https://addons.mozilla.org/firefox/addon/canvasblocker/
 "1"="https://addons.mozilla.org/firefox/downloads/latest/canvasblocker/latest.xpi"
-; ClearURLs
-; https://addons.mozilla.org/firefox/addon/clearurls/
-"2"="https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi"
 ; Firefox Multi-Account Containers
 ; https://addons.mozilla.org/firefox/addon/multi-account-containers/
-"3"="https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi"
+"2"="https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi"
 ; uBlock Origin
 ; https://addons.mozilla.org/firefox/addon/ublock-origin/
-"4"="https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+"3"="https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
 

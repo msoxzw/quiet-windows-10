@@ -4,10 +4,7 @@ Windows Registry Editor Version 5.00
 "DnsOverHttpsMode"="automatic"
 
 [HKEY_LOCAL_MACHINE\Software\Policies\Chromium\ExtensionInstallForcelist]
-; ClearURLs
-; https://chrome.google.com/webstore/detail/lckanjgmijmafbedllaakclkaicjfmnk
-"1"="lckanjgmijmafbedllaakclkaicjfmnk"
 ; uBlock Origin
 ; https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm
-"2"="cjpalhdlnbpafiamejdnhcphjbkeiagm"
+"1"="cjpalhdlnbpafiamejdnhcphjbkeiagm"
 
