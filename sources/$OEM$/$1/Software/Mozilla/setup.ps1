@@ -1,6 +1,5 @@
 Push-Location $PSScriptRoot
 
-Resolve-Path '*.reg' | ForEach-Object {reg import $_}
 
 Get-ChildItem -Directory | ForEach-Object {$Configuration = Join-Path $_ '*'; (Get-Package "Mozilla $_ *").Metadata['InstallLocation'] | ForEach-Object {Copy-Item $Configuration $_ -Force -Recurse}}
 

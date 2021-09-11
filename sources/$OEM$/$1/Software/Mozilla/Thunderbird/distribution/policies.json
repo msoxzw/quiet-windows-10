@@ -1,0 +1,9 @@
+{
+  "policies": {
+    "Extensions": {
+      "Install": [
+        "https://addons.thunderbird.net/thunderbird/downloads/latest/mail-merge/latest.xpi"
+      ]
+    }
+  }
+}

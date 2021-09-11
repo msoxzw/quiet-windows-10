@@ -1,0 +1,13 @@
+{
+  "policies": {
+    "DisableDefaultBrowserAgent": true,
+    "Extensions": {
+      "Install": [
+        "https://addons.mozilla.org/firefox/downloads/latest/canvasblocker/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+      ]
+    },
+    "NoDefaultBookmarks": true
+  }
+}
