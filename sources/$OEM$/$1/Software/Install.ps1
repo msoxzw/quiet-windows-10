@@ -2,8 +2,13 @@ Push-Location $PSScriptRoot
 
 [System.Collections.Generic.HashSet[string]]$packages = '7zip adobereader aria2 ccleaner.portable firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird'.Split()
 
-# Install Adobe Reader
-if ($packages.Remove('adobereader')) {Start-Process PowerShell '-File "Adobe\Reader\Install.ps1"'}
+# Install packages with automatic delta update instead of Chocolatey
+$AutoUpdateApps = @{
+    'adobereader' = 'Adobe\Reader\Install.ps1'
+    'firefox' = '"Mozilla\Install.ps1" -Product firefox'
+    'thunderbird' = '"Mozilla\Install.ps1" -Product thunderbird'
+}
+$AutoUpdateApps.GetEnumerator() | ForEach-Object {if ($packages.Remove($_.Key)) {Start-Process PowerShell '-File', $_.Value}}
 
 # Install Chocolatey
 [uri]$uri = 'https://chocolatey.org/install.ps1'
