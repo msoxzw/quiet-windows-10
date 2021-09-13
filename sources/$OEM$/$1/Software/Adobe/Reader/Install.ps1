@@ -1,3 +1,9 @@
+
+param (
+    [Parameter(ValueFromRemainingArguments)]
+    [string[]]$Arguments = '/sALL'
+)
+
 Push-Location $PSScriptRoot
 
 if (Get-Package 'Adobe Acrobat *') {exit}
@@ -7,7 +13,6 @@ $ScriptBlock = {
     $download_url = ($reader.[Environment]::Is64BitOperatingSystem).download_url
     if ($download_url) {$download_url} else {$reader.Values.download_url}
 }
-$Arguments = if ($args) {$args} else {'/sALL'}
 
 & '..\..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments
 
