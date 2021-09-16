@@ -6,7 +6,12 @@ Push-Location $PSScriptRoot
 $AutoUpdateApps = @{
     'adobereader' = 'Adobe\Reader\Install.ps1'
     'firefox' = '"Mozilla\Install.ps1" -Product firefox'
+    'firefox-beta' = '"Mozilla\Install.ps1" -Product firefox -Channel beta'
+    'firefox-dev' = '"Mozilla\Install.ps1" -Product firefox -Channel aurora'
+    'firefox-nightly' = '"Mozilla\Install.ps1" -Product firefox -Channel nightly'
     'thunderbird' = '"Mozilla\Install.ps1" -Product thunderbird'
+    'thunderbird-beta' = '"Mozilla\Install.ps1" -Product thunderbird -Channel beta'
+    'thunderbird-nightly' = '"Mozilla\Install.ps1" -Product thunderbird -Channel nightly'
 }
 $AutoUpdateApps.GetEnumerator() | ForEach-Object {if ($packages.Remove($_.Key)) {Start-Process PowerShell '-File', $_.Value}}
 
