@@ -57,9 +57,7 @@ if ($7z) {
 
 # Configure CCleaner Portable
 $CCleaner = Get-Item 'HKCU:\Software\Piriform\CCleaner'
-$ccleaner_ini = Join-Path $env:ChocolateyInstall 'lib\ccleaner.portable\tools\ccleaner.ini'
-New-Item $ccleaner_ini -Force
-$CCleaner.GetValueNames() | ForEach-Object {'[Options]'} {'{0}={1}' -f $_, $CCleaner.GetValue($_)} | Set-Content $ccleaner_ini
+$CCleaner.GetValueNames() | ForEach-Object {'[Options]'} {'{0}={1}' -f $_, $CCleaner.GetValue($_)} | Out-String | New-Item (Join-Path $env:ChocolateyInstall 'lib\ccleaner.portable\tools\ccleaner.ini') -Force
 $CCleaner.Close()
 
 # Copy regional and language settings to all users and also the system account (logonUI screen)
