@@ -3,6 +3,9 @@
     "user_pref": 3
   },
   "newtab_page_location_override": "chrome-search://local-ntp/local-ntp.html",
+  "ntp": {
+    "layout_mode": 0
+  },
   "resolve_navigation_errors_use_web_service": {
     "enabled": false
   },
