@@ -41,9 +41,6 @@
   "search": {
     "suggest_enabled": false
   },
-  "signin": {
-    "allowed_on_next_startup": false
-  },
   "webrtc": {
     "ip_handling_policy": "disable_non_proxied_udp"
   }
