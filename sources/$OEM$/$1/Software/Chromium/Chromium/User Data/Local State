@@ -1,4 +1,7 @@
 {
+  "browser": {
+    "dns_interception_checks_enabled": false
+  },
   "component_updates": {
     "component_updates_enabled": false
   },
