@@ -4,35 +4,43 @@
     "enabled": false
   },
   "browser": {
-    "clear_data": {
-      "form_data": true,
-      "time_period": 4
+    "clear_data_on_exit": {
+      "browsing_history": true,
+      "cache": true,
+      "cookies": true,
+      "download_history": true,
+      "form_data": true
     },
     "default_browser_infobar_last_declined": "1",
-    "last_clear_browsing_data_tab": 1,
     "should_reset_check_default_browser": false
   },
   "enable_a_ping": false,
+  "enhanced_tracking_prevention": {
+    "user_pref": 3
+  },
   "history": {
     "saving_disabled": true
   },
   "net": {
     "network_prediction_options": 2
   },
+  "newtab_page_location_override": "chrome-search://local-ntp/local-ntp.html",
   "payments": {
     "can_make_payment_enabled": false
   },
   "profile": {
     "default_content_setting_values": {
-      "cookies": 4,
       "protected_media_identifier": 2
     }
   },
-  "safebrowsing": {
+  "resolve_navigation_errors_use_web_service": {
     "enabled": false
   },
   "search": {
     "suggest_enabled": false
+  },
+  "smartscreen": {
+    "trusted_downloads_enabled": false
   },
   "webrtc": {
     "ip_handling_policy": "disable_non_proxied_udp"
