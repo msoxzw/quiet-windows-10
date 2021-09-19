@@ -63,22 +63,6 @@ if ($7z) {
 }
 
 
-# Copy regional and language settings to all users and also the system account (logonUI screen)
-Start-Process control 'intl.cpl,,/f:"Language.xml"' -Wait
-Remove-ItemProperty 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\GRE_Initialize' 'GUIFont.*'
-
-
-# Set desktop backgroud as the default lock screen image without changing any settings
-# Require turning off all suggestions
-takeown /f (Join-Path $env:ProgramData 'Microsoft\Windows\SystemData') /a /r /d y
-$ScreenPath = Join-Path $env:ProgramData 'Microsoft\Windows\SystemData\S-1-5-18\ReadOnly\LockScreen_Z'
-$WallpaperPath = Join-Path $env:AppData 'Microsoft\Windows\Themes\CachedFiles'
-foreach ($image in Get-ChildItem $WallpaperPath 'CachedImage_*') {
-    $name = 'LockScreen___{0}_{1}_notdimmed.jpg' -f $image.BaseName.Split('_')[1, 2].PadLeft(4, '0')
-    New-Item $ScreenPath -Name $name -ItemType SymbolicLink -Value $image.FullName -Force
-}
-
-
 # Add Internet Explorer Tracking Protection Lists from known Adblock Plus subscriptions and by language
 & (Join-Path 'Microsoft' 'Internet Explorer\Add Tracking Protection Lists.ps1')
 
@@ -88,6 +72,7 @@ foreach ($image in Get-ChildItem $WallpaperPath 'CachedImage_*') {
 # Configure Firefox and Thunderbird with the custom install directory
 & (Join-Path 'Mozilla' 'setup.ps1')
 
+Join-Path 'Microsoft' '*.ps1' -Resolve | ForEach-Object {& $_}
 
 Get-ChildItem 'Tasks' '*.xml' | ForEach-Object {Register-ScheduledTask $_.BaseName -Xml (Get-Content $_.FullName -Raw) -Force}
 
