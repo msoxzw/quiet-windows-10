@@ -8,7 +8,7 @@ param (
     [switch]$SystemLevel,
 
     [Parameter(Position=0, ValueFromRemainingArguments)]
-    [string[]]$Arguments = '/silent'
+    [string[]]$Arguments = '/silent /enterprise'
 )
 
 Push-Location $PSScriptRoot

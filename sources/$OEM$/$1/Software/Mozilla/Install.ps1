@@ -6,7 +6,7 @@ param (
     [string]$Channel = 'release',
 
     [Parameter(Position=0, ValueFromRemainingArguments)]
-    [string[]]$Arguments = '/S'
+    [string[]]$Arguments = '/S /LaunchedFromStub'
 )
 
 Push-Location $PSScriptRoot
