@@ -35,7 +35,7 @@ while ($true) {
             break
         }
     }
-    Start-Sleep 600
+    & '.\Sleep.ps1'
 }
 
 # Install Chocolatey packages
@@ -44,7 +44,7 @@ if ($Signature.Status -ne 'Valid') {exit}
 while ($true) {
     & $Signature.Path install $packages -y
     if ($?) {break}
-    Start-Sleep 600
+    & '.\Sleep.ps1'
 }
 
 
