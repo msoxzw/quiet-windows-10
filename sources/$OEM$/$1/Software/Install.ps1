@@ -69,9 +69,6 @@ if ($7z) {
 # Configure Chromium based browsers
 & (Join-Path 'Chromium' 'Policies.ps1')
 
-# Configure Firefox and Thunderbird with the custom install directory
-& (Join-Path 'Mozilla' 'setup.ps1')
-
 Join-Path 'Microsoft' '*.ps1' -Resolve | ForEach-Object {& $_}
 
 Get-ChildItem 'Tasks' '*.xml' | ForEach-Object {Register-ScheduledTask $_.BaseName -Xml (Get-Content $_.FullName -Raw) -Force}
