@@ -1,0 +1,12 @@
+7zip
+adobereader
+aria2
+ccleaner.portable
+firefox
+git
+hashcheck
+irfanviewplugins
+mpv
+notepadplusplus
+qbittorrent
+thunderbird

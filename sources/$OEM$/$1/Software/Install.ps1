@@ -1,6 +1,6 @@
 Push-Location $PSScriptRoot
 
-[System.Collections.Generic.HashSet[string]]$packages = '7zip adobereader aria2 ccleaner.portable firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird'.Split()
+[System.Collections.Generic.HashSet[string]]$packages = (Get-Content 'Packages.txt' -Raw).Split()
 
 # Install packages with automatic delta update instead of Chocolatey
 $AutoUpdateApps = @{

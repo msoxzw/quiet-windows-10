@@ -74,7 +74,7 @@ Please customize [`sources/$OEM$/$1/Software/Configuration/Wallpaper/img.png`](h
 because it will be set as default desktop background and lock screen image. Furthermore, lock screen image
 will be synced with desktop background. Default image is personally preferred high resolution picture.
 
-Pay attention to [`sources/$OEM$/$1/Software/Install.ps1`](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Install.ps1#L3)
+Pay attention to [`sources/$OEM$/$1/Software/Install.ps1`](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Packages.txt)
 since it will automatically download and install some software with good reputation in the background, including:
 
 `7zip adobereader aria2 ccleaner.portable firefox git hashcheck irfanviewplugins mpv notepadplusplus qbittorrent thunderbird`
