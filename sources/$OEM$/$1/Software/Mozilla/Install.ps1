@@ -9,11 +9,11 @@ param (
     [string[]]$Arguments = '/S /LaunchedFromStub'
 )
 
-Push-Location $PSScriptRoot
+begin {Push-Location $PSScriptRoot}
 
 $App = (Import-PowerShellDataFile 'Products.psd1').$Product.$Channel
 
-if (Get-Package "$($App.Name) (*)") {exit}
+if (Get-Package "$($App.Name) (*)") {return}
 
 $ScriptBlock = {
     $os = "win$(if([Environment]::Is64BitOperatingSystem){64})"
@@ -21,7 +21,7 @@ $ScriptBlock = {
     (Invoke-WebRequest "https://download.mozilla.org/?os=$os&lang=$lang&product=$($App.Download)" -UseBasicParsing -Method Head).BaseResponse.ResponseUri
 }
 
-& '..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments -Wait
+& '..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments
 & '.\setup.ps1'
 
-Pop-Location
+end {Pop-Location}

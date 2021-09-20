@@ -4,15 +4,18 @@ param (
     [string[]]$Arguments = '/sALL'
 )
 
-Push-Location $PSScriptRoot
+begin {Push-Location $PSScriptRoot}
 
-if (Get-Package 'Adobe Acrobat *') {exit}
+process
+{
+    if (Get-Package 'Adobe Acrobat *') {return}
 
-$ScriptBlock = {
-    $reader = (Invoke-WebRequest 'https://get.adobe.com/reader/webservices/json/standalone/' -UseBasicParsing -Headers @{'Accept-Language' = (Get-UICulture).Name; 'X-Requested-With' = 'XMLHttpRequest'} | ConvertFrom-Json) | Group-Object {$_.queryName.EndsWith('(64Bit)')} -AsHashTable
-    ($reader.[Environment]::Is64BitOperatingSystem).download_url
+    $ScriptBlock = {
+        $reader = (Invoke-WebRequest 'https://get.adobe.com/reader/webservices/json/standalone/' -UseBasicParsing -Headers @{'Accept-Language' = (Get-UICulture).Name; 'X-Requested-With' = 'XMLHttpRequest'} | ConvertFrom-Json) | Group-Object {$_.queryName.EndsWith('(64Bit)')} -AsHashTable
+        ($reader.[Environment]::Is64BitOperatingSystem).download_url
+    }
+
+    & '..\..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments
 }
 
-& '..\..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments
-
-Pop-Location
+end {Pop-Location}

@@ -11,13 +11,13 @@ param (
     [string[]]$Arguments = '/silent /enterprise'
 )
 
-Push-Location $PSScriptRoot
+begin {Push-Location $PSScriptRoot}
 
 $Uri, $App = (Import-PowerShellDataFile 'Products.psd1').$Product['uri', $Channel]
 
-if (Get-Package $App.Name) {exit}
+if (Get-Package $App.Name) {return}
 
 $Arguments += '/install "appguid={0}&needsadmin={1}"' -f $App.Guid, $SystemLevel
 & '..\Install-VerifiedProgram.ps1' $Uri $Arguments
 
-Pop-Location
+end {Pop-Location}
