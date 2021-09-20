@@ -32,16 +32,14 @@ while ($true) {
     if ($?) {
         'A', 'A' | PowerShell -ExecutionPolicy AllSigned -File $file
         if ($?) {
-            $env:ChocolateyInstall = [Environment]::GetEnvironmentVariable('ChocolateyInstall', 'Machine')
-            break
+            $Signature = Get-AuthenticodeSignature (Join-Path [Environment]::GetEnvironmentVariable('ChocolateyInstall', 'Machine') 'choco.exe')
+            if ($Signature.Status -eq 'Valid') {break}
         }
     }
     & '.\Sleep.ps1'
 }
 
 # Install Chocolatey packages
-$Signature = Get-AuthenticodeSignature (Join-Path $env:ChocolateyInstall 'choco.exe')
-if ($Signature.Status -ne 'Valid') {exit}
 while ($true) {
     & $Signature.Path install $packages -y
     if ($?) {break}
