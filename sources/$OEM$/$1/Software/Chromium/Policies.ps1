@@ -1,3 +1,5 @@
+#requires -RunAsAdministrator
+
 Push-Location $PSScriptRoot
 
 $Keys = Select-String -Pattern '(?<=^\[)[^]]+(?=\]$)' -Path '*.reg' -List | Group-Object {$_.Matches.Value.EndsWith('\Chromium')}

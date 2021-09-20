@@ -1,3 +1,5 @@
+#requires -RunAsAdministrator
+
 param (
     [Parameter(Mandatory)]
     [ValidateScript({Get-DiskImage $_})]

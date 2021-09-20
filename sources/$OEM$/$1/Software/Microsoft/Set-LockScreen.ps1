@@ -1,3 +1,5 @@
+#requires -RunAsAdministrator
+
 # Set desktop backgroud as the default lock screen image without changing any settings
 # Require turning off all suggestions
 takeown /f (Join-Path $env:ProgramData 'Microsoft\Windows\SystemData') /a /r /d y

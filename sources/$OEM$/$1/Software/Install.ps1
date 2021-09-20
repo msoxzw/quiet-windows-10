@@ -1,3 +1,4 @@
+#requires -RunAsAdministrator
 Push-Location $PSScriptRoot
 
 [System.Collections.Generic.HashSet[string]]$packages = (Get-Content 'Packages.txt' -Raw).Split()

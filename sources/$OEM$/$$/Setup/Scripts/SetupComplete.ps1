@@ -1,3 +1,5 @@
+#requires -RunAsAdministrator
+
 # Disable Windows Error Reporting
 Disable-WindowsErrorReporting
 

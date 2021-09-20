@@ -1,3 +1,5 @@
+#requires -RunAsAdministrator
+
 Push-Location $PSScriptRoot
 
 # Copy regional and language settings to all users and also the system account (logonUI screen)
