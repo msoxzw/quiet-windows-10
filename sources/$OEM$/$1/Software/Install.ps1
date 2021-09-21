@@ -9,9 +9,9 @@ $AutoUpdateApps.GetEnumerator() | ForEach-Object {if ($packages.Remove($_.Key)) 
 
 # Install Chocolatey
 [uri]$uri = 'https://chocolatey.org/install.ps1'
-$file = Join-Path $env:TEMP (Split-Path $uri -Leaf)
+$file = Join-Path $env:Temp (Split-Path $uri -Leaf)
 while ($true) {
-    Start-BitsTransfer $uri $file -Dynamic
+    Invoke-WebRequest $uri -UseBasicParsing -OutFile $file
     if ($?) {
         'A', 'A' | PowerShell -ExecutionPolicy AllSigned -File $file
         if ($?) {
