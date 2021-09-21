@@ -8,14 +8,15 @@ $AutoUpdateApps = Import-PowerShellDataFile 'AutoUpdateApps.psd1'
 $AutoUpdateApps.GetEnumerator() | ForEach-Object {if ($packages.Remove($_.Key)) {& $_.Value}}
 
 # Install Chocolatey
+Set-ExecutionPolicy AllSigned Process
 [uri]$uri = 'https://chocolatey.org/install.ps1'
 $file = Join-Path $env:Temp (Split-Path $uri -Leaf)
 while ($true) {
     Invoke-WebRequest $uri -UseBasicParsing -OutFile $file
     if ($?) {
-        'A', 'A' | PowerShell -ExecutionPolicy AllSigned -File $file
+        & $file
         if ($?) {
-            $Signature = Get-AuthenticodeSignature (Join-Path [Environment]::GetEnvironmentVariable('ChocolateyInstall', 'Machine') 'choco.exe')
+            $Signature = Get-AuthenticodeSignature (Join-Path $env:ChocolateyInstall 'choco.exe')
             if ($Signature.Status -eq 'Valid') {break}
         }
     }
