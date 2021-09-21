@@ -18,6 +18,7 @@ while ($true) {
         if ($?) {
             $Signature = Get-AuthenticodeSignature (Join-Path $env:ChocolateyInstall 'choco.exe')
             if ($Signature.Status -eq 'Valid') {break}
+            else {Remove-Item $env:ChocolateyInstall -Recurse}
         }
     }
     & '.\Sleep.ps1'
