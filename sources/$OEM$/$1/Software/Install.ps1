@@ -7,6 +7,8 @@ Push-Location $PSScriptRoot
 $AutoUpdateApps = Import-PowerShellDataFile 'AutoUpdateApps.psd1'
 $AutoUpdateApps.GetEnumerator() | ForEach-Object {if ($packages.Remove($_.Key)) {& $_.Value}}
 
+$Sleep = [scriptblock]::Create((Get-Content 'Sleep.ps1' -Raw))
+
 # Install Chocolatey
 Set-ExecutionPolicy AllSigned Process
 [uri]$uri = 'https://chocolatey.org/install.ps1'
@@ -21,14 +23,14 @@ while ($true) {
             else {Remove-Item $env:ChocolateyInstall -Recurse}
         }
     }
-    & '.\Sleep.ps1'
+    & $Sleep
 }
 
 # Install Chocolatey packages
 while ($true) {
     & $Signature.Path install $packages -y
     if ($?) {break}
-    & '.\Sleep.ps1'
+    & $Sleep
 }
 
 
