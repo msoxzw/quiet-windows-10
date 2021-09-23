@@ -10,20 +10,30 @@ $AutoUpdateApps.GetEnumerator() | ForEach-Object {if ($packages.Remove($_.Key)) 
 $Sleep = [scriptblock]::Create((Get-Content 'Sleep.ps1' -Raw))
 
 # Install Chocolatey
-Set-ExecutionPolicy AllSigned Process
-[uri]$uri = 'https://chocolatey.org/install.ps1'
-$file = Join-Path $env:Temp (Split-Path $uri -Leaf)
-while ($true) {
-    Invoke-WebRequest $uri -UseBasicParsing -OutFile $file
-    if ($?) {
-        & $file
+New-Item "FileSystem::$env:ChocolateyInstall" -ItemType Directory -Force
+if (-not $?) {$env:ChocolateyInstall = Join-Path $env:ProgramData 'chocolatey'}
+[Environment]::SetEnvironmentVariable('ChocolateyInstall', $env:ChocolateyInstall, 'Machine')
+
+$choco = Join-Path $env:ChocolateyInstall 'choco.exe'
+$Signature = Get-AuthenticodeSignature $choco
+if ($Signature.Status -ne 'Valid') {
+    Write-Warning $Signature.StatusMessage
+    $uri = 'https://chocolatey.org/api/v2/package/chocolatey'
+    $file = Join-Path $env:ChocolateyInstall 'lib\chocolatey\chocolatey.nupkg'
+    New-Item $file -Force
+
+    while ($true) {
+        Start-BitsTransfer $uri $file -Dynamic
         if ($?) {
-            $Signature = Get-AuthenticodeSignature (Join-Path $env:ChocolateyInstall 'choco.exe')
-            if ($Signature.Status -eq 'Valid') {break}
-            else {Remove-Item $env:ChocolateyInstall -Recurse}
+            tar -xf $file -C $env:ChocolateyInstall --strip-components=2 'tools/chocolateyInstall'
+            if ($?) {
+                $Signature = Get-AuthenticodeSignature $choco
+                if ($Signature.Status -eq 'Valid') {break}
+                Write-Warning $Signature.StatusMessage
+            }
         }
+        & $Sleep
     }
-    & $Sleep
 }
 
 # Install Chocolatey packages

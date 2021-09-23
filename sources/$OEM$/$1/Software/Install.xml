@@ -21,7 +21,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>PowerShell</Command>
-      <Arguments>'A', 'A' | PowerShell -ExecutionPolicy Bypass -File '%SystemDrive%\Software\Install.ps1'</Arguments>
+      <Arguments>-ExecutionPolicy Bypass -File "%SystemDrive%\Software\Install.ps1"</Arguments>
     </Exec>
   </Actions>
 </Task>
