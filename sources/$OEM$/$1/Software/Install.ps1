@@ -14,9 +14,7 @@ if (-not $?) {$env:ChocolateyInstall = Join-Path $env:ProgramData 'chocolatey'}
 [Environment]::SetEnvironmentVariable('ChocolateyInstall', $env:ChocolateyInstall, 'Machine')
 
 $choco = Join-Path $env:ChocolateyInstall 'choco.exe'
-$Signature = Get-AuthenticodeSignature $choco
-if ($Signature.Status -ne 'Valid') {
-    Write-Warning $Signature.StatusMessage
+if (-not (& '.\Verify-Signature.ps1' $choco)) {
     $uri = 'https://chocolatey.org/api/v2/package/chocolatey'
     $file = Join-Path $env:ChocolateyInstall 'lib\chocolatey\chocolatey.nupkg'
     New-Item $file -Force
@@ -25,11 +23,7 @@ if ($Signature.Status -ne 'Valid') {
         Start-BitsTransfer $uri $file -Dynamic
         if ($?) {
             tar -xf $file -C $env:ChocolateyInstall --strip-components=2 'tools/chocolateyInstall'
-            if ($?) {
-                $Signature = Get-AuthenticodeSignature $choco
-                if ($Signature.Status -eq 'Valid') {break}
-                Write-Warning $Signature.StatusMessage
-            }
+            if ($? -and (& '.\Verify-Signature.ps1' $choco)) {break}
         }
         & '.\Sleep.ps1'
     }
@@ -37,7 +31,7 @@ if ($Signature.Status -ne 'Valid') {
 
 # Install Chocolatey packages
 while ($true) {
-    & $Signature.Path install $packages -y
+    & $choco install $packages -y
     if ($?) {break}
     & '.\Sleep.ps1'
 }
