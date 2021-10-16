@@ -5,6 +5,8 @@ param (
 
     [string]$Channel = 'release',
 
+    [int]$RetryInterval = -1,
+
     [Parameter(Position=0, ValueFromRemainingArguments)]
     [string[]]$Arguments = '/S /LaunchedFromStub'
 )
@@ -23,7 +25,7 @@ process
         (Invoke-WebRequest "https://download.mozilla.org/?os=$os&lang=$lang&product=$($App.Download)" -UseBasicParsing -Method Head).BaseResponse.ResponseUri
     }
 
-    $ExitCode = & '..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments
+    $ExitCode = & '..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments -RetryInterval $RetryInterval
     & '.\setup.ps1'
 }
 

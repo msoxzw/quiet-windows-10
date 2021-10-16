@@ -7,6 +7,8 @@ param (
 
     [switch]$SystemLevel,
 
+    [int]$RetryInterval = -1,
+
     [Parameter(Position=0, ValueFromRemainingArguments)]
     [string[]]$Arguments = '/silent /enterprise'
 )
@@ -20,7 +22,7 @@ process
     if (Get-Package $App.Name) {return}
 
     $Arguments += '/install "appguid={0}&needsadmin={1}"' -f $App.Guid, $SystemLevel
-    $ExitCode = & '..\Install-VerifiedProgram.ps1' $Uri $Arguments
+    $ExitCode = & '..\Install-VerifiedProgram.ps1' $Uri $Arguments -RetryInterval $RetryInterval
 }
 
 end {Pop-Location; exit $ExitCode}

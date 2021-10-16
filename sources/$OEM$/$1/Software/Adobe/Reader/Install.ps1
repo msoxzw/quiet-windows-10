@@ -1,5 +1,7 @@
 
 param (
+    [int]$RetryInterval = -1,
+
     [Parameter(ValueFromRemainingArguments)]
     [string[]]$Arguments = '/sALL'
 )
@@ -15,7 +17,7 @@ process
         ($reader.[Environment]::Is64BitOperatingSystem).download_url
     }
 
-    $ExitCode = & '..\..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments
+    $ExitCode = & '..\..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments -RetryInterval $RetryInterval
 }
 
 end {Pop-Location; exit $ExitCode}

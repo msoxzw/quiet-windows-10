@@ -15,7 +15,7 @@ param (
 
     [switch]$Dynamic,
 
-    [int]$RetryInterval = 600
+    [int]$RetryInterval = -1
 )
 
 $ExitCode = -1
@@ -34,6 +34,6 @@ while ($true) {
         }
         else {Write-Warning $Signature.StatusMessage}
     }
-    if ($ExitCode -eq 0) {return $ExitCode}
+    if ($RetryInterval < 0 -or $ExitCode -eq 0) {return $ExitCode}
     & (Join-Path $PSScriptRoot 'Sleep.ps1') $RetryInterval
 }
