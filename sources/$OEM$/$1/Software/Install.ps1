@@ -1,11 +1,6 @@
 #requires -RunAsAdministrator
+
 Push-Location $PSScriptRoot
-
-[System.Collections.Generic.HashSet[string]]$packages = (Get-Content 'Packages.txt' -Raw).Split()
-
-# Install packages with automatic delta update instead of Chocolatey
-$AutoUpdateApps = Import-PowerShellDataFile 'AutoUpdateApps.psd1'
-$AutoUpdateApps.GetEnumerator() | ForEach-Object {if ($packages.Remove($_.Key)) {& $_.Value}}
 
 
 # Install Chocolatey
@@ -29,13 +24,14 @@ if (-not (& '.\Verify-Signature.ps1' $choco)) {
     }
 }
 
-# Install Chocolatey packages
+# Install packages
+$AutoUpdateApps = Import-PowerShellDataFile 'AutoUpdateApps.psd1'
+$packages = -split (Get-Content 'Packages.txt' -Raw) | ForEach-Object {if ($AutoUpdateApps.Contains($_)) {$AutoUpdateApps.$_} else {[scriptblock]::Create("& $choco install $_ -y")}}
 while ($true) {
-    & $choco install $packages -y
-    if ($?) {break}
+    $packages = $packages.Where({& $_; -not $?})
+    if (-not $packages) {break}
     & '.\Sleep.ps1'
 }
-
 
 # Associate archive formats with 7-Zip with the system default icon
 $7z = (Get-Package '7-Zip *').Metadata['DisplayIcon']
