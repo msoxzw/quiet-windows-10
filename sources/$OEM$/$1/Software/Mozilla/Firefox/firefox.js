@@ -30,5 +30,4 @@ defaultPref("network.captive-portal-service.enabled", false);
 defaultPref("network.connectivity-service.enabled", false);
 defaultPref("network.cookie.lifetimePolicy", 2);
 defaultPref("places.history.enabled", false);
-defaultPref("privacy.resistFingerprinting", true);
 defaultPref("toolkit.telemetry.unified", false);
