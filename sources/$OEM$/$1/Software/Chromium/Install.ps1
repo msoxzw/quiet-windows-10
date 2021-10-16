@@ -13,7 +13,11 @@ param (
     [string[]]$Arguments = '/silent /enterprise'
 )
 
-begin {Push-Location $PSScriptRoot}
+begin
+{
+    Push-Location $PSScriptRoot
+    . '..\helpers.ps1'
+}
 
 process
 {
@@ -22,7 +26,11 @@ process
     if (Get-Package $App.Name) {return}
 
     $Arguments += '/install "appguid={0}&needsadmin={1}"' -f $App.Guid, $SystemLevel
-    $ExitCode = & '..\Install-VerifiedProgram.ps1' $Uri $Arguments -RetryInterval $RetryInterval
+    $ExitCode = Install-VerifiedProgram $Uri $Arguments -RetryInterval $RetryInterval
 }
 
-end {Pop-Location; exit $ExitCode}
+end
+{
+    Pop-Location
+    exit $ExitCode
+}

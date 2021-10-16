@@ -2,6 +2,7 @@
 
 Push-Location $PSScriptRoot
 
+. '.\helpers.ps1'
 
 # Install Chocolatey
 New-Item "FileSystem::$env:ChocolateyInstall" -ItemType Directory -Force
@@ -9,7 +10,7 @@ if (-not $?) {$env:ChocolateyInstall = Join-Path $env:ProgramData 'chocolatey'}
 [Environment]::SetEnvironmentVariable('ChocolateyInstall', $env:ChocolateyInstall, 'Machine')
 
 $choco = Join-Path $env:ChocolateyInstall 'choco.exe'
-if (-not (& '.\Verify-Signature.ps1' $choco)) {
+if (-not (Verify-Signature $choco)) {
     $uri = 'https://chocolatey.org/api/v2/package/chocolatey'
     $file = Join-Path $env:ChocolateyInstall 'lib\chocolatey\chocolatey.nupkg'
     New-Item $file -Force
@@ -18,9 +19,9 @@ if (-not (& '.\Verify-Signature.ps1' $choco)) {
         Start-BitsTransfer $uri $file -Dynamic
         if ($?) {
             tar -xf $file -C $env:ChocolateyInstall --strip-components=2 'tools/chocolateyInstall'
-            if ($? -and (& '.\Verify-Signature.ps1' $choco)) {break}
+            if ($? -and (Verify-Signature $choco)) {break}
         }
-        & '.\Sleep.ps1'
+        Sleep
     }
 }
 
@@ -30,7 +31,7 @@ $packages = -split (Get-Content 'Packages.txt' -Raw) | ForEach-Object {if ($Auto
 while ($true) {
     $packages = $packages.Where({& $_; -not $?})
     if (-not $packages) {break}
-    & '.\Sleep.ps1'
+    Sleep
 }
 
 # Associate archive formats with 7-Zip with the system default icon

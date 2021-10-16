@@ -6,7 +6,11 @@ param (
     [string[]]$Arguments = '/sALL'
 )
 
-begin {Push-Location $PSScriptRoot}
+begin
+{
+    Push-Location $PSScriptRoot
+    . '..\..\helpers.ps1'
+}
 
 process
 {
@@ -17,7 +21,11 @@ process
         ($reader.[Environment]::Is64BitOperatingSystem).download_url
     }
 
-    $ExitCode = & '..\..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments -RetryInterval $RetryInterval
+    $ExitCode = Install-VerifiedProgram $ScriptBlock $Arguments -RetryInterval $RetryInterval
 }
 
-end {Pop-Location; exit $ExitCode}
+end
+{
+    Pop-Location
+    exit $ExitCode
+}

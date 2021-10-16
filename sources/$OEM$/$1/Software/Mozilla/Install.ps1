@@ -11,7 +11,11 @@ param (
     [string[]]$Arguments = '/S /LaunchedFromStub'
 )
 
-begin {Push-Location $PSScriptRoot}
+begin
+{
+    Push-Location $PSScriptRoot
+    . '..\helpers.ps1'
+}
 
 process
 {
@@ -25,8 +29,12 @@ process
         (Invoke-WebRequest "https://download.mozilla.org/?os=$os&lang=$lang&product=$($App.Download)" -UseBasicParsing -Method Head).BaseResponse.ResponseUri
     }
 
-    $ExitCode = & '..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments -RetryInterval $RetryInterval
+    $ExitCode = Install-VerifiedProgram $ScriptBlock $Arguments -RetryInterval $RetryInterval
     & '.\setup.ps1'
 }
 
-end {Pop-Location; exit $ExitCode}
+end
+{
+    Pop-Location
+    exit $ExitCode
+}
