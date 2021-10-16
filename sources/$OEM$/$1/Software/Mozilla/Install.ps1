@@ -11,17 +11,20 @@ param (
 
 begin {Push-Location $PSScriptRoot}
 
-$App = (Import-PowerShellDataFile 'Products.psd1').$Product.$Channel
+process
+{
+    $App = (Import-PowerShellDataFile 'Products.psd1').$Product.$Channel
 
-if (Get-Package "$($App.Name) (*)") {return}
+    if (Get-Package "$($App.Name) (*)") {return}
 
-$ScriptBlock = {
-    $os = "win$(if([Environment]::Is64BitOperatingSystem){64})"
-    $lang = (Invoke-WebRequest 'https://www.mozilla.org/' -UseBasicParsing -Headers @{'Accept-Language' = (Get-UICulture).Name} -MaximumRedirection 0 -ErrorAction 0).Headers.Location.Trim('/')
-    (Invoke-WebRequest "https://download.mozilla.org/?os=$os&lang=$lang&product=$($App.Download)" -UseBasicParsing -Method Head).BaseResponse.ResponseUri
+    $ScriptBlock = {
+        $os = "win$(if([Environment]::Is64BitOperatingSystem){64})"
+        $lang = (Invoke-WebRequest 'https://www.mozilla.org/' -UseBasicParsing -Headers @{'Accept-Language' = (Get-UICulture).Name} -MaximumRedirection 0 -ErrorAction 0).Headers.Location.Trim('/')
+        (Invoke-WebRequest "https://download.mozilla.org/?os=$os&lang=$lang&product=$($App.Download)" -UseBasicParsing -Method Head).BaseResponse.ResponseUri
+    }
+
+    $ExitCode = & '..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments
+    & '.\setup.ps1'
 }
 
-& '..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments
-& '.\setup.ps1'
-
-end {Pop-Location}
+end {Pop-Location; exit $ExitCode}

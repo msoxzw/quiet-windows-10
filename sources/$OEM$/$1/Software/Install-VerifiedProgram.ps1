@@ -18,6 +18,7 @@ param (
     [int]$RetryInterval = 600
 )
 
+$ExitCode = -1
 while ($true) {
     [uri]$Source = switch ($PSCmdlet.ParameterSetName)
     {
@@ -29,10 +30,10 @@ while ($true) {
     if ($?) {
         $Signature = Get-AuthenticodeSignature $Destination
         if ($Signature.Status -eq 'Valid') {
-            Start-Process $Signature.Path $Arguments -Verb 'runas' -Wait
-            break
+            $ExitCode = (Start-Process $Signature.Path $Arguments -Verb 'runas' -PassThru -Wait).ExitCode
         }
-        Write-Warning $Signature.StatusMessage
+        else {Write-Warning $Signature.StatusMessage}
     }
+    if ($ExitCode -eq 0) {return $ExitCode}
     & (Join-Path $PSScriptRoot 'Sleep.ps1') $RetryInterval
 }

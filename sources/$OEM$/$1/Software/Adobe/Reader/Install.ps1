@@ -15,7 +15,7 @@ process
         ($reader.[Environment]::Is64BitOperatingSystem).download_url
     }
 
-    & '..\..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments
+    $ExitCode = & '..\..\Install-VerifiedProgram.ps1' $ScriptBlock $Arguments
 }
 
-end {Pop-Location}
+end {Pop-Location; exit $ExitCode}

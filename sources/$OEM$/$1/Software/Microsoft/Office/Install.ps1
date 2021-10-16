@@ -4,9 +4,12 @@ param (
     [string[]]$Arguments = '/configure'
 )
 
-Push-Location $PSScriptRoot
+begin {Push-Location $PSScriptRoot}
 
-$Uri = 'https://officecdn.microsoft.com/pr/wsus/setup.exe'
-& '..\..\Install-VerifiedProgram.ps1' $Uri $Arguments
+process
+{
+    $Uri = 'https://officecdn.microsoft.com/pr/wsus/setup.exe'
+    $ExitCode = & '..\..\Install-VerifiedProgram.ps1' $Uri $Arguments
+}
 
-Pop-Location
+end {Pop-Location; exit $ExitCode}
