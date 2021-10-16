@@ -7,6 +7,7 @@ defaultPref("browser.cache.memory.max_entry_size", getPref("browser.cache.disk.m
 pref("browser.contentblocking.category", "strict");
 defaultPref("browser.fixup.alternate.enabled", false);
 defaultPref("browser.formfill.enable", false);
+defaultPref("browser.newtabpage.enabled", false);
 defaultPref("browser.region.network.url", "");
 defaultPref("browser.safebrowsing.downloads.remote.enabled", false);
 clearPref("browser.search.region");
@@ -14,7 +15,7 @@ defaultPref("browser.search.suggest.enabled", false);
 defaultPref("browser.sessionstore.privacy_level", 2);
 defaultPref("browser.sessionstore.resume_from_crash", false);
 defaultPref("browser.shell.checkDefaultBrowser", false);
-defaultPref("browser.startup.homepage", "https://www.wikipedia.org/");
+defaultPref("browser.startup.homepage", "about:blank");
 pref("browser.startup.homepage_override.mstone", "ignore");
 defaultPref("browser.tabs.crashReporting.sendReport", false);
 defaultPref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);

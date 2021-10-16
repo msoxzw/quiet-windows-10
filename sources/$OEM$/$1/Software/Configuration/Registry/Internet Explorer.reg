@@ -19,7 +19,7 @@ Windows Registry Editor Version 5.00
 "Check_Associations"="no"
 "DisableFirstRunCustomize"=dword:00000001
 "Isolation64Bit"=dword:00000001
-"Start Page"="https://www.wikipedia.org/"
+"Start Page"="about:blank"
 
 [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\PrefetchPrerender]
 "Enabled"=dword:00000000
