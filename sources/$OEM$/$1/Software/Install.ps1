@@ -21,7 +21,7 @@ if (-not (Verify-Signature $choco)) {
             tar -xf $file -C $env:ChocolateyInstall --strip-components=2 'tools/chocolateyInstall'
             if ($? -and (Verify-Signature $choco)) {break}
         }
-        Sleep
+        Retry-After
     }
 }
 
@@ -31,7 +31,7 @@ $packages = -split (Get-Content 'Packages.txt' -Raw) | ForEach-Object {if ($Auto
 while ($true) {
     $packages = $packages.Where({& $_; -not $?})
     if (-not $packages) {break}
-    Sleep
+    Retry-After
 }
 
 # Associate archive formats with 7-Zip with the system default icon

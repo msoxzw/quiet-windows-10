@@ -29,11 +29,11 @@ function Install-VerifiedProgram
         }
         if (-not $Destination) {$Destination = Split-Path $Source -Leaf}
         Start-BitsTransfer $Source $Destination -Dynamic:$Dynamic
-        if ($? -and Verify-Signature $Destination) {
+        if ($? -and (Verify-Signature $Destination)) {
             $ExitCode = (Start-Process $Destination $Arguments -Verb 'runas' -PassThru -Wait).ExitCode
         }
-        if ($RetryInterval < 0 -or $ExitCode -eq 0) {return $ExitCode}
-        Sleep $RetryInterval
+        if ($RetryInterval -lt 0 -or $ExitCode -eq 0) {return $ExitCode}
+        Retry-After $RetryInterval
     }
 }
 
@@ -54,7 +54,7 @@ function Verify-Signature
 }
 
 
-function Sleep
+function Retry-After
 {
     param (
         [int]$RetryInterval = 600
@@ -65,4 +65,5 @@ function Sleep
         Write-Progress "Retry after $Date, press a key to continue ..." 'Waiting' -SecondsRemaining $i
         Start-Sleep 1
     }
+    $null = [Console]::ReadKey()
 }
