@@ -21,7 +21,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>PowerShell</Command>
-      <Arguments>-ExecutionPolicy Bypass -File "%SystemDrive%\Software\Install.ps1"</Arguments>
+      <Arguments>-ExecutionPolicy Bypass -Command "&amp; '%SystemDrive%\Software\Install.ps1'; Unregister-ScheduledTask 'Install' -Confirm:$false"</Arguments>
     </Exec>
   </Actions>
 </Task>

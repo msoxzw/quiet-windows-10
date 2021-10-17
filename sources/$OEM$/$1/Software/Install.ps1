@@ -56,6 +56,4 @@ Join-Path 'Microsoft' '*.ps1' -Resolve | ForEach-Object {& $_}
 
 Get-ChildItem 'Tasks' '*.xml' | ForEach-Object {Register-ScheduledTask $_.BaseName -Xml (Get-Content $_.FullName -Raw) -Force}
 
-Unregister-ScheduledTask 'Install' -Confirm:$false
-
 Pop-Location
