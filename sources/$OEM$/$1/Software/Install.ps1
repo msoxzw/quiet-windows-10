@@ -52,9 +52,6 @@ if ($7z) {
 # Add Internet Explorer Tracking Protection Lists from known Adblock Plus subscriptions and by language
 & (Join-Path 'Microsoft' 'Internet Explorer\Add Tracking Protection Lists.ps1')
 
-# Configure Chromium based browsers
-& (Join-Path 'Chromium' 'Policies.ps1')
-
 Join-Path 'Microsoft' '*.ps1' -Resolve | ForEach-Object {& $_}
 
 Get-ChildItem 'Tasks' '*.xml' | ForEach-Object {Register-ScheduledTask $_.BaseName -Xml (Get-Content $_.FullName -Raw) -Force}
