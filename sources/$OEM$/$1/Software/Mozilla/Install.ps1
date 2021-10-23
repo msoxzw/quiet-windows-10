@@ -30,7 +30,7 @@ process
     }
 
     $ExitCode = Install-VerifiedProgram $ScriptBlock $Arguments -RetryInterval $RetryInterval
-    & '.\setup.ps1'
+    & '.\Setup.ps1'
 }
 
 end

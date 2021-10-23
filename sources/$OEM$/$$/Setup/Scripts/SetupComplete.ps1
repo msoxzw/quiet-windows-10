@@ -41,7 +41,7 @@ $key.Property.ForEach({[Microsoft.Win32.Registry]::SetValue('HKEY_USERS\Default\
 $key.Close()
 
 # Configure system and apps for a new user account when signing in to the computer for the first time
-[Microsoft.Win32.Registry]::SetValue('HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\RunOnce', 'Setup', 'PowerShell -ExecutionPolicy Bypass -File "%SystemDrive%\Software\Configuration\setup.ps1"', 'ExpandString')
+[Microsoft.Win32.Registry]::SetValue('HKEY_USERS\Default\Software\Microsoft\Windows\CurrentVersion\RunOnce', 'Setup', 'PowerShell -ExecutionPolicy Bypass -File "%SystemDrive%\Software\Configuration\Setup.ps1"', 'ExpandString')
 
 reg unload 'HKU\Default'
 
