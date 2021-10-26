@@ -27,7 +27,6 @@ Windows Registry Editor Version 5.00
 "WindowModePlayback"=dword:00000001
 
 [HKEY_CURRENT_USER\Software\MPC-BE\Settings\Video]
-"ColorManagement"=dword:00000001
 "Downscaler"=dword:00000068
 "EVRBuffers"=dword:00000008
 "PresentMode"=dword:00000001
@@ -67,5 +66,4 @@ Windows Registry Editor Version 5.00
 "SPCSize"=dword:00000010
 "SubtitleRenderer"=dword:00000002
 "UpdaterAutoCheck"=dword:00000000
-"VMRColorManagementEnable"=dword:00000001
 
