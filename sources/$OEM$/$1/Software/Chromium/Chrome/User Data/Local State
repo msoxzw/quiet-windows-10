@@ -8,5 +8,5 @@
   "user_experience_metrics": {
     "reporting_enabled": false
   },
-  "variations_restrictions_by_policy": 2
+  "variations_restrictions_by_policy": 1
 }

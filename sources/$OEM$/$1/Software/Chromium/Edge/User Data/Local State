@@ -5,7 +5,7 @@
   "component_updates": {
     "component_updates_enabled": false
   },
-  "experimentation_and_configuration_service_control": 0,
+  "experimentation_and_configuration_service_control": 1,
   "fre": {
     "has_user_seen_fre": true
   },
