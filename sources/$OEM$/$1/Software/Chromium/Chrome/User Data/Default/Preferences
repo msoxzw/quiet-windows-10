@@ -19,6 +19,7 @@
   "net": {
     "network_prediction_options": 2
   },
+  "newtab_page_location_override": "about:blank",
   "payments": {
     "can_make_payment_enabled": false
   },
