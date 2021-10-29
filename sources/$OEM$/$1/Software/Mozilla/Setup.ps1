@@ -1,3 +1,5 @@
+#requires -RunAsAdministrator
+
 Push-Location $PSScriptRoot
 
 $Products = Import-PowerShellDataFile 'Products.psd1'
