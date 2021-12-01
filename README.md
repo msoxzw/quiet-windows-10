@@ -60,7 +60,7 @@ automatic installation and configurations that focus on privacy and quiet, inclu
 [JetBrains IDE](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Files/USERPROFILE/.idea),
 [madVR](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/settings.bin),
 [Microsoft Edge Legacy](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Microsoft%20Edge.reg),
-[MPC-BE and MPC-HC](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Media%20Player%20Classic.reg),
+[MPC-BE](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/MPC-BE.reg),
 [mpv](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Files/AppData/mpv),
 [Notepad++](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Files/AppData/Notepad++),
 [Nvidia Graphics](https://github.com/msoxzw/quiet-windows-10/blob/master/sources/%24OEM%24/%241/Software/Configuration/Registry/Specific/Nvidia%20Graphics.reg),
@@ -84,7 +84,7 @@ Please adjust this application list according to your situation.
 e.g. You would like to super high quality video and music playback solution, 
 then may install the following software:
 
-`choco install foobar2000 madvr xysubfilter mpc-be -y` or `choco install foobar2000 madvr xysubfilter mpc-hc-clsid2 -y`
+`choco install foobar2000 madvr xysubfilter mpc-be -y`
 
 ### Some useful references
 

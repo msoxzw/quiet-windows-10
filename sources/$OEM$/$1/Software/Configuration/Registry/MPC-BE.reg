@@ -1,0 +1,32 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Gabest\XySubFilter\General]
+"hide_tray_icon"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\madshi\madHcCtrl]
+"ShowTrayIcon"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\MPC-BE\Filters\MPC Audio Renderer]
+"DeviceMode"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\MPC-BE\Settings]
+"AudioMixer"=dword:00000001
+"AudioRendererType"="MPC Audio Renderer"
+"KeepHistory"=dword:00000000
+"LaunchFullScreen"=dword:00000001
+"NoSmallUpscale"=dword:00000001
+"RememberPlaylistItems"=dword:00000000
+"ShowOSD"=dword:00000000
+"SnapShotExt"=".png"
+"SubtitleRenderer"=dword:00000003
+"WindowModePlayback"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\MPC-BE\Settings\Video]
+"Downscaler"=dword:00000068
+"PresentMode"=dword:00000001
+"Resizer"=dword:00000003
+"SubpicAllowDrop"=dword:00000000
+"SubpicMaxTexWidth"=dword:00000000
+"SurfaceFormat"=dword:00000071
+"VideoRenderer"=dword:00000007
+
