@@ -9,6 +9,7 @@ clearPref("browser.search.region");
 defaultPref("datareporting.healthreport.uploadEnabled", false);
 defaultPref("datareporting.policy.dataSubmissionEnabled", false);
 defaultPref("extensions.getAddons.cache.enabled", false);
+defaultPref("extensions.htmlaboutaddons.recommendations.enabled", false);
 defaultPref("extensions.systemAddon.update.enabled", false);
 defaultPref("mail.minimizeToTray", true);
 defaultPref("mail.sanitize_date_header", true);
