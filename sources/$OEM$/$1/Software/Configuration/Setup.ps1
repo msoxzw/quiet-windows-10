@@ -45,7 +45,7 @@ Join-Path 'Registry' '*.reg' -Resolve | ForEach-Object {reg import $_}
 
 # Configure Acrobat Reader DC 64-bit
 if ([Environment]::Is64BitOperatingSystem) {
-    reg copy 'HKCU:\SOFTWARE\Adobe\Acrobat Reader' 'HKCU:\SOFTWARE\Adobe\Adobe Acrobat' /s /f
+    reg copy 'HKCU\SOFTWARE\Adobe\Acrobat Reader' 'HKCU\SOFTWARE\Adobe\Adobe Acrobat' /s /f
 }
 
 # Set language for CCleaner
