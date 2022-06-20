@@ -1,7 +1,7 @@
 #requires -RunAsAdministrator
 
 # Associate archive formats with 7-Zip with the system default icon
-$7z = (Get-Package '7-Zip *').Metadata['DisplayIcon']
+$7z = (Get-Package '7-Zip *').Metadata['DisplayIcon'][0]
 if ($7z) {
     $DefaultIcon = Get-ItemPropertyValue 'Registry::HKEY_CLASSES_ROOT\CompressedFolder\DefaultIcon' '(Default)'
     $OpenCommend = '"{0}" "%1"' -f $7z
