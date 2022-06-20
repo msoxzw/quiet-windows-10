@@ -1,6 +1,6 @@
 Push-Location $PSScriptRoot
 
-explorer
+Start-Process explorer -Wait
 
 # Enable MAC randomization on all wireless LAN interfaces
 netsh wlan set randomization enabled=yes interface=*
