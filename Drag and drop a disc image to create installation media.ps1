@@ -20,7 +20,7 @@ if (-not $?) {
     $Dism = Join-Path $Source 'sources\dism.exe'
     $SourceImage = Join-Path $Source 'sources\install.wim'
     $DestinationImage = Join-Path $Destination 'sources\install.esd'
-    Get-WindowsImage -ImagePath $SourceImage | ForEach-Object {& $Dism /Export-Image /SourceImageFile:$SourceImage /SourceIndex:$_.ImageIndex /DestinationImageFile:$DestinationImage /Compress:recovery}
+    Get-WindowsImage -ImagePath $SourceImage | ForEach-Object {& $Dism /Export-Image /SourceImageFile:$SourceImage /SourceIndex:$($_.ImageIndex) /DestinationImageFile:$DestinationImage /Compress:recovery}
 }
 
 Copy-Item (Join-Path $PSScriptRoot 'sources') $Destination -Force -Recurse
