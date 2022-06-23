@@ -27,9 +27,9 @@ if (-not (Verify-Signature $choco)) {
 
 # Install packages
 $AutoUpdateApps = Import-PowerShellDataFile 'AutoUpdateApps.psd1'
-$packages = -split (Get-Content 'Packages.txt' -Raw) | ForEach-Object {if ($AutoUpdateApps.Contains($_)) {$AutoUpdateApps.$_} else {[scriptblock]::Create("& $choco install $_ -y")}}
+$packages = -split (Get-Content 'Packages.txt' -Raw) | ForEach-Object {if ($AutoUpdateApps.Contains($_)) {$AutoUpdateApps.$_} else {"& $choco install $_ -y"}} | ForEach-Object {[scriptblock]::Create('$null = {0}; -not $?' -f $_)}
 while ($true) {
-    $packages = $packages.Where({& $_; -not $?})
+    $packages = $packages.Where({& $_})
     if (-not $packages) {break}
     Retry-After
 }
