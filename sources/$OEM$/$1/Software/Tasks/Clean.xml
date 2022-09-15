@@ -29,7 +29,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>PowerShell</Command>
-      <Arguments>$Signature = Get-AuthenticodeSignature $(if ([Environment]::Is64BitOperatingSystem) {'x64\CCleaner64.exe'} else {'x86\CCleaner.exe'}); if ($Signature.Status -eq 'Valid') {&amp; $Signature.Path /AUTO}</Arguments>
+      <Arguments>Remove-Item 'portable.dat' -ErrorAction 0; $Signature = Get-AuthenticodeSignature "CCleaner$(if([Environment]::Is64BitOperatingSystem){64}).exe"; if ($Signature.Status -eq 'Valid') {&amp; $Signature.Path /AUTO}</Arguments>
       <WorkingDirectory>%ChocolateyInstall%\lib\ccleaner.portable\tools</WorkingDirectory>
     </Exec>
   </Actions>
